@@ -114,3 +114,12 @@ main a:not(.cta):not([href^="/"]) , main p a, main li a, blockquote.quote footer
 ul.links a { padding-block: 0.7rem; }
 .crumbs a { padding-block: 0.35rem; }
 .wordmark a { display: inline-block; padding: 0.3rem 0; }
+
+.page-art { margin: 0 0 1.25rem; }
+.page-art img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: var(--line);
+}
