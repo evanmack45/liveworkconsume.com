@@ -182,3 +182,12 @@ Pass = 5 or more answered emails from strangers. Kill = 2 or fewer. Extend once,
 4. The pay button is live only if the money rule is met: **PASS.** No pay button. The kit does not exist yet. Mailto is a waitlist only.
 5. Every claim is sourced: **PASS.** All six cited Google help URLs returned 200.
 
+
+## 2026-11-25 (CT) SEO pass (MSB-7)
+- Added 8 answer pages at /appeal-denied/, /approved-but-still-disabled/, /suspended-again/, /deceptive-content/, /address-rules/, /service-area-business/, /account-restricted/, /appeal-evidence-checklist/. Content owner: content/answers.mjs. Builder: scripts/build-answers.mjs. Output committed in 4151e79 (00:29 CT).
+- Page 8 is the evidence checklist, not "reviews missing after reinstatement." No Google help article covers reviews after reinstatement; the only wording is a user-posted support-email line, quoted and labeled as such on /approved-but-still-disabled/.
+- Every quote is checked against a saved copy of its source (sources/text/, scripts/check-quotes.mjs: 63 quotes, 104 absence checks). The Community thread was read with WebFetch because curl is blocked or the page is JavaScript-rendered.
+- Added sitemap.xml (9 URLs), robots.txt with a Sitemap line, unique titles and meta descriptions, canonical, Open Graph and Twitter tags, and JSON-LD: Article + WebSite on home, Article + BreadcrumbList on answer pages. No FAQPage or HowTo (Google limits FAQ rich results to well-known government and health sites and has deprecated How-to). JSON-LD checked against the schema.org vocabulary file: 52 typed nodes, 0 problems.
+- Home: added a "More questions" list. Kept the existing paper/serif look so the 21-day demand window (to 15 Dec) is not confounded by a redesign. The waitlist mailto and kit block are unchanged. No pay button. No for-sale footer (the domain is not listed).
+- Checks: check-site, check-seo, check-quotes all pass. This commit adds scripts/verify-live.mjs. Live check at 01:07 CT: all pass (9 sitemap URLs 200 with a valid certificate, bodies equal the repo files, canonicals, JSON-LD, robots Sitemap line, http 301, www 301s to the apex).
+- visual-qa-gate on the live home and at least two answer pages (phone and desktop) is queued until the box transcription (round 6, transcribe.py) finishes. Do not run a headless browser while it is running. Shots will be saved to /workspace/mason/seo-liveworkconsume-*.jpg.
