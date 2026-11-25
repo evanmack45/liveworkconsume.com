@@ -378,4 +378,33 @@ export const PAGES = [
     ],
     related: ["service-area-business", "address-rules", "account-restricted"],
   },
+  {
+    slug: "create-new-profile-after-suspension",
+    title: "Can I create a new Business Profile after a suspension?",
+    h1: "Can I create a new Google Business Profile if mine was suspended?",
+    description: "Google's help pages tell owners not to create a new profile for the same business. What they say about restrictions, reinstatement, and the appeal route.",
+    short: "Google's pages say not to. They say: \"Do not create a new Business Profile for the same business.\" If your account is restricted, Google says you will not be able to create or claim other profiles. The route Google names is an appeal, and a reinstated profile comes back with its owner and managers.",
+    sections: [
+      { h: "What Google says", blocks: [
+        { p: "The article on suspended profiles says, in the appeal steps:" },
+        { q: "Important: Do not create a new Business Profile for the same business.", src: "fix" },
+        { p: "The appeals article repeats it:" },
+        { q: "Do not create a new Business Profile for the same business.", src: "appealpage" },
+      ] },
+      { h: "If your account is restricted", blocks: [
+        { q: "As a result of an account restriction, the Business Profiles you manage are suspended and you won't be able to create or claim other profiles.", src: "fix" },
+        { p: "The page [[Google Account restricted|/account-restricted/]] covers the order of the account appeal and the profile appeal." },
+      ] },
+      { h: "What reinstatement does", blocks: [
+        { p: "Google describes what happens when it removes a profile:" },
+        { q: "The owner and managers can ask us to reinstate the profile. We reinstate both the profile and its owner and managers.", src: "fix" },
+      ] },
+    ],
+    notSaid: [
+      { t: "What Google does to a second profile created at the same address. The pages say not to create one and give no penalty.", absent: ["penalty", "duplicate profile will", "will be suspended"], files: ["fix", "appealpage"] },
+      { t: "Whether a new profile ever works. Forum users report mixed results, and we did not test it.", absent: [], files: [], ours: true },
+      { t: "Whether you can create a profile for a different business at the same address. That is a question for the eligibility guidelines.", absent: [], files: [], ours: true },
+    ],
+    related: ["appeal-denied", "account-restricted", "suspended-again"],
+  },
 ];
