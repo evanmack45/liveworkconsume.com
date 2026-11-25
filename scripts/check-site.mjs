@@ -1,5 +1,5 @@
 // Static rules for liveworkconsume.com. Run: node scripts/check-site.mjs [--links]
-import { readFileSync, readdirSync, statSync } from "node:fs";
+import { readFileSync, readdirSync, statSync, existsSync } from "node:fs";
 import { join, relative } from "node:path";
 import { execFileSync } from "node:child_process";
 const root = new URL("../", import.meta.url).pathname;
@@ -17,7 +17,8 @@ const BODY = "What reason did Google give?";
 const CTA = "Tell me when the appeal kit opens ($49 planned)";
 
 const mailtos = publicHtml.flatMap(f => [...text(f).matchAll(/href="(mailto:[^"]+)"/g)].map(m => [relative(root, f), m[1].replace(/&amp;/g, "&")]));
-ok(mailtos.length === 2, `exactly two mailto links (found ${mailtos.length})`);
+const ANSWER_SLUGS = readdirSync(root).filter(d => statSync(join(root, d)).isDirectory() && existsSync(join(root, d, "index.html")) && !["sources", "content", "scripts", "css"].includes(d));
+ok(mailtos.length === 2 + ANSWER_SLUGS.length, `two mailto links on the home page plus one on each of ${ANSWER_SLUGS.length} answer pages (found ${mailtos.length})`);
 for (const [f, href] of mailtos) {
   const u = new URL(href);
   ok(u.pathname === ADDR, `${f} mailto address is ${ADDR}`);
@@ -46,7 +47,7 @@ for (const w of ["thisisaustininc", "austin, inc", "annual performance review", 
 }
 ok(!/179 threads|3-6 week|\$\s?1[0-9]{2,}/i.test(all), "no unsourced demand-test stats or unverified agency prices");
 
-ok((all.match(/Tell me when the appeal kit opens \(\$49 planned\)/g) || []).length === 2, "CTA text appears twice, exact wording");
+ok((all.match(/Tell me when the appeal kit opens \(\$49 planned\)/g) || []).length === 2 + ANSWER_SLUGS.length, "CTA text appears twice on home and once on each answer page, exact wording");
 ok(/<h1>Google Business Profile suspended\? The six common reasons<\/h1>/.test(text(root + "index.html")), "required H1");
 for (const id of ["reason-1", "reason-2", "reason-3", "reason-4", "reason-5", "reason-6", "appeal", "kit", "sources"]) {
   ok(text(root + "index.html").includes(`id="${id}"`), `section #${id} exists`);
@@ -73,6 +74,11 @@ const visible = text(root + "index.html").replace(/<[^>]+>/g, " ");
 const unquoted = visible.replace(/"[^"]*"/g, '""');
 const mays = [...unquoted.matchAll(/\bmay\b/g)];
 ok(mays.length === 1, `exactly one unquoted "may" (found ${mays.length})`);
+for (const slug of ANSWER_SLUGS) {
+  const body = text(root + slug + "/index.html").replace(/<blockquote[\s\S]*?<\/blockquote>/g, " ").replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<[^>]+>/g, " ");
+  const m = [...body.matchAll(/\bmay\b/gi)];
+  ok(m.length <= 1, `${slug}: at most one unquoted "may" outside quotes (found ${m.length})`);
+}
 
 const required = [
   "https://support.google.com/business/answer/3038177",

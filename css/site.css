@@ -92,3 +92,25 @@ footer.site p { margin: 0; }
   h1 { font-size: 1.55rem; }
   header.site, footer.site, main { width: min(var(--measure), calc(100% - 1.5rem)); }
 }
+
+/* Answer pages */
+.crumbs { margin: 0 0 1.25rem; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 0.9rem; color: var(--muted); }
+.crumbs a { display: inline-block; padding: 0.35rem 0; }
+.crumbs span:last-child { overflow-wrap: anywhere; }
+.answer { margin: 0 0 1.5rem; padding: 1rem 1.1rem 0.4rem; background: var(--paper); border: 1px solid var(--line); border-left: 6px solid var(--accent); }
+.answer-label { margin: 0 0 0.4rem; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--accent); }
+.answer p { font-size: 1.08rem; }
+.answer .checked { font-size: 0.9rem; color: var(--muted); }
+blockquote.quote { margin: 0 0 1.1rem; padding: 0.15rem 0 0.15rem 1rem; border-left: 3px solid var(--line); }
+blockquote.quote p { margin: 0 0 0.6rem; }
+blockquote.quote footer { font-size: 0.88rem; color: var(--muted); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+.not-said { margin-top: 2.25rem; padding: 0.1rem 1.1rem 0.6rem; border: 1px dashed var(--muted); background: var(--paper); }
+.not-said h2 { margin-top: 1rem; }
+ul.links { list-style: none; padding-left: 0; }
+ul.links li { margin: 0; }
+ul.links a { display: block; padding: 0.7rem 0; border-top: 1px solid var(--line); min-height: 44px; }
+ul.links li:last-child a { border-bottom: 1px solid var(--line); }
+main a:not(.cta):not([href^="/"]) , main p a, main li a, blockquote.quote footer a { padding-block: 0.22rem; }
+ul.links a { padding-block: 0.7rem; }
+.crumbs a { padding-block: 0.35rem; }
+.wordmark a { display: inline-block; padding: 0.3rem 0; }
