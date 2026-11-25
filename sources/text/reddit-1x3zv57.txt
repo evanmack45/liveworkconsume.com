@@ -1,0 +1,14 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/1x3zv57/verified_google_business_profile_not_visible_to/
+FETCHED: 2026-11-25 (read from the Pullpush archive of the thread; original post only; Reddit blocks plain GET)
+
+Verified Google Business Profile not visible to the public - other business has same name. My Google Business Profile is verified and visible to me when I'm logged in, but other people cannot find it in Google Search or Google Maps.
+
+I previously had two verified profiles for the same business as I accidentally created the same listing under different Google accounts as I have 2 google accounts. I've removed the duplicate, but the remaining profile still isn't visible to the public. I have had no notification to say there are any issues. 
+
+The original business category was Software company, which was inaccurate. I tried changing it to Manufacturer, but Google rejected the edit, citing “Business identity changed”. I've appealed because I was correcting the category, not changing the business.
+
+I've also discovered an unrelated business with exactly the same name, already listed on Google Maps. That business is totally different category of business.
+
+Could the other business with the same name, the duplicate profiles, or the rejected category change be affecting my profile's visibility? Has anyone experienced something similar, and how did you resolve it?
+
+Many thanks in advance, it all feels a bit of a mess!

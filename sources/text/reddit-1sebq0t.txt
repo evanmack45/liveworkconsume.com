@@ -1,0 +1,23 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/1sebq0t/cant_edit_business_hours_edit_option_is_gone/
+FETCHED: 2026-11-25 (read from the Pullpush archive of the thread; original post only; Reddit blocks plain GET)
+
+Can't edit business hours. Edit option is gone!. I can't edit our business hours. The pencil edit icon disappeared, it's just not there anymore. We change hours 2 times a year and I've never had an issue doing this until four months ago when the edit option disappeared. 
+
+Here's a screenshot:
+
+
+
+I've sent 2 support tickets and this is always the reply:  "Thank you for contacting us about your Business Profile on Google. From the info you shared, we’re not sure of your exact issue, but here are solutions to the most common issues:" The email then proceeds to give me details on how to recover a password, how to reply to reviews, etc.  Seriously? It's like no one actually read my support ticket.
+
+I have already attempted the following troubleshooting steps without success:
+
+* Tested on desktop, laptop, and Android devices.
+* Tried multiple different web browsers.
+* Attempted to edit in incognito mode.
+* Tried editing via both Google Maps and Google Search.
+
+Please note: our business is verified and our official website correctly
+
+ALso, this may just be a coincidence but a secondary issue also appeared at the same the pencil edit icon disappeared. The 'CONFIRM' button always appears at the bottom of the edit window. But it doesn't work. When clicked it just hangs.
+
+Thank you in advance to anyone that can help me resolve this issue.!

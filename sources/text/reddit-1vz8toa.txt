@@ -1,0 +1,16 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/1vz8toa/google_business_profile_doesnt_show_up_on_a/
+FETCHED: 2026-11-25 (read from the Pullpush archive of the thread; original post only; Reddit blocks plain GET)
+
+Google Business Profile doesn't show up on a Google search. I understand if you can't help based on the limited information, I'd rather not share the name of my business right now. But it is a very unique name that isn't anywhere else. When I search it while I'm not signed into my account, nothing shows up. I think I did everything necessary to make it public. Here's what shows up when I search it while I am signed into my account, I blocked out my business name and picture:
+
+
+
+Now here's what happens when I click "view profile":
+
+
+
+Now here's what happens when I search it while I'm not signed into my account:
+
+
+
+

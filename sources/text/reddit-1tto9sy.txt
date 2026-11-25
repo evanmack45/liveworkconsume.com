@@ -1,0 +1,10 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/1tto9sy/coordinated_fake_reviews_on_my_gbp_flagged/
+FETCHED: 2026-11-25 (read from the Pullpush archive of the thread; original post only; Reddit blocks plain GET)
+
+Coordinated fake reviews on my GBP — flagged + appealed, no luck. What's the escalation path?. Running a garage door repair business in the Seattle area. About 3 months ago we got a cluster of fake 1-star reviews we believe came from a competitor. We have zero record of any of these people — no transactions matching the names, phone numbers, or addresses on the claimed dates.
+
+Signs it's coordinated: two separate reviews make the identical "charged $5,000 for spring replacement" claim with near-identical wording, posted in the same window. One reviewer's profile photo is a licensed Shutterstock stock image (verified the source).
+
+We've flagged each one through the Business Profile dashboard and submitted appeals via the Reviews Management Tool. A couple came back as "no policy violation." We've also responded publicly and professionally to each, and asked the reviewers multiple times to contact us with a service address or invoice — no response.
+
+What's the right next step to get these escalated to a human review as a coordinated spam/fake-engagement case? Is there a way to flag the whole cluster as one attack rather than appealing individually? Any help appreciated.

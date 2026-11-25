@@ -1,0 +1,23 @@
+{
+  "alt": "A loose fan of identical blank cream slips on a worn shop counter, one slip pulled aside and slightly soiled, with a blunt pencil, in late light.",
+  "width": 1280,
+  "height": 720,
+  "srcset": [
+    [
+      640,
+      "header-640.webp"
+    ],
+    [
+      960,
+      "header-960.webp"
+    ],
+    [
+      1280,
+      "header.webp"
+    ]
+  ],
+  "ogAlt": "A loose fan of identical blank cream slips on a worn shop counter, one slip pulled aside and slightly soiled, with a blunt pencil, in late light.",
+  "ogWidth": 1200,
+  "ogHeight": 630,
+  "source": "/workspace/mason/art/incoming/liveworkconsume.com/fake-reviews/"
+}

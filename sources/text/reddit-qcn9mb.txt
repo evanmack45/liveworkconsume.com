@@ -1,0 +1,12 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/qcn9mb/google_keeps_changing_my_business_hours/
+FETCHED: 2026-11-25 (read from the Pullpush archive of the thread; original post only; Reddit blocks plain GET)
+
+Google keeps changing my business hours. The business is open 8.30-5.30 Monday-Friday.
+
+However, Google has been changing this to Open All Hours, 7 days a week.
+
+We have changed it back several times, and emailed support to say these hours are correct, please stop changing them, but just get a stock response back.
+
+Support says that the hours may change if they see the hours shown on another website, but I have looked and cannot see anywhere saying we're open 24/7.
+
+Has anyone else had this issue and managed to get it fixed? TIA

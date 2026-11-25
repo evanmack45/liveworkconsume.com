@@ -1,0 +1,8 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/zsn8qr/gmb_hours_keep_reverting/
+FETCHED: 2026-11-25 (read from the Pullpush archive of the thread; original post only; Reddit blocks plain GET)
+
+GMB Hours Keep Reverting. Been running into two separate issues for 2 separate clients.
+
+1) Client took over another store and updated the hours but they keep reverting to the old store's hours. Any tips?
+
+2) We started using Birdeye for another client with lots of locations. But once w signed up it seems like a lot of the location hours keep changing or reverting. Has anyone had similar issues with Birdeye?
