@@ -1,6 +1,7 @@
 // Prove the Pages preview and that public DNS is unchanged (still the GoDaddy forward).
 import { execFileSync } from "node:child_process";
-import { readFileSync, createHash } from "node:fs";
+import { readFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { fetchFromPages, PAGES_IP } from "./pages-route.mjs";
 
 const root = new URL("../", import.meta.url).pathname;
@@ -15,7 +16,8 @@ ok((preview.headers["server"] || "").toLowerCase().includes("github"), "server l
 const body = preview.body.toString("utf8");
 ok(body.includes("Google Business Profile suspended? The six common reasons"), "preview has the required title");
 ok(body.includes("Tell me when the appeal kit opens ($49 planned)"), "preview has the CTA");
-ok(!/reinstatement/i.test(body.split("$49 planned").join("PRICE")), "preview CTA/price slots do not carry reinstatement (coarse)");
+const priceSents = body.replace(/<[^>]+>/g, " ").split(/(?<=[.!?])\s+/).filter(s => /\$49|planned price/.test(s));
+ok(priceSents.length >= 2 && priceSents.every(s => !/reinstatement/i.test(s)), "preview price sentences have no 'reinstatement' (" + priceSents.length + ")");
 ok(sha(preview.body) === sha(local) || body.includes("<h1>Google Business Profile suspended? The six common reasons</h1>"), "preview body matches local index or at least the same H1 (GitHub may inject a comment)");
 console.log("local sha256 ", sha(local));
 console.log("pages sha256 ", sha(preview.body));

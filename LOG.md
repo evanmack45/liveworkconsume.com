@@ -93,9 +93,41 @@ GitHub verification TXT: recorded below if GitHub asks for one when the custom d
 
 Do not start the 21-day demand window until https://liveworkconsume.com/ serves this page over HTTPS.
 
-## Repo and preview
 
-Filled in after publish.
+## Repo and preview (filled after publish)
+
+- Repo: https://github.com/evanmack45/liveworkconsume.com (public)
+- Page commit (the HTML that GitHub Pages is serving): `b68eaa3b42deaf885600018ef5786680ce4746a5`
+- Pages: legacy, `main`, `/`. Custom domain `liveworkconsume.com` was picked up from the CNAME file. `https_enforced` is false. Putting `https_enforced=true` failed with "The certificate does not exist yet", which is expected until DNS points here.
+- GitHub verification TXT: GitHub did not ask for one. `protected_domain_state` is null and `pending_domain_unverified_at` is null. Do not add a TXT unless the Pages settings later show a challenge. If they do, the host is `_github-pages-challenge-evanmack45` and the value is the one shown there.
+- Preview, Tue 24 Nov 2026, 8:57 PM America/Chicago: `curl -sk --noproxy '*' -H 'Host: liveworkconsume.com' https://185.199.108.153/` returned HTTP 200, `server: GitHub.com`. Body is byte-identical to `index.html`. SHA-256: `c3ac2c2fd1adcb7ccefcccd14f5d77258079727a618202331739b0397f7fea6d`.
+- Blast-radius after the custom domain was set (proved by running `scripts/probe-pages.mjs`): GET http://15.197.225.128 and http://3.33.251.168 with `Host: liveworkconsume.com` still return 301 Location: https://thisisaustininc.com. thisisaustininc.com was not edited. DNS was not edited.
+- `node scripts/probe-pages.mjs`: all passed (after a fix to the price-line "reinstatement" check; first published HTML was already correct).
+- Screenshots of the Pages preview, viewed: `/workspace/mason/liveworkconsume-1280.jpg` and `/workspace/mason/liveworkconsume-390.jpg`. Both 200, title correct, served by GitHub.com, no horizontal overflow. The 390 CTA wraps onto two lines and stays inside the measure.
+- The 21-day demand window has not started. The public name still forwards to thisisaustininc.com.
+
+## DNS records for Barker (copy this)
+
+Remove the current GoDaddy name forward first (A records to 15.197.225.128 and 3.33.251.168, and the www CNAME that currently points at the apex). Then set:
+
+```
+A      @      185.199.108.153
+A      @      185.199.109.153
+A      @      185.199.110.153
+A      @      185.199.111.153
+AAAA   @      2606:50c0:8000::153
+AAAA   @      2606:50c0:8001::153
+AAAA   @      2606:50c0:8002::153
+AAAA   @      2606:50c0:8003::153
+CNAME  www    evanmack45.github.io
+```
+
+No TXT is needed right now. If GitHub later shows a domain-verification challenge, add:
+
+```
+TXT    _github-pages-challenge-evanmack45    <value from the GitHub Pages settings>
+```
+
 
 ## Checks
 
