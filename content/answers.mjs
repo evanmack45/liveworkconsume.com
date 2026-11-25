@@ -398,6 +398,7 @@ export const PAGES = [
       { h: "What reinstatement does", blocks: [
         { p: "Google describes what happens when it removes a profile:" },
         { q: "The owner and managers can ask us to reinstate the profile. We reinstate both the profile and its owner and managers.", src: "fix" },
+        { p: "Reviews and the history of the listing belong to that profile. The page [[Reviews after a suspension|/reviews-after-suspension/]] covers what Google says about reviews." },
       ] },
     ],
     notSaid: [
@@ -405,6 +406,44 @@ export const PAGES = [
       { t: "Whether a new profile ever works. Forum users report mixed results, and we did not test it.", absent: [], files: [], ours: true },
       { t: "Whether you can create a profile for a different business at the same address. That is a question for the eligibility guidelines.", absent: [], files: [], ours: true },
     ],
-    related: ["appeal-denied", "account-restricted", "suspended-again"],
+    related: ["reviews-after-suspension", "appeal-denied", "account-restricted"],
+  },
+  {
+    slug: "reviews-after-suspension",
+    title: "Do reviews disappear when a Business Profile is suspended?",
+    h1: "Will I lose my reviews if my Google Business Profile is suspended?",
+    description: "Google's pages do not say a suspension deletes reviews. They say removed reviews are not restored, and to contact support if reviews vanish after reinstatement.",
+    short: "Google's pages do not say a suspension deletes your reviews. They say reviews removed for policy violations will not be restored, and that reviews sometimes go missing after reinstatement. Google's tip is to contact support if that happens. Google also says not to create a new profile, which would start with none.",
+    sections: [
+      { h: "What Google says about missing reviews", blocks: [
+        { p: "Google's page on missing or delayed reviews gives several reasons. Two of them:" },
+        { q: "Reviews are checked to ensure they comply with our policies. In some cases, this process might take a few days, which can delay a review's appearance on your profile.", src: "reviewsmissing" },
+        { q: "Reviews removed for policy violations won't be restored.", src: "reviewsmissing" },
+        { p: "It then has a tip about reinstatement:" },
+        { q: "Tip: Sometimes reviews might be removed after a Business Profile is reinstated. If this happens, contact support for assistance.", src: "reviewsmissing" },
+      ] },
+      { h: "While the profile is suspended", blocks: [
+        { p: "Google's article on suspended profiles says what a removal means for the public and for you:" },
+        { q: "The public can't go to the profile.", src: "fix" },
+        { q: "The owner and managers can't act on the profile.", src: "fix" },
+        { p: "For a reinstated profile with a problem:" },
+        { q: "If you have issues with your reinstated profile, contact Google Business Profile Help.", src: "fix" },
+      ] },
+      { h: "What a Product Expert said in the Community", blocks: [
+        { p: "In a thread from October 2026 an owner reports that reviews were missing after reinstatement. A reply in the thread says:" },
+        { q: "It is common to not have the reviews visible right after a reinstatement. Usually within a few days they will reappear.", src: "thread2" },
+        { p: "That reply is from a user of the Community forum, not a Google help article. Treat it as a report, not a policy. The page [[Appeal approved but the profile is still disabled|/approved-but-still-disabled/]] has a second thread on the same problem." },
+      ] },
+      { h: "Do not start over with a new profile", blocks: [
+        { q: "Important: Do not create a new Business Profile for the same business.", src: "fix" },
+        { p: "See [[Can I create a new profile after a suspension|/create-new-profile-after-suspension/]]." },
+      ] },
+    ],
+    notSaid: [
+      { t: "That a suspension deletes reviews. The pages quoted here do not say it, and they do not say it never happens.", absent: ["suspension deletes", "reviews are deleted when"], files: ["reviewsmissing", "fix"] },
+      { t: "How long reviews take to come back. Google's pages give no time. The Community reply says \"a few days\" and is not Google policy.", absent: ["within 24 hours", "business days"], files: ["reviewsmissing", "fix"] },
+      { t: "Whether your reviews will return. Only Google can see your profile.", absent: ["will return"], files: ["reviewsmissing", "fix"] },
+    ],
+    related: ["create-new-profile-after-suspension", "approved-but-still-disabled", "appeal-denied"],
   },
 ];
