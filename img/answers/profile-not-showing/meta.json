@@ -1,0 +1,23 @@
+{
+  "alt": "A shop window mostly covered by a sheet of brown paper, with a narrow gap at one edge.",
+  "width": 1280,
+  "height": 720,
+  "srcset": [
+    [
+      640,
+      "header-640.webp"
+    ],
+    [
+      960,
+      "header-960.webp"
+    ],
+    [
+      1280,
+      "header.webp"
+    ]
+  ],
+  "ogAlt": "A shop window mostly covered by a sheet of brown paper, with a narrow gap at one edge.",
+  "ogWidth": 1200,
+  "ogHeight": 630,
+  "source": "/workspace/mason/art/incoming/liveworkconsume.com/profile-not-showing/"
+}

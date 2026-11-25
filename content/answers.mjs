@@ -902,6 +902,59 @@ export const PAGES = [
     ],
     related: ["reviews-after-suspension", "appeal-denied", "appeal-evidence-checklist"],
   },
+  {
+    slug: "profile-not-showing",
+    title: "Google Business Profile not showing in search: what to check",
+    h1: "My Google Business Profile doesn't show up when I search for my business. Why?",
+    description: "A profile shows publicly once it is verified and not a duplicate, and edits can take 30 days. What to check, in order, and what Google's pages leave out.",
+    short: "Google says to show your business on Search and Maps you must add or claim it and then verify it, and verification reviews take up to 5 business days. A profile that counts as a duplicate won't show on Search or Maps. Edits usually take about 10 minutes and sometimes up to 30 days. A profile that appears for its exact name but not for broader searches is a ranking question. Google's pages here give no signed-out test.",
+    sections: [
+      { h: "What has to be true for a profile to show", blocks: [
+        { p: "Google's page on editing your profile puts verification first:" },
+        { q: "To show your business on Search, Maps, and other Google services, you must add or claim your business then verify your Business Profile", src: "editprof" },
+        { p: "After the verification steps, Google says to wait:" },
+        { q: "To help maintain the integrity of your Business Profile, verification reviews take up to 5 business days.", src: "verify" },
+        { q: "On rare occasions, reviews may take longer.", src: "verify" },
+        { p: "For the postcard and video routes, see [[the postcard page|/postcard-verification-not-arrived/]] and [[the video verification page|/video-verification-failed/]]." },
+      ] },
+      { h: "Duplicates and removed profiles", blocks: [
+        { p: "Google's page on duplicates says:" },
+        { q: "If a profile is considered a duplicate, it won’t show on Google Search or Maps.", src: "dup" },
+        { p: "If Google removes a profile, the suspension page says:" },
+        { q: "The public can’t go to the profile.", src: "fix" },
+        { p: "Both cases are covered in [[Duplicate Business Profile|/duplicate-business-profile/]] and [[Appeal approved but still disabled|/approved-but-still-disabled/]]." },
+      ] },
+      { h: "Signed in is not the same as public", blocks: [
+        { p: "Google's verification page says:" },
+        { q: "To find your profile, you must sign in to the Google Account associated with it.", src: "verify" },
+        { p: "That sentence is about finding your profile to manage it. It does not describe what a signed-out searcher sees. Our own suggestion, not Google's: search your exact business name and city in a private window or on a device that has never been signed in to the account." },
+      ] },
+      { h: "Timing after an edit", blocks: [
+        { q: "Edits usually take up to 10 minutes to review, but sometimes it can take up to 30 days.", src: "editsw" },
+        { q: "Pending: Your edit is still under review.", src: "editsw" },
+      ] },
+      { h: "Showing up for your name versus for a search", blocks: [
+        { p: "Google's ranking page says what decides the order of local results:" },
+        { q: "Local results are mainly based on relevance, distance, and popularity.", src: "rank" },
+        { q: "There's no way to request or pay for a better local ranking on Google.", src: "rank" },
+        { p: "A profile that appears when someone types its exact name, but not for a search like the service plus the town, is a ranking question. A profile that does not appear for its exact name is a visibility question, and the checks above apply." },
+      ] },
+      { h: "What posters report", blocks: [
+        { p: "A poster in a thread from this year describes the signed-in versus signed-out gap:" },
+        { q: "When I search it while I'm not signed into my account, nothing shows up.", src: "rnp1" },
+        { p: "Another poster says the profile is verified:" },
+        { q: "My Google Business Profile is verified and visible to me when I'm logged in, but other people cannot find it in Google Search or Google Maps.", src: "rnp2" },
+        { q: "I have had no notification to say there are any issues.", src: "rnp2" },
+        { p: "That poster had removed a duplicate and had found another business with the same name. We read only the original posts, not the replies, so we cannot say what the cause was." },
+      ] },
+    ],
+    notSaid: [
+      { t: "A signed-out test for whether a profile is public. The pages do not describe one.", absent: ["signed out", "signed-out", "incognito", "private window"], files: ["verify", "editprof", "dup", "rank"] },
+      { t: "Whether another business with the same name affects a profile's visibility.", absent: ["same name"], files: ["verify", "editprof", "dup", "rank", "editsw"] },
+      { t: "What is wrong with any poster's profile. We cannot see it.", absent: [], files: [], ours: true },
+    ],
+    related: ["postcard-verification-not-arrived", "duplicate-business-profile", "approved-but-still-disabled"],
+  },
 ];
 
 // Hub page content. Every answer slug must appear in exactly one group (the builder throws otherwise).
@@ -921,5 +974,6 @@ export const HUB = {
     { h: "Address, pin and service area", slugs: ["address-rules", "map-pin-wrong-place", "service-area-business"] },
     { h: "Photos", slugs: ["photos-rejected"] },
     { h: "Reviews", slugs: ["fake-reviews"] },
+    { h: "Visibility and hours", slugs: ["profile-not-showing"] },
   ],
 };

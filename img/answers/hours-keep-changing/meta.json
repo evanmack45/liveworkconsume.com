@@ -1,0 +1,23 @@
+{
+  "alt": "A shop door with a small wooden slider left halfway, and a stopped wall clock with a blank cream face above it, in late light.",
+  "width": 1280,
+  "height": 720,
+  "srcset": [
+    [
+      640,
+      "header-640.webp"
+    ],
+    [
+      960,
+      "header-960.webp"
+    ],
+    [
+      1280,
+      "header.webp"
+    ]
+  ],
+  "ogAlt": "A shop door with a small wooden slider left halfway, and a stopped wall clock with a blank cream face above it, in late light.",
+  "ogWidth": 1200,
+  "ogHeight": 630,
+  "source": "/workspace/mason/art/incoming/liveworkconsume.com/hours-keep-changing/"
+}
