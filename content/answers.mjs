@@ -504,7 +504,7 @@ export const PAGES = [
     title: "Someone else owns my Google Business Profile: what to do",
     h1: "Someone else is listed as owner of my Google Business Profile. What can I do?",
     description: "Request ownership from the current owner, who has 3 days to respond. If they don't, claiming isn't always available. Google's steps and its fraud form.",
-    short: "Google's route is to request ownership from the current owner. The owner is notified by email and has 3 days to respond. After 3 days with no response you might be able to claim the profile, but Google says that option isn't always available. If someone changed the listing's name, phone number or URL, Google has a separate complaint form.",
+    short: "Google's route is to request ownership from the current owner. The owner is notified by email and has 3 days to respond. After 3 days with no response, claiming the profile is sometimes an option, but Google says it isn't always available. If someone changed the listing's name, phone number or URL, Google has a separate complaint form.",
     sections: [
       { h: "The route Google gives", blocks: [
         { p: "Google's article on requesting ownership starts:" },
@@ -543,6 +543,53 @@ export const PAGES = [
       { t: "Anything about a hijacked or stolen listing. Neither the ownership article nor the duplicates article uses those words.", absent: ["hijack", "stolen", "unauthorized"], files: ["own", "dup"] },
       { t: "Whether any of these routes works for your case. We did not test them.", absent: [], files: [], ours: true },
     ],
-    related: ["address-rules", "service-area-business"],
+    related: ["duplicate-business-profile", "address-rules", "service-area-business"],
+  },
+  {
+    slug: "duplicate-business-profile",
+    title: "Duplicate Google Business Profile: merge or remove it",
+    h1: "I have a duplicate Google Business Profile. How do I merge it or remove it?",
+    description: "Google separates three cases: a duplicate you made, a merge request on Maps, and a profile wrongly marked duplicate. What each route says and what it costs.",
+    short: "Google gives different routes. If you created the duplicate, you can remove it without affecting your verified listing, but removal is permanent for that profile's content and managers. To merge two profiles that exist on Maps, report a suggestion on Google Maps. A merge combines the reviews, and replies to reviews can be lost.",
+    sections: [
+      { h: "Why a profile is called a duplicate", blocks: [
+        { q: "You can have only one Business Profile for each business.", src: "dup" },
+        { q: "If a profile is considered a duplicate, it won't show on Google Search or Maps.", src: "dup" },
+        { p: "Google gives three reasons a profile is treated as a duplicate: a verified profile already exists for the same business, several profiles share an address, or several profiles for one business offer different services. If the verified profile belongs to someone else, see [[Someone else owns my profile|/someone-else-owns-my-profile/]]." },
+      ] },
+      { h: "If you created the duplicate", blocks: [
+        { q: "If you created a duplicate profile by mistake, you can remove it without affecting your verified listing.", src: "dup" },
+        { q: "When you remove a duplicate profile, all content and linked managers will be removed, so make sure to remove the correct profile.", src: "dup" },
+        { p: "The removal article adds the limits:" },
+        { q: "Removal of content and managers for a Business Profile is permanent and affects all owners and managers.", src: "rem" },
+        { q: "Only the primary owners can remove the profile content and managers.", src: "rem" },
+        { q: "New owners and managers must wait 7 days before they can remove profile content or managers.", src: "rem" },
+        { q: "When you remove all ownership and content from your Business Profile, it doesn't guarantee that the business won't show up on Maps and Search.", src: "rem" },
+      ] },
+      { h: "If two profiles exist on Maps and you want one", blocks: [
+        { q: "To request a merge when 2 or more Business Profiles for the same business exist on Maps, report a suggestion on Google Maps.", src: "dup" },
+        { q: "All merge requests are subject to review.", src: "dup" },
+        { q: "When 2 profiles are merged, their reviews are combined, but replies to reviews may be lost.", src: "dup" },
+        { q: "For the merge to be successful, the profiles must represent the same business and should have the same info.", src: "dup" },
+        { p: "A Reddit poster who created a duplicate by accident did not want a merge and writes:" },
+        { q: "not only does nothing say HOW to do that, but every attempt I make to tell google, takes me to a MERGE request.", src: "rdup" },
+        { p: "Google's article, as saved, lists a merge as the route and has no separate \"report as duplicate\" step." },
+      ] },
+      { h: "If a real second business was marked duplicate", blocks: [
+        { q: "If Business Profiles for 2 distinct and eligible businesses were incorrectly merged, contact support to appeal the duplicate status.", src: "dup" },
+        { q: "If both businesses serve customers at the same location, you'll be asked to provide evidence of permanent signage that clearly shows both businesses.", src: "dup" },
+      ] },
+      { h: "Moves and extra services", blocks: [
+        { q: "If your business relocates, do not create a new Business Profile for the new location.", src: "dup" },
+        { q: "If you offer different services at your business, do not create separate Business Profiles for each service.", src: "dup" },
+        { p: "Google says to update the existing profile's address or list the services on it instead." },
+      ] },
+    ],
+    notSaid: [
+      { t: "How long a merge takes. The article gives no time.", absent: ["72 hours", "within a week", "weeks"], files: ["dup"] },
+      { t: "A separate \"report as duplicate\" option. The article names a merge suggestion on Maps.", absent: ["report a duplicate"], files: ["dup"] },
+      { t: "Whether a merge request works for your two profiles. We did not test it.", absent: [], files: [], ours: true },
+    ],
+    related: ["someone-else-owns-my-profile", "address-rules", "reviews-after-suspension"],
   },
 ];
