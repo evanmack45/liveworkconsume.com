@@ -596,7 +596,7 @@ export const PAGES = [
     slug: "marked-permanently-closed",
     title: "Google Business Profile marked permanently closed by mistake",
     h1: "My Google Business Profile is marked permanently closed but we're open. How do I fix it?",
-    description: "Google says a profile mistakenly marked permanently closed can be reopened from the hours settings, except after a location or name change. The steps and the limits.",
+    description: "Google says a profile marked permanently closed by mistake can be reopened from the hours settings, except after a location or name change. Steps and limits.",
     short: "Google says that if a business is mistakenly marked permanently closed, you can reopen the location. In your Business Profile, open Edit profile, then Hours, and choose Open with main hours. Google says not to reopen a profile that was closed as part of a location or name change, and to add a new business instead.",
     sections: [
       { h: "What Google says", blocks: [
