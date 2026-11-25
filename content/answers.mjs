@@ -997,6 +997,59 @@ export const PAGES = [
     ],
     related: ["address-rules", "map-pin-wrong-place", "duplicate-business-profile"],
   },
+  {
+    slug: "hours-keep-changing",
+    title: "Google Business Profile hours keep changing: why it happens",
+    h1: "My business hours on Google keep changing back. Why, and how do I stop it?",
+    description: "Google can update a profile from user suggestions and other sources, and gives you 4 days to answer some. Where hours changes come from, and what's left out.",
+    short: "Google says a profile can change without you editing it. Users suggest edits, and Google also updates profiles from sources such as user reports and licensed content. For certain suggested edits Google notifies you and you have 4 days to accept or reject. If you don't respond, Google says it can publish the update when other public information, such as your website, supports it.",
+    sections: [
+      { h: "Where changes to your hours can come from", blocks: [
+        { p: "Google's page on updates to your profile:" },
+        { q: "To help keep your Business Profile accurate, Google gathers info from different sources, like user reports and licensed content.", src: "gupd" },
+        { q: "If sources report that your profile info is incorrect or outdated, Google may update your profile.", src: "gupd" },
+        { p: "In the profile editor, the page says colour shows the source:" },
+        { q: "Blue: Shows info changed by Google.", src: "gupd" },
+        { q: "Tip: If your profile has Google updates, you’ll find a notification at the top of the page.", src: "gupd" },
+      ] },
+      { h: "Suggested edits and the 4 days", blocks: [
+        { q: "Google may receive suggestions from users to update your Business Profile.", src: "gupd" },
+        { q: "Once notified, you have 4 days to accept or reject the suggestion.", src: "gupd" },
+        { q: "If you don’t respond within 4 days, Google may automatically publish the update if it is supported by other publicly available information, such as your business website.", src: "gupd" },
+        { q: "Google may apply suggested user edits to your business information without prior review.", src: "gupd" },
+        { q: "This happens in cases where edits are necessary to meet policy guidelines.", src: "gupd" },
+        { p: "So hours on your website that differ from the profile's hours are worth checking. That is our reading of the page's example, not a rule Google states." },
+      ] },
+      { h: "Calls and texts from Google", blocks: [
+        { q: "You might get an automated call, text, or WhatsApp message from Google to confirm details about your business, like your operating hours or if certain services are available.", src: "autocall" },
+        { q: "The review might take up to 5 business days.", src: "autocall" },
+      ] },
+      { h: "Your own edits and special hours", blocks: [
+        { q: "Edits usually take up to 10 minutes to review, but sometimes it can take up to 30 days.", src: "editsw" },
+        { q: "Not approved: Google might not approve changes if it can't confirm its accuracy.", src: "editsw" },
+        { p: "For a holiday or a short closure, Google points to special hours so the regular hours stay as they are:" },
+        { q: "you can set special hours so that your regular hours don't change.", src: "special" },
+        { p: "The hours page says special hours fit a business that:" },
+        { q: "Remains closed for 6 days in a row or fewer.", src: "hoursed" },
+      ] },
+      { h: "What owners report", blocks: [
+        { p: "A poster says Google changed the hours, and support gave an explanation:" },
+        { q: "Google has been changing this to Open All Hours, 7 days a week.", src: "rhr1" },
+        { q: "Support says that the hours may change if they see the hours shown on another website, but I have looked and cannot see anywhere saying we're open 24/7.", src: "rhr1" },
+        { p: "Another poster, who manages profiles for clients, describes a store a client took over:" },
+        { q: "Client took over another store and updated the hours but they keep reverting to the old store's hours.", src: "rhr2" },
+        { p: "A third poster cannot edit at all:" },
+        { q: "I can't edit our business hours. The pencil edit icon disappeared, it's just not there anymore.", src: "rhr3" },
+        { p: "Google's pages above do not explain a missing edit icon. We read only the original posts and do not know how these were resolved. For a profile that has an old owner or stray managers, see [[Someone else owns my profile|/someone-else-owns-my-profile/]]." },
+      ] },
+    ],
+    notSaid: [
+      { t: "Why the edit option disappears for a profile. None of the pages mention it.", absent: ["pencil", "edit icon", "disappear"], files: ["editprof", "hoursed", "editsw", "gupd"] },
+      { t: "Who sent a given suggested edit. The page says users suggest edits and does not say how to see who.", absent: ["competitor", "who suggested"], files: ["gupd"] },
+      { t: "Why any poster's hours changed. We cannot see their profiles.", absent: [], files: [], ours: true },
+    ],
+    related: ["someone-else-owns-my-profile", "duplicate-business-profile", "change-business-name"],
+  },
 ];
 
 // Hub page content. Every answer slug must appear in exactly one group (the builder throws otherwise).
@@ -1016,6 +1069,6 @@ export const HUB = {
     { h: "Address, pin and service area", slugs: ["address-rules", "map-pin-wrong-place", "service-area-business", "moving-the-business"] },
     { h: "Photos", slugs: ["photos-rejected"] },
     { h: "Reviews", slugs: ["fake-reviews"] },
-    { h: "Visibility and hours", slugs: ["profile-not-showing"] },
+    { h: "Visibility and hours", slugs: ["profile-not-showing", "hours-keep-changing"] },
   ],
 };
