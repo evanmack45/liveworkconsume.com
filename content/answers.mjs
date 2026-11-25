@@ -728,7 +728,7 @@ export const PAGES = [
         { q: "If you're the primary owner, you can't remove yourself until after you transfer primary ownership to someone else.", src: "owners" },
         { p: "On a user you remove, Google says:" },
         { q: "They can't change business info or do admin tasks, but their replies to reviews, posts, comments, and other actions stay on the Business Profile.", src: "owners" },
-        { p: "If the seller cannot be reached or will not add you, [[Someone else owns my profile|/someone-else-owns-my-profile/]] covers requesting ownership." },
+        { p: "If the seller cannot be reached or will not add you, [[Someone else owns my profile|/someone-else-owns-my-profile/]] covers requesting ownership. If the new owner is changing the name, see [[Rebranding a Business Profile|/change-business-name/]]." },
       ] },
     ],
     notSaid: [
@@ -736,7 +736,7 @@ export const PAGES = [
       { t: "Anything about the sale itself or the seller's consent beyond adding you as an owner.", absent: ["sale", "purchase", "acquir"], files: ["xfer", "owners"] },
       { t: "Whether a transfer works as described for your profile. We did not test it.", absent: [], files: [], ours: true },
     ],
-    related: ["someone-else-owns-my-profile", "duplicate-business-profile", "address-rules"],
+    related: ["someone-else-owns-my-profile", "duplicate-business-profile", "change-business-name"],
   },
   {
     slug: "change-business-name",
