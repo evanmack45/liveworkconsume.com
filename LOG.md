@@ -6,7 +6,7 @@ Deadline: Thu 26 Nov 2026, 2:00 PM America/Chicago. Built Tue 24 Nov 2026, eveni
 
 One free page on liveworkconsume.com: "Google Business Profile suspended? The six common reasons." This is Foil's cheapest demand test, step 2 (FIX idea 5), assigned by Dash. Step 1 already passed (Scout demand writeup; the public page does not repeat those counts).
 
-The 21-day demand window starts the day this page is live on the real domain, after Barker removes the thisisaustininc.com forward and points DNS at GitHub Pages. The clock does not start while the name still forwards. If the page is live on the real name on Wednesday 25 Nov, the window ends Wednesday 16 Dec 2026. Pass = 5 or more answered emails from strangers. Kill = 2 or fewer. Extend once, to 30 Dec, only if the count is 3 or 4 and at least one email asked about price or timing. Count only emails that answer "What reason did Google give?".
+The 21-day demand window starts the day this page is live on the real domain over HTTPS. Barker removed the thisisaustininc.com forward and pointed DNS at GitHub Pages on Tue 24 Nov 2026, about 9:03 PM America/Chicago. HTTPS was enforced at 10:05 PM America/Chicago that same day, so the window starts Tuesday 24 Nov 2026 and ends Tuesday 15 Dec 2026. Pass = 5 or more answered emails from strangers. Kill = 2 or fewer. Extend once, to 30 Dec, only if the count is 3 or 4 and at least one email asked about price or timing. Count only emails that answer "What reason did Google give?".
 
 ## pstack
 
@@ -91,7 +91,7 @@ GitHub verification TXT: recorded below if GitHub asks for one when the custom d
 
     TXT  _github-pages-challenge-evanmack45  <value shown in the Pages settings>
 
-Do not start the 21-day demand window until https://liveworkconsume.com/ serves this page over HTTPS.
+Do not start the 21-day demand window until https://liveworkconsume.com/ serves this page over HTTPS. That condition was met at 10:05 PM America/Chicago on Tue 24 Nov 2026. See the go-live section.
 
 
 ## Repo and preview (filled after publish)
@@ -104,7 +104,7 @@ Do not start the 21-day demand window until https://liveworkconsume.com/ serves 
 - Blast-radius after the custom domain was set (proved by running `scripts/probe-pages.mjs`): GET http://15.197.225.128 and http://3.33.251.168 with `Host: liveworkconsume.com` still return 301 Location: https://thisisaustininc.com. thisisaustininc.com was not edited. DNS was not edited.
 - `node scripts/probe-pages.mjs`: all passed (after a fix to the price-line "reinstatement" check; first published HTML was already correct).
 - Screenshots of the Pages preview, viewed: `/workspace/mason/liveworkconsume-1280.jpg` and `/workspace/mason/liveworkconsume-390.jpg`. Both 200, title correct, served by GitHub.com, no horizontal overflow. The 390 CTA wraps onto two lines and stays inside the measure.
-- The 21-day demand window has not started. The public name still forwards to thisisaustininc.com.
+- The 21-day demand window had not started at preview time. It started later the same evening, when HTTPS was enforced. See the go-live section below.
 
 ## DNS records for Barker (copy this)
 
@@ -139,3 +139,46 @@ TXT    _github-pages-challenge-evanmack45    <value from the GitHub Pages settin
 ## Money rule
 
 No payment button. No Stripe objects created. The kit does not exist yet. The mailto is a waitlist only.
+
+## HTTPS go-live (Tue 24 Nov 2026, 10:05 PM America/Chicago)
+
+Barker moved DNS (GoDaddy NS unchanged, four GitHub A, four AAAA, www CNAME to evanmack45.github.io, forward to thisisaustininc.com removed) around 9:03 PM America/Chicago. File: /workspace/barker/liveworkconsume-dns.md. This log does not change DNS. No messages were sent.
+
+Google DoH and Cloudflare DoH already showed the GitHub A/AAAA records and the www CNAME at 9:05 PM America/Chicago, and still did at 9:55 PM. GitHub pages/health lagged, the same way netsanctuary.com did earlier tonight.
+
+- 9:05-9:53 PM: Pages API `https_certificate` stayed null. `PUT https_enforced=true` returned "The certificate does not exist yet" (404). openssl to 185.199.108.153 with SNI liveworkconsume.com still served the `*.github.io` Let's Encrypt certificate.
+- `GET /repos/evanmack45/liveworkconsume.com/pages/health` sometimes returns HTTP 202 with a body of `{}` while the check is running. A later GET that returns HTTP 200 has the real document. `gh api` of this endpoint can print `{}` in that 202 case; curl with the status code is the reliable read.
+- 9:37-9:38 PM, cname cycle 1 of 2 (too early): health was still `is_https_eligible=false`, `is_non_github_pages_ip_present=true`, reason NotServedByPagesError (apex) / InvalidCNAMEError (www). GitHub wrote commits `d5c351d` (Delete CNAME, build errored) and `ee32096` (Create CNAME, built). index.html was unchanged.
+- 10:04 PM: health HTTP 200 showed apex and www `is_https_eligible=true`, `is_served_by_pages=true`, `is_valid=true`, reason=null. Apex `is_pointed_to_github_pages_ip=true`. www `is_cname_to_github_user_domain=true`. `https_error` was `peer_failed_verification` (expected; the `*.github.io` cert was still being served).
+- 10:04:15-10:04:23 PM, cname cycle 2 of 2 (the allowed reset after eligibility): same PUT cname=null then cname=liveworkconsume.com. GitHub wrote `b05763a` (Delete CNAME, build errored) and `b2bf710` (Create CNAME). By 10:04:43 PM the Pages API showed `https_certificate.state=approved`, domains `liveworkconsume.com` and `www.liveworkconsume.com`, `expires_at=2027-02-22`. After the create-CNAME build reached `status=built` (10:05:01 PM), `gh api -X PUT repos/evanmack45/liveworkconsume.com/pages -F https_enforced=true` succeeded at 10:05:02 PM.
+
+Pages API after enforce: `status=built`, `cname=liveworkconsume.com`, `https_enforced=true`, `html_url=https://liveworkconsume.com/`, certificate approved for both names.
+
+Leaf cert from `openssl s_client -connect 185.199.108.153:443 -servername liveworkconsume.com -verify_hostname liveworkconsume.com`: CN=liveworkconsume.com, SAN=liveworkconsume.com and www.liveworkconsume.com, issuer Let's Encrypt YR1, notBefore=Nov 25 03:06:04 2026 GMT, notAfter=Feb 23 03:06:03 2027 GMT. Verification: OK. Verify return code: 0 (ok).
+
+Live checks, 10:05 PM America/Chicago:
+
+- `curl --noproxy '*' https://liveworkconsume.com/` returned HTTP 200, `server: GitHub.com`, TLS verify ok (`ssl_verify_result=0`), body 12081 bytes, SHA-256 `c3ac2c2fd1adcb7ccefcccd14f5d77258079727a618202331739b0397f7fea6d`, byte-identical to `index.html` at `b68eaa3`. The same body and hash came back with `--resolve liveworkconsume.com:443:185.199.108.153` and with a Host header to 185.199.108.153. Method used for the 200+cert check: `curl --noproxy '*' https://liveworkconsume.com/`.
+- `curl --noproxy '*' http://liveworkconsume.com/` is still intercepted by the box proxy (HTTP 500, Server: Pingora). The HTTP-to-HTTPS check used a Host header to 185.199.108.153: HTTP 301, Location: `https://liveworkconsume.com/`, Server: GitHub.com.
+- Mailto (two CTAs): `liveworkconsume@agentmail.to`, subject `Tell me when the appeal kit opens ($49 planned)`, body `What reason did Google give?`.
+- No payment button, no Stripe, no form, no checkout. The word "payment" appears only in negative copy ("There is no payment on this page", "This page does not take payment").
+- All six Google help source URLs returned HTTP 200 on GET.
+
+Live screenshots, taken via `scripts/shots.mjs` (curl to 185.199.108.153 with Host: liveworkconsume.com, served into Playwright), viewed at 1280 and 390: `/workspace/mason/liveworkconsume-live-1280.jpg` and `/workspace/mason/liveworkconsume-live-390.jpg`. Both 200, title correct, served by GitHub.com, no horizontal overflow. The 390 CTA wraps onto two lines and stays inside the measure. Viewport crops used while viewing: `/workspace/mason/lwc-live-crops/`.
+
+Repo HEAD is `b2bf710` (GitHub "Create CNAME" after the second re-add). The published HTML is still `b68eaa3`. No spend, no messages, no DNS edits. Cname cycles used: 2 of 2.
+
+## 21-day demand window
+
+Starts: Tuesday 24 Nov 2026, the day HTTPS went live on the real domain (enforced at 10:05 PM America/Chicago).
+Ends: Tuesday 15 Dec 2026.
+Pass = 5 or more answered emails from strangers. Kill = 2 or fewer. Extend once, to 30 Dec, only if the count is 3 or 4 and at least one email asked about price or timing. Count only emails that answer "What reason did Google give?". Inbox: liveworkconsume@agentmail.to (Barker owns it).
+
+## Done checklist after go-live (10:05 PM America/Chicago)
+
+1. HTTPS on the real domain: **PASS.** Certificate approved and HTTPS enforced. http://liveworkconsume.com/ (Host header to the Pages IP) 301s to https://liveworkconsume.com/. openssl to 185.199.108.153:443 with SNI shows a valid Let's Encrypt cert for liveworkconsume.com and www.liveworkconsume.com. From this box, `curl --noproxy '*' https://liveworkconsume.com/` also returns the live page with a valid cert. HTTP by hostname is still intercepted (Pingora 500).
+2. Screenshots at 1280 and 390, viewed: **PASS.** Paths above.
+3. The page and mailto work end to end: **PASS.** Body hash matches `index.html` at `b68eaa3`. Mailto address, subject, and body are exact.
+4. The pay button is live only if the money rule is met: **PASS.** No pay button. The kit does not exist yet. Mailto is a waitlist only.
+5. Every claim is sourced: **PASS.** All six cited Google help URLs returned 200.
+
