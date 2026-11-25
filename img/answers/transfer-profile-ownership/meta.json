@@ -1,0 +1,23 @@
+{
+  "alt": "A single brass key on a loose ring hanging from a hook on a walnut key board, on a terracotta wall in late light.",
+  "width": 1280,
+  "height": 720,
+  "srcset": [
+    [
+      640,
+      "header-640.webp"
+    ],
+    [
+      960,
+      "header-960.webp"
+    ],
+    [
+      1280,
+      "header.webp"
+    ]
+  ],
+  "ogAlt": "A single brass key on a loose ring hanging from a hook on a walnut key board, on a terracotta wall in late light.",
+  "ogWidth": 1200,
+  "ogHeight": 630,
+  "source": "/workspace/mason/art/incoming/liveworkconsume.com/transfer-profile-ownership/"
+}
