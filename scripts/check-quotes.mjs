@@ -22,6 +22,7 @@ for (const p of PAGES) {
     ok(text(b.src).includes(norm(b.q)), `${p.slug}: quote not found in ${b.src}: ${b.q.slice(0, 80)}`);
   }
   for (const n of p.notSaid) {
+    if (n.ours) { ok(!n.absent.length, `${p.slug}: ours claim carries no absence terms`); continue; } // a statement about our own work, nothing to check in a source
     ok(Array.isArray(n.absent) && n.absent.length && n.files?.length, `${p.slug}: notSaid needs absent terms and files`);
     for (const f of n.files) for (const term of n.absent) {
       na++;

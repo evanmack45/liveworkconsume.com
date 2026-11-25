@@ -13,6 +13,13 @@ export const SOURCES = {
   tool: { url: "https://support.google.com/business/workflow/13569690", title: "Manage appeals for your Google Business Profiles", note: "Google Business Profile Help", file: "gworkflow13569690.txt" },
   maps: { url: "https://support.google.com/contributionpolicy/answer/7400114", title: "Prohibited & restricted content, Maps User Generated Content Policy", note: "Google Maps policy help", file: "g7400114.txt" },
   thread: { url: "https://support.google.com/business/thread/413072614/reviews-all-gone-after-google-reinstated-business?hl=en", title: "Reviews all gone after Google reinstated business", note: "a user-posted thread in the Google Business Profile Community", file: "gthread413072614.txt" },
+  appealpage: { url: "https://support.google.com/business/answer/13597551", title: "Appeal Business Profile content & profile restrictions", note: "Google Business Profile Help", file: "g13597551.txt" },
+  verify: { url: "https://support.google.com/business/answer/7107242", title: "Verify your business on Google", note: "Google Business Profile Help", file: "g7107242.txt" },
+  video: { url: "https://support.google.com/business/answer/14271705", title: "Verify your business with a video recording", note: "Google Business Profile Help", file: "g14271705.txt" },
+  vstatus: { url: "https://support.google.com/business/workflow/12825603", title: "Check your verification status", note: "Google Business Profile Help", file: "g12825603.txt" },
+  reviewsmissing: { url: "https://support.google.com/business/answer/10313341", title: "About missing or delayed reviews", note: "Google Business Profile Help", file: "g10313341.txt" },
+  thread2: { url: "https://support.google.com/business/thread/471483593/profile-reactivated-after-suspension-but-all-reviews-are-missing?hl=en", title: "Profile Reactivated After Suspension, But All Reviews Are Missing", note: "a user-posted thread in the Google Business Profile Community", file: "gthread471483593.txt" },
+  reddit: { url: "https://www.reddit.com/r/GoogleMyBusiness/comments/xdxk37/how_long_are_reinstatement_requests_taking/", title: "How Long Are Reinstatement Requests Taking Nowadays?", note: "a user-posted thread on Reddit, r/GoogleMyBusiness, 2022", file: "reddit-xdxk37.txt" },
 };
 
 export const PAGES = [
@@ -86,7 +93,7 @@ export const PAGES = [
       ] },
     ],
     notSaid: [
-      { t: "How long a profile takes to show again after an approval. The pages give no time.", absent: ["business days", "weeks", "within 24 hours", "within 48 hours"], files: ["fix", "extra", "overview"] },
+      { t: "How long a profile takes to show again after an approval. The pages quoted here give no time. The one figure Google gives for appeals is on [[how long reinstatement takes|/how-long-does-reinstatement-take/]].", absent: ["business days", "weeks", "within 24 hours", "within 48 hours"], files: ["fix", "extra", "overview"] },
       { t: "Why a profile can stay hidden after an approved appeal.", absent: ["still hidden", "still not visible", "remain disabled"], files: ["fix", "overview", "extra"] },
     ],
     related: ["account-restricted", "appeal-denied", "suspended-again"],
@@ -291,5 +298,43 @@ export const PAGES = [
       { t: "What to do when your documents show a different name or address than the profile.", absent: ["does not match", "doesn't match"], files: ["fix"] },
     ],
     related: ["appeal-denied", "address-rules", "service-area-business"],
+  },
+  {
+    slug: "how-long-does-reinstatement-take",
+    title: "How long does Google Business Profile reinstatement take?",
+    h1: "How long does a Google Business Profile reinstatement take after an appeal?",
+    description: "Google gives one number for appeals: up to 5 business days. It gives no total from suspension to reinstatement. What the number covers and what it leaves out.",
+    short: "Google gives one number. Appeal reviews and decisions can take up to 5 business days. Google gives no total from suspension to reinstatement, and no time for an account appeal, an additional review, or a new verification. Forum posts report longer waits, but those are reports, not Google policy.",
+    sections: [
+      { h: "The one number Google gives", blocks: [
+        { p: "Google's page on appeals says:" },
+        { q: "Appeal reviews and decisions can take up to 5 business days.", src: "appealpage" },
+        { q: "Do not submit multiple appeals for the same issue before receiving a decision.", src: "appealpage" },
+        { q: "You can check the status of your appeal using the Google Business Profile appeals tool.", src: "appealpage" },
+        { p: "The appeal steps end with an email:" },
+        { q: "Google will review your appeal and send you an email with the appeal decision.", src: "appealpage" },
+      ] },
+      { h: "What that number does not cover", blocks: [
+        { p: "If an account restriction came first, there are two appeals, one after the other. Google's article says:" },
+        { q: "Once the account restriction is lifted, to remove the Business Profile suspension, you can submit an appeal for your Business Profile.", src: "fix" },
+        { p: "If an appeal is denied, there is a further step:" },
+        { q: "Only if your reinstatement request is denied, we may be able to do an additional review to prove your eligibility.", src: "fix" },
+        { p: "Google's pages give no time for the account appeal or for the additional review. If Google asks you to verify, that is its own review:" },
+        { q: "To help maintain the integrity of your Business Profile, verification reviews take up to 5 business days. On rare occasions, reviews may take longer.", src: "verify" },
+        { p: "So the 5 business days is a figure for one review. A case with several reviews in a row has several waits." },
+      ] },
+      { h: "What forum posters report", blocks: [
+        { p: "In a 2022 thread in r/GoogleMyBusiness, a poster describes a wait on the support-email route, not the appeals tool. Two replies say:" },
+        { q: "Confirming that current wait is still about three weeks for reinstatement requests from support.", src: "reddit" },
+        { q: "Plan on 14-21 days.", src: "reddit" },
+        { p: "These are user posts from 2022. Google's pages do not confirm them, and the appeals tool described above is a different route." },
+      ] },
+    ],
+    notSaid: [
+      { t: "A total time from suspension to reinstatement. The Google pages quoted here give none.", absent: ["72 hours", "usually takes", "typically takes", "within 24 hours"], files: ["appealpage", "fix", "extra"] },
+      { t: "How long an account appeal or an additional review takes.", absent: ["business days"], files: ["fix", "extra"] },
+      { t: "How long the support-email route takes today. The forum figures are from 2022 and we did not test them.", absent: [], files: [], ours: true },
+    ],
+    related: ["appeal-denied", "approved-but-still-disabled", "account-restricted"],
   },
 ];
