@@ -17,7 +17,8 @@ const BODY = "What reason did Google give?";
 const CTA = "Tell me when the appeal kit opens ($49 planned)";
 
 const mailtos = publicHtml.flatMap(f => [...text(f).matchAll(/href="(mailto:[^"]+)"/g)].map(m => [relative(root, f), m[1].replace(/&amp;/g, "&")]));
-const ANSWER_SLUGS = readdirSync(root).filter(d => statSync(join(root, d)).isDirectory() && existsSync(join(root, d, "index.html")) && !["sources", "content", "scripts", "css"].includes(d));
+const ANSWER_SLUGS = readdirSync(root).filter(d => statSync(join(root, d)).isDirectory() && existsSync(join(root, d, "index.html")) && !["sources", "content", "scripts", "css", "img", "business-profile-questions"].includes(d)); // the hub carries no CTA, so it is not an answer page
+ok(existsSync(join(root, "business-profile-questions", "index.html")), "hub page /business-profile-questions/ exists");
 ok(mailtos.length === 2 + ANSWER_SLUGS.length, `two mailto links on the home page plus one on each of ${ANSWER_SLUGS.length} answer pages (found ${mailtos.length})`);
 for (const [f, href] of mailtos) {
   const u = new URL(href);

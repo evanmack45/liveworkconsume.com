@@ -1,7 +1,7 @@
 // Builds /<slug>/index.html for each answer page, sitemap.xml, and the "Related questions" block on the home page.
 // Run: node scripts/build-answers.mjs. The output is committed. Content owner: content/answers.mjs.
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
-import { PAGES, SOURCES, CHECKED, DATE } from "../content/answers.mjs";
+import { PAGES, SOURCES, CHECKED, DATE, HUB } from "../content/answers.mjs";
 import { esc, inline, renderBlocks, stripMarkup } from "./lib/answers-lib.mjs";
 const root = new URL("../", import.meta.url).pathname;
 const SITE = "https://liveworkconsume.com";
@@ -31,8 +31,11 @@ function artHead(p, art) {
 function artFigure(p, art) {
   if (!art) return "";
   const base = `/img/answers/${p.slug}`;
+  // Round 4 art ships a 1280 master (header.webp) with 640 and 960 derivatives, listed in meta.srcset. Older art has a 2048 master.
+  const imgSet = art.srcset ? art.srcset.map(([w, f]) => `${base}/${f} ${w}w`).join(", ") : `${base}/header-640.webp 640w, ${base}/header-960.webp 960w, ${base}/header-1280.webp 1280w, ${base}/header.webp 2048w`;
+  const imgSrc = art.srcset ? `${base}/${art.srcset.at(-1)[1]}` : `${base}/header-1280.webp`;
   return `    <figure class="page-art">
-      <img src="${base}/header-1280.webp" srcset="${base}/header-640.webp 640w, ${base}/header-960.webp 960w, ${base}/header-1280.webp 1280w, ${base}/header.webp 2048w" sizes="(max-width: 42rem) calc(100vw - 2rem), 40rem" width="${art.width}" height="${art.height}" alt="${esc(art.alt)}" fetchpriority="high" decoding="async">
+      <img src="${imgSrc}" srcset="${imgSet}" sizes="(max-width: 42rem) calc(100vw - 2rem), 40rem" width="${art.width}" height="${art.height}" alt="${esc(art.alt)}" fetchpriority="high" decoding="async">
     </figure>
 `;
 }
@@ -94,7 +97,7 @@ ${jsonLd(p)}
     <p class="not-google">This is not a Google website.</p>
   </header>
   <main id="main">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Back to the six common reasons</a></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Back to the six common reasons</a> &middot; <a href="/${HUB.slug}/">All ${PAGES.length} questions by topic</a></nav>
 ${artFigure(p, artFor(p.slug))}    <h1>${esc(p.h1)}</h1>
     <div class="answer" role="note">
       <h2 class="answer-label">Short answer</h2>
@@ -123,6 +126,7 @@ ${p.sections.map(s => `
     <section id="related">
       <h2>Related questions</h2>
       <ul class="links">${related}</ul>
+      <p><a href="/${HUB.slug}/">See all ${PAGES.length} questions by topic</a></p>
     </section>
 
     <section id="sources">
@@ -144,12 +148,78 @@ for (const p of PAGES) {
   writeFileSync(root + p.slug + "/index.html", page(p));
 }
 
+// Hub page: every answer, grouped by topic. Content owner: HUB in content/answers.mjs.
+function hubPage() {
+  const h = HUB, url = `${SITE}/${h.slug}/`, art = artFor(h.slug);
+  const seen = h.groups.flatMap(g => g.slugs);
+  for (const p of PAGES) if (seen.filter(s => s === p.slug).length !== 1) throw new Error("hub must list each answer exactly once: " + p.slug);
+  for (const s of seen) if (!bySlug[s]) throw new Error("hub lists unknown slug " + s);
+  const org = { "@type": "Organization", name: "liveworkconsume.com", url: SITE + "/" };
+  const ld = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "CollectionPage", "@id": url + "#page", name: h.h1, description: h.description, url, inLanguage: "en", dateModified: DATE, ...(art ? { image: [`${SITE}/img/answers/${h.slug}/og.webp`, `${SITE}/img/answers/${h.slug}/header.webp`] } : {}), isPartOf: { "@type": "WebSite", name: "liveworkconsume.com", url: SITE + "/" }, publisher: org,
+        mainEntity: { "@type": "ItemList", numberOfItems: seen.length, itemListElement: seen.map((s, i) => ({ "@type": "ListItem", position: i + 1, url: `${SITE}/${s}/`, name: bySlug[s].title })) } },
+      { "@type": "BreadcrumbList", itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Google Business Profile suspended? The six common reasons", item: SITE + "/" },
+        { "@type": "ListItem", position: 2, name: h.title, item: url },
+      ] },
+    ],
+  }, null, 2);
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${esc(h.title)}</title>
+  <meta name="description" content="${esc(h.description)}">
+  <link rel="canonical" href="${url}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="liveworkconsume.com">
+  <meta property="og:title" content="${esc(h.title)}">
+  <meta property="og:description" content="${esc(h.description)}">
+  <meta property="og:url" content="${url}">
+${artHead({ slug: h.slug }, art)}
+  <meta name="twitter:title" content="${esc(h.title)}">
+  <meta name="twitter:description" content="${esc(h.description)}">
+  <script type="application/ld+json">
+${ld}
+  </script>
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to the content</a>
+  <header class="site">
+    <p class="wordmark"><a href="/">liveworkconsume.com</a></p>
+    <p class="not-google">This is not a Google website.</p>
+  </header>
+  <main id="main">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Back to the six common reasons</a></nav>
+${artFigure({ slug: h.slug }, art)}    <h1>${esc(h.h1)}</h1>
+${h.intro.map(t => `    <p>${inline(t)}</p>`).join("\n")}
+${h.groups.map(g => `
+    <section>
+      <h2>${esc(g.h)}</h2>
+      <ul class="links">${g.slugs.map(s => `<li><a href="/${s}/">${esc(bySlug[s].title)}</a></li>`).join("")}</ul>
+    </section>`).join("\n")}
+  </main>
+  <footer class="site">
+    <p>liveworkconsume.com. This is not a Google website and is not affiliated with Google. This page is not legal advice.</p>
+  </footer>
+</body>
+</html>
+`;
+}
+mkdirSync(root + HUB.slug, { recursive: true });
+writeFileSync(root + HUB.slug + "/index.html", hubPage());
+
 // Home page: related questions block between markers.
 const home = readFileSync(root + "index.html", "utf8");
 const block = `<!-- answers:start -->
     <section id="questions">
       <h2>More questions, answered from Google's pages</h2>
-      <p>Each page below quotes Google's help pages, says what they do not cover, and lists its sources.</p>
+      <p>Each page below quotes Google's help pages, says what they do not cover, and lists its sources. <a href="/${HUB.slug}/">Browse all ${PAGES.length} questions by topic</a>.</p>
       <ul class="links">${PAGES.map(p => `<li><a href="/${p.slug}/">${esc(p.title)}</a></li>`).join("")}</ul>
     </section>
     <!-- answers:end -->`;
@@ -159,7 +229,7 @@ else out = home.replace('<section id="sources">', block + '\n\n    <section id="
 writeFileSync(root + "index.html", out);
 
 // sitemap.xml
-const urls = [["/", DATE], ...PAGES.map(p => [`/${p.slug}/`, DATE])];
+const urls = [["/", DATE], [`/${HUB.slug}/`, DATE], ...PAGES.map(p => [`/${p.slug}/`, DATE])];
 writeFileSync(root + "sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(([u, d]) => `  <url>\n    <loc>${SITE}${u}</loc>\n    <lastmod>${d}</lastmod>\n  </url>`).join("\n")}\n</urlset>\n`);
 writeFileSync(root + "robots.txt", `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
 console.log(`built ${PAGES.length} pages, sitemap.xml, robots.txt`);

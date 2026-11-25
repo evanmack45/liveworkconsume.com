@@ -826,3 +826,22 @@ export const PAGES = [
     related: ["postcard-verification-not-arrived", "video-verification-failed", "reviews-after-suspension"],
   },
 ];
+
+// Hub page content. Every answer slug must appear in exactly one group (the builder throws otherwise).
+export const HUB = {
+  slug: "business-profile-questions",
+  title: "Google Business Profile questions, grouped by topic",
+  h1: "Google Business Profile questions, by topic",
+  description: "Every answer on this site, grouped by topic: appeals and suspensions, verification, ownership, closed listings, address and pin, and photos.",
+  intro: [
+    "These pages answer common questions about a suspended, disabled or misplaced Google Business Profile. Each one quotes Google's help pages, says what they do not cover, and lists its sources. This is not a Google website.",
+    "Pick the group that matches your problem. If your profile is suspended, start with appeals and suspensions.",
+  ],
+  groups: [
+    { h: "Appeals and suspensions", slugs: ["appeal-denied", "approved-but-still-disabled", "how-long-does-reinstatement-take", "appeal-evidence-checklist", "suspended-again", "create-new-profile-after-suspension", "reviews-after-suspension", "deceptive-content", "account-restricted"] },
+    { h: "Verification", slugs: ["postcard-verification-not-arrived", "video-verification-failed"] },
+    { h: "Ownership, name, duplicates and closed listings", slugs: ["someone-else-owns-my-profile", "transfer-profile-ownership", "duplicate-business-profile", "marked-permanently-closed", "change-business-name"] },
+    { h: "Address, pin and service area", slugs: ["address-rules", "map-pin-wrong-place", "service-area-business"] },
+    { h: "Photos", slugs: ["photos-rejected"] },
+  ],
+};
