@@ -1,0 +1,6 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/1i1dk9s/rejected_photos/
+FETCHED: 2026-11-25 (read from a WebSearch excerpt of the thread; Reddit blocks plain GET)
+
+Rejected Photos. Posted by u/Nephite94 in r/GoogleMyBusiness, January 14, 2025. I have just started a small dog sitting business and I am trying to add pictures. What does google think is wrong with them?
+
+Comment, u/cnomo, January 14, 2025: 1. How long ago did you create your profile? It typically takes 2 weeks before you can post photos to a fresh profile. Similarly, GBP's that are coming out of suspension have holds on new photo publishing. 2. File sizes matter. One of your examples is 11mb. Google Guidelines stipulates a max of 5mb. 3. Due to a bug that we still occasionally see, photos can show as not published and then they show up in a couple of days.

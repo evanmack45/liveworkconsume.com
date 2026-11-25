@@ -1,0 +1,4 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/1jfvwho/help_needed_my_business_address_is_incorrectly/
+FETCHED: 2026-11-25 (read from a WebSearch excerpt of the thread; Reddit blocks plain GET)
+
+Help Needed: My Business Address is Incorrectly Listed on Google Maps. Posted by u/dgowatt in r/GoogleMyBusiness, March 20, 2025. My Google Business Profile is correctly listed at the right location, but there's another place on Google Maps showing my business address in the wrong spot. Because of this, I get multiple calls every single day from frustrated customers who went to the wrong location. I've already tried: Using the Suggest an edit feature to move the pin (it says the edit was accepted, but nothing changes). Contacting Google Business support, but they say they can't fix it since the incorrect address isn’t on my official Google Business Profile.
