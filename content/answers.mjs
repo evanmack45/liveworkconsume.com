@@ -955,6 +955,48 @@ export const PAGES = [
     ],
     related: ["postcard-verification-not-arrived", "duplicate-business-profile", "approved-but-still-disabled"],
   },
+  {
+    slug: "moving-the-business",
+    title: "Moving your business: update the Business Profile address",
+    h1: "We're moving. Do we update our Google Business Profile or make a new one?",
+    description: "Google says to update the existing profile with the new address, not make a new one, and to verify again after a move. The steps, timing, what's left out.",
+    short: "Google says that if your business relocates, you should not create a new Business Profile for the new location. Update the existing profile with the new address. Google's edit page also says that if you move to a new address after it's verified, you must verify your business again. Its pages here say nothing about what a move does to your ranking.",
+    sections: [
+      { h: "What Google says to do", blocks: [
+        { p: "Google's page on duplicate profiles has a section for relocations:" },
+        { q: "If your business relocates, do not create a new Business Profile for the new location.", src: "dup" },
+        { q: "Instead, update the existing profile with the new address.", src: "dup" },
+        { p: "The guidelines give the reason:" },
+        { q: "There should only be one profile per business, as this can cause problems with how your information displays on Google Maps and Search.", src: "guide" },
+      ] },
+      { h: "The steps, and verifying again", blocks: [
+        { p: "On the address page: go to your Business Profile, select Edit profile, then Location. Next to Business location select Edit, enter the new address details, and select Save. If Google cannot find the address, you can pin the spot yourself with Adjust. See [[the pin page|/map-pin-wrong-place/]]." },
+        { q: "Changes to your profile usually take about 10 minutes to show up.", src: "pinhelp" },
+        { q: "In some cases, it can take up to 30 days.", src: "pinhelp" },
+        { p: "On verification, the edit page says:" },
+        { q: "If you move your business to a new address after it’s verified, you must verify your business again", src: "editprof" },
+        { p: "The new address also has to be one Google accepts. [[Address rules|/address-rules/]] covers virtual, shared and home addresses. If you serve customers at their location and show no address, see [[service-area businesses|/service-area-business/]]." },
+      ] },
+      { h: "What posters report", blocks: [
+        { p: "A poster planning a relocation asks:" },
+        { q: "What is the safest and Google-approved way to handle this?", src: "rmv1" },
+        { p: "A poster who already moved describes a bad outcome:" },
+        { q: "We updated our address the wrong way apparently, leading to a suspended profile.", src: "rmv2" },
+        { q: "While trying to correct the issue, we opened a new profile at the updated address.", src: "rmv2" },
+        { q: "Google support is saying their are no reviews and we had 100 at a 5 star rating, all legitimate and collected over 8-10 years.", src: "rmv2" },
+        { p: "The post does not say what the wrong way was, so we cannot tell what caused the suspension. Opening a second profile is what Google's page above says not to do. For what happens to reviews on a suspended profile, see [[Do reviews disappear when a profile is suspended?|/reviews-after-suspension/]]." },
+        { p: "A third poster is buying a business in Idaho and moving it to Seattle:" },
+        { q: "I’m trying to buy a business in Idaho and moving it to Seattle.", src: "rmv3" },
+        { p: "A new owner needs ownership first. See [[Transferring a Business Profile|/transfer-profile-ownership/]]." },
+      ] },
+    ],
+    notSaid: [
+      { t: "What a move does to rankings. Google's pages on the address, duplicates and edits do not mention ranking.", absent: ["ranking", "rank "], files: ["dup", "pinhelp", "editprof"] },
+      { t: "A step-by-step process for keeping reviews through a move. The duplicate page says to update the existing profile and does not describe a review-transfer step for relocations.", absent: ["keep your reviews", "keep reviews"], files: ["dup", "pinhelp", "editprof"] },
+      { t: "Why the second poster's profile was suspended. The post does not say.", absent: [], files: [], ours: true },
+    ],
+    related: ["address-rules", "map-pin-wrong-place", "duplicate-business-profile"],
+  },
 ];
 
 // Hub page content. Every answer slug must appear in exactly one group (the builder throws otherwise).
@@ -971,7 +1013,7 @@ export const HUB = {
     { h: "Appeals and suspensions", slugs: ["appeal-denied", "approved-but-still-disabled", "how-long-does-reinstatement-take", "appeal-evidence-checklist", "suspended-again", "create-new-profile-after-suspension", "reviews-after-suspension", "deceptive-content", "account-restricted"] },
     { h: "Verification", slugs: ["postcard-verification-not-arrived", "video-verification-failed"] },
     { h: "Ownership, name, duplicates and closed listings", slugs: ["someone-else-owns-my-profile", "transfer-profile-ownership", "duplicate-business-profile", "marked-permanently-closed", "change-business-name"] },
-    { h: "Address, pin and service area", slugs: ["address-rules", "map-pin-wrong-place", "service-area-business"] },
+    { h: "Address, pin and service area", slugs: ["address-rules", "map-pin-wrong-place", "service-area-business", "moving-the-business"] },
     { h: "Photos", slugs: ["photos-rejected"] },
     { h: "Reviews", slugs: ["fake-reviews"] },
     { h: "Visibility and hours", slugs: ["profile-not-showing"] },
