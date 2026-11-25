@@ -738,4 +738,47 @@ export const PAGES = [
     ],
     related: ["someone-else-owns-my-profile", "duplicate-business-profile", "address-rules"],
   },
+  {
+    slug: "change-business-name",
+    title: "Rebranding a Google Business Profile: what Google says",
+    h1: "I'm changing my business name. Can I keep my Google Business Profile?",
+    description: "Google allows a minor name change on the same profile. Other name changes count as a new business and need a new profile. The rules, and what Google leaves out.",
+    short: "Google says a minor name change, where the proper nouns and services in the name and the category stay the same, can be made on the existing profile. A name change that does not meet that test is a new business: you mark the old profile closed and create a new one. Google's rebrand rules do not say what happens to reviews.",
+    sections: [
+      { h: "Google's rebranding rule", blocks: [
+        { p: "The guidelines page has a section called Rebranding. It says:" },
+        { q: "Your Business Profile may be eligible for rebranding (defined as an eligible name change without creating a new Business Profile) if you make a minor name change, in which the proper nouns and services described in the business name remain unchanged and the business category remains unchanged.", src: "guide" },
+        { q: "You may also be eligible for rebranding if you have multiple locations and the business name changes.", src: "guide" },
+        { q: "If your business meets the rebranding criteria above, you can update your business name when you edit your business information.", src: "guide" },
+      ] },
+      { h: "If the change does not qualify", blocks: [
+        { q: "If your business changes its name but doesn't meet the criteria above, then it's considered a new business.", src: "guide" },
+        { q: "You must mark the existing Business Profile as closed and then create a new Business Profile with your new business name.", src: "guide" },
+        { p: "Google's reopen article adds a warning for that case, and a line about reviews:" },
+        { q: "If your business was marked permanently closed as part of a location or name change, do not reopen the business.", src: "reopen" },
+        { q: "If you want your reviews to be moved to the new profile, contact us for help.", src: "reopen" },
+        { p: "[[Marked permanently closed|/marked-permanently-closed/]] covers that article in full." },
+      ] },
+      { h: "Verification after an edit", blocks: [
+        { p: "Google's verification page says an extra check can follow a change to your details:" },
+        { q: "If you're asked to provide additional info to re-verify your profile, it's likely because some of your business details were recently updated.", src: "verify" },
+        { p: "[[Postcard not arrived|/postcard-verification-not-arrived/]] and [[the video page|/video-verification-failed/]] cover the verification methods." },
+      ] },
+      { h: "What people report", blocks: [
+        { p: "Google's pages are silent on reviews for an approved rebrand. Posters ask about it. One plumber writes:" },
+        { q: "We have over 100+ 5star reviews and don't want to loose the reviews if at all possible.", src: "rname1" },
+        { p: "A commenter on another thread answers:" },
+        { q: "You won't lose reviews. You will have to reverify though, so have your documentation ready.", src: "rname2" },
+        { p: "A commenter on a third thread suggests an order of edits:" },
+        { q: "Change the phone number and website first, and then change the name after a week or two, changing all these together can create mess.", src: "rname3" },
+        { p: "These are commenters' experiences. Google does not say any of it, and we did not test it. If ownership is changing hands as well, see [[Transferring a Business Profile|/transfer-profile-ownership/]]." },
+      ] },
+    ],
+    notSaid: [
+      { t: "What happens to reviews on an approved rebrand. The guidelines page does not mention reviews in that section.", absent: ["keep your reviews", "reviews will be kept", "lose your reviews"], files: ["guide"] },
+      { t: "How long re-verification takes after a name change. The verification page gives no time for it.", absent: ["after a name change", "days to re-verify"], files: ["verify"] },
+      { t: "Whether your name change counts as minor. That depends on your name and category, and we cannot judge it.", absent: [], files: [], ours: true },
+    ],
+    related: ["transfer-profile-ownership", "marked-permanently-closed", "duplicate-business-profile"],
+  },
 ];
