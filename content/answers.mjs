@@ -592,4 +592,46 @@ export const PAGES = [
     ],
     related: ["someone-else-owns-my-profile", "address-rules", "reviews-after-suspension"],
   },
+  {
+    slug: "marked-permanently-closed",
+    title: "Google Business Profile marked permanently closed by mistake",
+    h1: "My Google Business Profile is marked permanently closed but we're open. How do I fix it?",
+    description: "Google says a profile mistakenly marked permanently closed can be reopened from the hours settings, except after a location or name change. The steps and the limits.",
+    short: "Google says that if a business is mistakenly marked permanently closed, you can reopen the location. In your Business Profile, open Edit profile, then Hours, and choose Open with main hours. Google says not to reopen a profile that was closed as part of a location or name change, and to add a new business instead.",
+    sections: [
+      { h: "What Google says", blocks: [
+        { q: "If you reopen a closed business or if any of your businesses are mistakenly marked permanently closed, you can reopen the location.", src: "closed" },
+        { q: "When you reopen your business, your profile is no longer marked temporarily or permanently closed on Google Maps and Search.", src: "reopen" },
+        { p: "The reopen steps: go to your Business Profile, select Edit profile, then Hours. Next to Hours, select Edit, then Open with main hours, check the days you are open, set the hours and save. For several locations, use Business Profile Manager, select the locations, choose Actions, then Open, and confirm Mark as open." },
+      ] },
+      { h: "The exception", blocks: [
+        { p: "Google's reopen article has an Important note:" },
+        { q: "If your business was marked permanently closed as part of a location or name change, do not reopen the business.", src: "reopen" },
+        { q: "Instead, add a new business.", src: "reopen" },
+        { q: "If you want your reviews to be moved to the new profile, contact us for help.", src: "reopen" },
+      ] },
+      { h: "Why not to leave it", blocks: [
+        { q: "If you mark a business as permanently closed, your Business Profile may still appear on Search and Maps for users who search for it.", src: "closed" },
+        { p: "The removal article describes where a closed listing is headed:" },
+        { q: "If you mark your business as closed, it won't disappear from Maps right away. It will slowly disappear from search results and then be completely removed.", src: "rem" },
+        { p: "Google gives no timeline for \"slowly\"." },
+      ] },
+      { h: "When your own team did it, or someone else", blocks: [
+        { p: "A Reddit poster says a staff member caused it:" },
+        { q: "team member accidentally marked Google Business Profile as permanently closed, however, it's still very much open.", src: "rclosed" },
+        { p: "A March 2026 Community post describes a closure the owner did not make and a reopen that would not save:" },
+        { q: "had an email from Google saying my business has been marked as permanently closed (by who, I have no idea).", src: "thread4" },
+        { q: "go to change opening hours to 'Open - Main hours' to show I'm open and changes don't save.", src: "thread4" },
+        { p: "A reply in that thread points to Google's Business Redressal form. The form's own text limits what it reviews:" },
+        { q: "If your complaint is not related to fraudulent activity on the name, phone number, or URL of the business, we will not be able to review your complaint.", src: "redress" },
+        { p: "We did not test whether the form takes a closure complaint. The page [[Someone else owns my profile|/someone-else-owns-my-profile/]] covers the form and ownership requests." },
+      ] },
+    ],
+    notSaid: [
+      { t: "How long a reopened profile takes to show as open. Neither article gives a time.", absent: ["24 hours", "48 hours", "72 hours"], files: ["reopen", "closed"] },
+      { t: "How to find out who marked a profile closed. Neither article covers it.", absent: ["who marked", "edit history", "who made"], files: ["reopen", "closed"] },
+      { t: "Whether the reopen setting works when a suggested edit from someone else caused the closure. We did not test it.", absent: [], files: [], ours: true },
+    ],
+    related: ["duplicate-business-profile", "someone-else-owns-my-profile", "address-rules"],
+  },
 ];
