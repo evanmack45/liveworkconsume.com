@@ -20,6 +20,18 @@ export const SOURCES = {
   reviewsmissing: { url: "https://support.google.com/business/answer/10313341", title: "About missing or delayed reviews", note: "Google Business Profile Help", file: "g10313341.txt" },
   thread2: { url: "https://support.google.com/business/thread/471483593/profile-reactivated-after-suspension-but-all-reviews-are-missing?hl=en", title: "Profile Reactivated After Suspension, But All Reviews Are Missing", note: "a user-posted thread in the Google Business Profile Community", file: "gthread471483593.txt" },
   reddit: { url: "https://www.reddit.com/r/GoogleMyBusiness/comments/xdxk37/how_long_are_reinstatement_requests_taking/", title: "How Long Are Reinstatement Requests Taking Nowadays?", note: "a user-posted thread on Reddit, r/GoogleMyBusiness, 2022", file: "reddit-xdxk37.txt" },
+  own: { url: "https://support.google.com/business/answer/4566671", title: "Request ownership of a Business Profile", note: "Google Business Profile Help", file: "g4566671.txt" },
+  dup: { url: "https://support.google.com/business/answer/12756178", title: "Resolve duplicate profiles & ownership issues", note: "Google Business Profile Help", file: "g12756178.txt" },
+  rem: { url: "https://support.google.com/business/answer/4669092", title: "Remove a Business Profile from your Google Account", note: "Google Business Profile Help", file: "g4669092.txt" },
+  reopen: { url: "https://support.google.com/business/answer/15300571", title: "Mark your business as reopened", note: "Google Business Profile Help", file: "g15300571.txt" },
+  closed: { url: "https://support.google.com/business/answer/15300196", title: "Mark your business as closed", note: "Google Business Profile Help", file: "g15300196.txt" },
+  redress: { url: "https://support.google.com/business/contact/business_redressal_form", title: "Business Redressal Complaint Form", note: "Google Business Profile Help form", file: "gredressal.txt" },
+  thread3: { url: "https://support.google.com/business/thread/406762397/postcard-not-received-after-25-days-verification-stuck-need-alternative-method", title: "Postcard not received after 25 days - Verification stuck & Need alternative method", note: "a user-posted thread in the Google Business Profile Community, February 2026", file: "gthread406762397.txt" },
+  thread4: { url: "https://support.google.com/business/thread/418394212/my-business-has-today-been-marked-as-permanently-closed-by-someone-and-it-is-not", title: "my business has today been marked as 'permanently closed' by someone and it is not", note: "a user-posted thread in the Google Business Profile Community, March 2026", file: "gthread418394212.txt" },
+  r117: { url: "https://www.reddit.com/r/GoogleMyBusiness/comments/117muda/postcard_verification/", title: "Postcard verification", note: "a user-posted thread on Reddit, r/GoogleMyBusiness", file: "reddit-117muda.txt" },
+  rhijack: { url: "https://www.reddit.com/r/GoogleMyBusiness/comments/1odlrhu/someone_stole_my_google_business_listing/", title: "Someone stole my Google business listing.", note: "a user-posted thread on Reddit, r/GoogleMyBusiness, October 2025", file: "reddit-1odlrhu.txt" },
+  rdup: { url: "https://www.reddit.com/r/GoogleMyBusiness/comments/1i2u1ic/how_to_get_rid_of_duplicate_profile/", title: "How to get rid of Duplicate profile", note: "a user-posted thread on Reddit, r/GoogleMyBusiness", file: "reddit-1i2u1ic.txt" },
+  rclosed: { url: "https://www.reddit.com/r/GoogleMyBusiness/comments/ypsffr/google_business_profile_accidentally_marked/", title: "Google Business Profile Accidentally Marked \"Permanently Closed\" - Can It Be Reopened?", note: "a user-posted thread on Reddit, r/GoogleMyBusiness", file: "reddit-ypsffr.txt" },
 };
 
 export const PAGES = [
@@ -445,5 +457,46 @@ export const PAGES = [
       { t: "Whether your reviews will return. Only Google can see your profile.", absent: ["will return"], files: ["reviewsmissing", "fix"] },
     ],
     related: ["create-new-profile-after-suspension", "approved-but-still-disabled", "appeal-denied"],
+  },
+  {
+    slug: "postcard-verification-not-arrived",
+    title: "Google Business Profile postcard never arrived: what to do",
+    h1: "My Google Business Profile verification postcard never arrived. What now?",
+    description: "Google says most codes arrive within 14 days and not to request a new one. What its verification page says, and where a Community reply says something else.",
+    short: "Google says most postcard codes arrive within 14 days and expire after 30 days. It also says not to request a new code, because that invalidates the one in the mail. Postcard verification isn't available for every business, and Google's advice if you still can't verify is to contact support.",
+    sections: [
+      { h: "What Google's verification page says", blocks: [
+        { p: "The page on verifying your business gives these details for the postcard method:" },
+        { q: "Most codes arrive within 14 days.", src: "verify" },
+        { q: "Do not request a new code. If you do, we invalidate the code in the mail and send a new one. This can make the process longer.", src: "verify" },
+        { q: "Verification codes expire after 30 days.", src: "verify" },
+        { q: "Do not edit your business name, address, or category on your Business Profile. If you do, the code we sent you won't work.", src: "verify" },
+      ] },
+      { h: "If it still has not come", blocks: [
+        { p: "The same page says:" },
+        { q: "Verification through postcard isn't available for all businesses. We recommend that you try the options available to you. If you're still unable to verify your business, contact support.", src: "verify" },
+        { p: "The page gives no day count for when to contact support. It does list a video call as another method. The page [[Video verification failed|/video-verification-failed/]] covers that route." },
+      ] },
+      { h: "A Community reply that differs from Google's page", blocks: [
+        { p: "In a February 2026 Community thread, a manager says they requested a postcard on January 5 and had nothing after more than 25 days. The first reply says:" },
+        { q: "If it is your first time requesting, the postcard, then please request a second one.", src: "thread3" },
+        { q: "If you've already had multiple postcards not arrive, then please get in touch with Google about verification issues via this form", src: "thread3" },
+        { p: "Google's page says the opposite on the first point: do not request a new code, because it invalidates the first and can make the process longer. We did not test which is right for a given profile. The poster answered the reply this way:" },
+        { q: "I cannot afford to wait another 30 days for a second postcard.", src: "thread3" },
+        { p: "The same poster says a support agent confirmed video verification was enabled, and then:" },
+        { q: "the Video Call option is not visible to me", src: "thread3" },
+      ] },
+      { h: "The question people ask", blocks: [
+        { p: "A Reddit poster who waited 30 days and requested a second card asks:" },
+        { q: "Is there anything I can do to track the card or speak with someone to check it's status ?", src: "r117" },
+        { p: "Google's verification page, as saved, has no tracking step." },
+      ] },
+    ],
+    notSaid: [
+      { t: "A way to track the postcard or see where it is. The verification page has no tracking step.", absent: ["track", "tracking number"], files: ["verify"] },
+      { t: "How many days past the 14-day tip to wait before contacting support. The page gives no number between 14 and 30.", absent: ["after 14 days", "21 days", "wait 14"], files: ["verify"] },
+      { t: "Whether a second postcard works. The Community reply and Google's page disagree, and we did not test it.", absent: [], files: [], ours: true },
+    ],
+    related: ["video-verification-failed", "address-rules", "service-area-business"],
   },
 ];

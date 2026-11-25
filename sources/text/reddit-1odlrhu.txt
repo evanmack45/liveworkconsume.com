@@ -1,0 +1,6 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/1odlrhu/someone_stole_my_google_business_listing/
+FETCHED: 2026-11-25 (read with WebFetch; from a WebSearch excerpt of the thread; Reddit blocks plain GET)
+
+Someone stole my Google business listing. Posted by u/One-Opening-9204 in r/GoogleMyBusiness, October 22, 2025. Somehow someone gained access to my Google business listing and took control and changed the phone number so we are not receiving calls anymore. I tried contacting Google but they are not helping at all. They don't even seem to understand that someone stole my business, they keep talking about verifying and service area business. I have proof it's our business because we still have control of the website and we have the search console verified. I can not claim the business back because it asks me to request the person in control and obviously they keep refusing.
+
+Top comment, u/keyserholiday, October 22, 2025: Create a new email address with the domain and add it to Google Search Console and Google Analytics Four. Then add the GBP to a new dashboard and request ownership access. The current owner will have 3 days to accept or deny the request. Once the request is denied or the 3 days pass, you will be able to verify your association with the business.

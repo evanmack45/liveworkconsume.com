@@ -1,0 +1,6 @@
+URL: https://support.google.com/business/thread/418394212/my-business-has-today-been-marked-as-permanently-closed-by-someone-and-it-is-not
+FETCHED: 2026-11-25 (read with WebFetch; Google Business Profile Community thread, original post and the first reply)
+
+my business has today been marked as 'permanently closed' by someone and it is not. Mar 19, 2026. As said above, had an email from Google saying my business has been marked as permanently closed (by who, I have no idea). Email says to let them know if I'm still open. Log in to alter this, and go to change opening hours to 'Open - Main hours' to show I'm open and changes don't save. However many times I try and edit this I get a message on the page saying "Can't save edit, please try again later" How can some random person mark a business down as permanently closed and then Google not give me a way of changing it?
+
+Reply, Mar 19, 2026, as shown on the page (the fetch scrambled its order): If it still does not save after 24 hours, submit a request through the Business Redressal form at https://support.google.com/business/contact/business_redressal_form

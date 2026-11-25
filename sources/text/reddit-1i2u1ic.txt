@@ -1,0 +1,4 @@
+URL: https://www.reddit.com/r/GoogleMyBusiness/comments/1i2u1ic/how_to_get_rid_of_duplicate_profile/
+FETCHED: 2026-11-25 (read with WebFetch; original post only; Reddit shows no comments to a plain fetch)
+
+How to get rid of Duplicate profile. I accidentally created a duplicate profile and now I need to get rid of it. I don't want it to affect the original profile at all. I've looked up tons of help files, conversations, blogs, etc, and there seems to be two things to do. 1. Merge the two profiles. I don't want to do that because the new duplicate has absolutely no value or new information to add. No reviews. And google says that there's a risk of losing reviews or replies to reviews. 2. Report it as a duplicate. That would be nice, but not only does nothing say HOW to do that, but every attempt I make to tell google, takes me to a MERGE request.

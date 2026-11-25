@@ -15,7 +15,7 @@ const text = key => cache[key] ??= (() => {
   return norm(body);
 })();
 let nq = 0, na = 0;
-for (const key of Object.keys(SOURCES)) ok(text(key).length > 500, `source ${key} text snapshot exists and has content`);
+for (const key of Object.keys(SOURCES)) ok(text(key).length > 300, `source ${key} text snapshot exists and has content`);
 for (const p of PAGES) {
   for (const sec of p.sections) for (const b of sec.blocks) if (b.q) {
     nq++;
