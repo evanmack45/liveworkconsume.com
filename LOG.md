@@ -206,3 +206,8 @@ Pass = 5 or more answered emails from strangers. Kill = 2 or fewer. Extend once,
 - Gated release `bdcabd1`. check-quotes, check-seo, check-site, e2e.mjs, unslop, verify-live all passed. e2e probed the home and Reinstatement mailto at 390 and 1280 without sending. A real send would go to liveworkconsume@agentmail.to (team inbox).
 - visual-qa-gate on all 26 live URLs: PASS, no P0, Lighthouse mobile performance 99–100, CLS 0. Impeccable 0/0 at 390 and 1280 on all 26. Logs: `/workspace/mason/recut-2026-11-27.md` section 2, `/workspace/mason/slop-fix-lwc.md`. Shots I viewed: `/workspace/mason/recut-shots/lwc-{home,how-long-does-reinstatement-take,appeal-evidence-checklist,video-verification-failed}-{390,1280}.png`.
 - Remaining QUALITY-BAR misses (not cut further): fold-prose 35 and headline 8 on kept H1s; words/screen at 390 is 111–116 on 9 answers; Vale often above 1/100 on answers. Home fold 66 is inside the work-order cap of 100 (Shears tighter pass test wanted 60).
+
+## 2026-11-26 (CT) Compass rows (Mason)
+- LWC-1: PASS. og:title, og:description, og:image (1200x630) and twitter:card=summary_large_image already on home and every answer page. Live curl shows og:image (200). Lighthouse SEO 100. No new commit (ea0150e / recut bdcabd1).
+- LWC-2: PASS (already met). First 60 words under the H1 already answer L1, L2, and L3. No copy added (recut caps kept). Reran L1–L3; our domain was not cited (`/workspace/compass/ai-visibility.md`). No new commit.
+- LWC-3: PASS. Sitemap has 26 URLs, each with lastmod. GSC sitemap report: 0 errors, 26 submitted. No new commit.
