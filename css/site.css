@@ -2,9 +2,9 @@
 :root {
   --ink: #1c1916;
   --muted: #5a544c;
-  --bg: #f7f4ee;
-  --paper: #fffdf8;
-  --line: #d9d1c3;
+  --bg: #ffffff;
+  --paper: #ffffff;
+  --line: #d5d9dd;
   --accent: #8a3418;
   --accent-ink: #fffdf8;
   --focus: #1f4a63;
@@ -97,7 +97,7 @@ footer.site p { margin: 0; }
 .crumbs { margin: 0 0 1.25rem; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 0.9rem; color: var(--muted); }
 .crumbs a { display: inline-block; padding: 0.35rem 0; }
 .crumbs span:last-child { overflow-wrap: anywhere; }
-.answer { margin: 0 0 1.5rem; padding: 1rem 1.1rem 0.4rem; background: var(--paper); border: 1px solid var(--line); border-left: 6px solid var(--accent); }
+.answer { margin: 0 0 1.5rem; padding: 1rem 1.1rem 0.4rem; background: var(--paper); border: 1px solid var(--line); }
 .answer-label { margin: 0 0 0.4rem; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--accent); }
 .answer p { font-size: 1.08rem; }
 .answer .checked { font-size: 0.9rem; color: var(--muted); }
@@ -122,4 +122,32 @@ ul.links a { padding-block: 0.7rem; }
   height: auto;
   border: 1px solid var(--line);
   background: var(--line);
+}
+
+main p, main li { max-width: 65ch; }
+
+/* Home recut */
+.lede-line { font-size: 1.08rem; margin: 0 0 1rem; }
+.home-cta { margin: 0 0 1.25rem; }
+.hero-shot { display:block; width:100%; height:auto; border:1px solid var(--line); border-radius:10px; background:#fff; margin: 0 0 1.25rem; }
+.reason-tiles { list-style:none; padding:0; margin:0 0 1.5rem; }
+.reason-tiles li { margin:0; }
+.reason-tiles a {
+  display:block;
+  padding:0.75rem 0.9rem;
+  border:1px solid var(--line);
+  border-bottom:none;
+  text-decoration:none;
+  color:var(--ink);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  min-height: 44px;
+}
+.reason-tiles li:first-child a { border-radius: 10px 10px 0 0; }
+.reason-tiles li:last-child a { border-bottom:1px solid var(--line); border-radius: 0 0 10px 10px; }
+.reason-tiles a:hover { background: #f4f5f6; }
+@media (min-width: 1280px) {
+  .hero-row { display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items:start; }
+  .hero-row .hero-shot { margin:0; }
 }

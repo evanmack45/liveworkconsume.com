@@ -19,7 +19,7 @@ const CTA = "Tell me when the appeal kit opens ($49 planned)";
 const mailtos = publicHtml.flatMap(f => [...text(f).matchAll(/href="(mailto:[^"]+)"/g)].map(m => [relative(root, f), m[1].replace(/&amp;/g, "&")]));
 const ANSWER_SLUGS = readdirSync(root).filter(d => statSync(join(root, d)).isDirectory() && existsSync(join(root, d, "index.html")) && !["sources", "content", "scripts", "css", "img", "business-profile-questions"].includes(d)); // the hub carries no CTA, so it is not an answer page
 ok(existsSync(join(root, "business-profile-questions", "index.html")), "hub page /business-profile-questions/ exists");
-ok(mailtos.length === 2 + ANSWER_SLUGS.length, `two mailto links on the home page plus one on each of ${ANSWER_SLUGS.length} answer pages (found ${mailtos.length})`);
+ok(mailtos.length === 1 + ANSWER_SLUGS.length, `one mailto link on the home page plus one on each of ${ANSWER_SLUGS.length} answer pages (found ${mailtos.length})`);
 for (const [f, href] of mailtos) {
   const u = new URL(href);
   ok(u.pathname === ADDR, `${f} mailto address is ${ADDR}`);
@@ -48,18 +48,21 @@ for (const w of ["thisisaustininc", "austin, inc", "annual performance review", 
 }
 ok(!/179 threads|3-6 week|\$\s?1[0-9]{2,}/i.test(all), "no unsourced demand-test stats or unverified agency prices");
 
-ok((all.match(/Tell me when the appeal kit opens \(\$49 planned\)/g) || []).length === 2 + ANSWER_SLUGS.length, "CTA text appears twice on home and once on each answer page, exact wording");
+ok((all.match(/Tell me when the appeal kit opens \(\$49 planned\)/g) || []).length === 1 + ANSWER_SLUGS.length, "CTA text appears once on home and once on each answer page, exact wording");
 ok(/<h1>Google Business Profile suspended\? The six common reasons<\/h1>/.test(text(root + "index.html")), "required H1");
-for (const id of ["reason-1", "reason-2", "reason-3", "reason-4", "reason-5", "reason-6", "appeal", "kit", "sources"]) {
-  ok(text(root + "index.html").includes(`id="${id}"`), `section #${id} exists`);
+for (const id of ["reason-1", "reason-2", "reason-3", "reason-4", "reason-5", "reason-6"]) {
+  ok(text(root + "index.html").includes(`id="${id}"`), `tile #${id} exists`);
 }
 
 // "reinstatement" must not appear in any price line (CTA, mailto, or a sentence that names $49 / planned price).
 const plain = all.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&");
 ok(!/mailto:[^"]*reinstatement/i.test(all), "mailto href does not contain reinstatement");
 ok(!new RegExp(CTA.replace(/[()*?]/g, "\\$&") + ".*reinstatement|reinstatement.*" + CTA.replace(/[()*?]/g, "\\$&"), "i").test(plain), "CTA line does not contain reinstatement");
-for (const sent of plain.split(/(?<=[.!?])\s+/)) {
-  if (/\$49|planned price|\$\s?49/.test(sent)) ok(!/reinstatement/i.test(sent), "price sentence has no 'reinstatement': " + sent.trim().slice(0, 120));
+for (const f of publicHtml) {
+  const pagePlain = text(f).replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&");
+  for (const sent of pagePlain.split(/(?<=[.!?])\s+/)) {
+    if (/\$49|planned price|\$\s?49/.test(sent)) ok(!/reinstatement/i.test(sent), "price sentence has no 'reinstatement' (" + relative(root, f) + "): " + sent.trim().slice(0, 120));
+  }
 }
 
 const slop = /\b(delve|crucial|pivotal|showcase|testament|vibrant|foster|landscape|leverage|utilize|seamless|robust|empower)\b/i;
@@ -74,7 +77,7 @@ ok(/No outcome is promised/.test(text(root + "index.html")), "no outcome promise
 const visible = text(root + "index.html").replace(/<[^>]+>/g, " ");
 const unquoted = visible.replace(/"[^"]*"/g, '""');
 const mays = [...unquoted.matchAll(/\bmay\b/g)];
-ok(mays.length === 1, `exactly one unquoted "may" (found ${mays.length})`);
+ok(mays.length === 0, `no unquoted "may" on the recut home (found ${mays.length})`);
 for (const slug of ANSWER_SLUGS) {
   const body = text(root + slug + "/index.html").replace(/<blockquote[\s\S]*?<\/blockquote>/g, " ").replace(/<script[\s\S]*?<\/script>/g, " ").replace(/<[^>]+>/g, " ");
   const m = [...body.matchAll(/\bmay\b/gi)];

@@ -8,6 +8,13 @@ const SITE = "https://liveworkconsume.com";
 const MAILTO = "mailto:liveworkconsume@agentmail.to?subject=Tell%20me%20when%20the%20appeal%20kit%20opens%20(%2449%20planned)&amp;body=What%20reason%20did%20Google%20give%3F";
 const CTA = "Tell me when the appeal kit opens ($49 planned)";
 const bySlug = Object.fromEntries(PAGES.map(p => [p.slug, p]));
+// Break the repeated 4-section template on 3 pages (Dash slop order).
+const SKIN = {
+  "how-long-does-reinstatement-take": { label: "The official number", related: "Read next" },
+  "appeal-evidence-checklist": { label: "What to gather", related: "More on this site" },
+  "video-verification-failed": { label: "If the video failed", related: "Other questions" },
+};
+
 
 function artFor(slug) {
   const f = root + "img/answers/" + slug + "/meta.json";
@@ -43,8 +50,9 @@ function artFigure(p, art) {
 
 function sourcesFor(p) {
   const keys = new Set();
-  for (const s of p.sections) for (const b of s.blocks) if (b.q) keys.add(b.src);
-  for (const n of p.notSaid) for (const f of n.files) keys.add(f);
+  for (const s of p.sections) for (const b of s.blocks) if (b.src) keys.add(b.src);
+  for (const n of (p.notSaid || [])) for (const f of n.files || []) keys.add(f);
+  for (const k of p.cite || []) keys.add(k);
   return [...keys];
 }
 
@@ -68,6 +76,12 @@ function page(p) {
   const url = `${SITE}/${p.slug}/`;
   const src = sourcesFor(p);
   const related = p.related.map(s => `<li><a href="/${s}/">${esc(bySlug[s].title)}</a></li>`).join("");
+  const notSaidHtml = (p.notSaid && p.notSaid.length) ? `
+    <section class="not-said">
+      <h2>What these pages do not say</h2>
+      <ul>${p.notSaid.map(n => `<li>${inline(n.t)}</li>`).join("")}</ul>
+      <p>We cannot see your profile and we cannot tell you why Google made its decision. The appeals tool shows the reason for each decision.</p>
+    </section>` : "";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,12 +111,12 @@ ${jsonLd(p)}
     <p class="not-google">This is not a Google website.</p>
   </header>
   <main id="main">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Back to the six common reasons</a> &middot; <a href="/${HUB.slug}/">All ${PAGES.length} questions by topic</a></nav>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &middot; <a href="/${HUB.slug}/">Questions</a></nav>
 ${artFigure(p, artFor(p.slug))}    <h1>${esc(p.h1)}</h1>
     <div class="answer" role="note">
-      <h2 class="answer-label">Short answer</h2>
+      <h2 class="answer-label">${(SKIN[p.slug] && SKIN[p.slug].label) || "Short answer"}</h2>
       <p>${esc(p.short)}</p>
-      <p class="checked">Checked against Google's pages on ${CHECKED}. This is a reading guide, not legal advice, and we do not file appeals.</p>
+      <p class="checked">Checked against Google's pages, ${CHECKED}. Not legal advice.</p>
     </div>
 ${p.sections.map(s => `
     <section>
@@ -110,21 +124,14 @@ ${p.sections.map(s => `
       ${renderBlocks(s.blocks, SOURCES)}
     </section>`).join("\n")}
 
-    <section class="not-said">
-      <h2>What these pages do not say</h2>
-      <ul>${p.notSaid.map(n => `<li>${inline(n.t)}</li>`).join("")}</ul>
-      <p>We cannot see your profile and we cannot tell you why Google made its decision. The appeals tool shows the reason for each decision.</p>
-    </section>
+${notSaidHtml}
 
-    <section id="kit">
-      <h2>The planned appeal kit</h2>
-      <p>We are testing demand for a paid appeal drafting kit. The planned price is $49. No outcome is promised. This page does not take payment.</p>
-      <a class="cta" href="${MAILTO}">${CTA}</a>
-      <p>In your email, answer: What reason did Google give?</p>
-    </section>
+    <p class="kit-line">The planned price is $49. No outcome is promised.</p>
+    <a class="cta" href="${MAILTO}">${CTA}</a>
+    <p class="kit-ask">In your email, answer: What reason did Google give?</p>
 
     <section id="related">
-      <h2>Related questions</h2>
+      <h2>${(SKIN[p.slug] && SKIN[p.slug].related) || "Related questions"}</h2>
       <ul class="links">${related}</ul>
       <p><a href="/${HUB.slug}/">See all ${PAGES.length} questions by topic</a></p>
     </section>
@@ -136,7 +143,7 @@ ${p.sections.map(s => `
     </section>
   </main>
   <footer class="site">
-    <p>liveworkconsume.com. This is not a Google website and is not affiliated with Google. This page is not legal advice.</p>
+    <p>Not affiliated with Google. Not legal advice.</p>
   </footer>
 </body>
 </html>
@@ -205,7 +212,7 @@ ${h.groups.map(g => `
     </section>`).join("\n")}
   </main>
   <footer class="site">
-    <p>liveworkconsume.com. This is not a Google website and is not affiliated with Google. This page is not legal advice.</p>
+    <p>Not affiliated with Google. Not legal advice.</p>
   </footer>
 </body>
 </html>
@@ -214,19 +221,8 @@ ${h.groups.map(g => `
 mkdirSync(root + HUB.slug, { recursive: true });
 writeFileSync(root + HUB.slug + "/index.html", hubPage());
 
-// Home page: related questions block between markers.
-const home = readFileSync(root + "index.html", "utf8");
-const block = `<!-- answers:start -->
-    <section id="questions">
-      <h2>More questions, answered from Google's pages</h2>
-      <p>Each page below quotes Google's help pages, says what they do not cover, and lists its sources. <a href="/${HUB.slug}/">Browse all ${PAGES.length} questions by topic</a>.</p>
-      <ul class="links">${PAGES.map(p => `<li><a href="/${p.slug}/">${esc(p.title)}</a></li>`).join("")}</ul>
-    </section>
-    <!-- answers:end -->`;
-let out;
-if (home.includes("<!-- answers:start -->")) out = home.replace(/<!-- answers:start -->[\s\S]*?<!-- answers:end -->/, block);
-else out = home.replace('<section id="sources">', block + '\n\n    <section id="sources">');
-writeFileSync(root + "index.html", out);
+// Home questions list is not re-injected (Shears recut).
+
 
 // sitemap.xml
 const urls = [["/", DATE], [`/${HUB.slug}/`, DATE], ...PAGES.map(p => [`/${p.slug}/`, DATE])];

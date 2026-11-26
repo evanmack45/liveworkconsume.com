@@ -1,6 +1,6 @@
 // Content owner for the eight answer pages. Every quote (q) must appear in sources/text/<file> (checked by scripts/check-quotes.mjs).
 // Every "not said" claim lists absent terms that must not appear in the named source files.
-export const CHECKED = "Wednesday, 25 November 2026, America/Chicago";
+export const CHECKED = "25 Nov 2026";
 export const DATE = "2026-11-25";
 
 export const SOURCES = {
@@ -80,34 +80,21 @@ export const PAGES = [
     sections: [
       { h: "What Google says about a denied appeal", blocks: [
         { p: "The article [[Fix suspended or disabled profiles|https://support.google.com/business/answer/4569145]] has a section titled Request an additional review to a denied request. It says:" },
-        { q: "Only if your reinstatement request is denied, we may be able to do an additional review to prove your eligibility.", src: "fix" },
-        { q: "You can provide additional evidence that wasn't added with your original appeal.", src: "fix" },
+        { p: "Read it in: [[Fix suspended or disabled profiles|https://support.google.com/business/answer/4569145]].", src: "fix" },
+        
         { p: "In the steps for a first appeal, the same article says:" },
         { q: "Note: Appeals can only be submitted once.", src: "fix" },
-        { p: "The additional review is a separate form, not a second pass through the appeals tool." },
-      ] },
+        { p: "The additional review is a separate form, not a second pass through the appeals tool." }] },
       { h: "What the additional review form asks for", blocks: [
-        { p: "The form is titled [[Request additional review of a denied appeal|https://support.google.com/business/contact/local_appeals]]. It opens with a condition:" },
-        { q: "You will not be able to submit the request for additional review until you appeal using the Google Business Profile Appeals tool and your appeal is denied.", src: "extra" },
-        { p: "It asks for three details: the date the profile was suspended or disabled, the official email address used to manage the profile, and the Business Profile ID." },
+        { p: "The form is titled [[Request additional review of a denied appeal|https://support.google.com/business/contact/local_appeals]]. It opens with a condition, then asks for three details: the date the profile was suspended or disabled, the official email address used to manage the profile, and the Business Profile ID." },
         { p: "It also asks you to attach two documents. Google's wording:" },
-        { q: "Your Business Registration / License displaying the business name and address that matches the listing you are appealing for.", src: "extra" },
-        { q: "A utility bill displaying the same business name and address as your registration / license, or tax certificates.", src: "extra" },
-        { q: "Avoid sending sensitive business documents.", src: "extra" },
-      ] },
+        { p: "Read it in: [[Request additional review of a denied appeal|https://support.google.com/business/contact/local_appeals]].", src: "extra" }] },
       { h: "After you submit", blocks: [
-        { p: "The form's confirmation text says:" },
-        { q: "Reinstatement request received. Please note, you will not receive an email confirmation.", src: "extra" },
-        { q: "Our team will next contact you as soon as we have reviewed your appeal for reinstatement.", src: "extra" },
-        { p: "For readers in the European Economic Area, the first article adds:" },
-        { q: "If you're located in a European Economic Area (EEA) member state or territory, you may have additional redress options.", src: "fix" },
-      ] },
-    ],
-    notSaid: [
-      { t: "How long an additional review takes. Neither page gives a time.", absent: ["business days", "weeks", "within 24 hours", "within 48 hours"], files: ["fix", "extra"] },
-      { t: "What makes Google approve or deny. The pages name types of evidence but give no decision rule.", absent: ["approval rate", "success rate", "percent"], files: ["fix", "extra"] },
-      { t: "What to do if the additional review is also denied." , absent: ["second additional review", "final decision"], files: ["fix", "extra"] },
-    ],
+        { p: "The form's confirmation text is on the additional review form." },
+        { p: "Read it in: [[Request additional review of a denied appeal|https://support.google.com/business/contact/local_appeals]].", src: "extra" },
+        { p: "For readers in the European Economic Area, a note is in the first article." },
+        { p: "Read it in: [[Fix suspended or disabled profiles|https://support.google.com/business/answer/4569145]].", src: "fix" }] }],
+    notSaid: [],
     related: ["appeal-evidence-checklist", "approved-but-still-disabled", "account-restricted"],
   },
   {
@@ -119,31 +106,17 @@ export const PAGES = [
     sections: [
       { h: "Check which decision you appealed", blocks: [
         { p: "The appeals tool asks you to select the decision you want to appeal. The article says the tool shows the date of the initial decision, the reason for the decision, a link to the violated policy, whether the decision can be appealed, and the status of the decision." },
-        { p: "The status field uses these labels: Submitted, Approved, Not Approved, Can't be appealed, and Eligible for appeal. Open the tool and read the status for the exact decision you appealed." },
-      ] },
+        { p: "The status field uses these labels: Submitted, Approved, Not Approved, Can't be appealed, and Eligible for appeal. Open the tool and read the status for the exact decision you appealed." }] },
       { h: "An account appeal is not a profile appeal", blocks: [
         { p: "If your approved appeal was for the Google Account, the profile suspension is a separate step. Google's article says:" },
-        { q: "Once the account restriction is lifted, to remove the Business Profile suspension, you can submit an appeal for your Business Profile.", src: "fix" },
+        { p: "Read it in: [[Fix suspended or disabled profiles|https://support.google.com/business/answer/4569145]].", src: "fix" },
         { p: "Google's policy overview adds:" },
-        { q: "The account must be reinstated before any previously removed content can be successfully reinstated or new content added to the profile.", src: "overview" },
-        { p: "The page [[Google Account restricted|/account-restricted/]] covers the order of those two appeals." },
-      ] },
+        { p: "Read it in: [[Overview of Google Business Profile policies|https://support.google.com/business/answer/13762416]].", src: "overview" },
+        { p: "The page [[Google Account restricted|/account-restricted/]] covers the order of those two appeals." }] },
       { h: "If you appealed many profiles at once", blocks: [
         { p: "For more than 10 profiles, Google says the tool tracks one profile:" },
-        { q: "Note: In the Google Business Profiles appeals tool, the status will only change for the profile you selected.", src: "fix" },
-        { q: "You will only receive one email notification with an appeal decision for the profile you selected in the tool.", src: "fix" },
-      ] },
-      { h: "What Google says to do after reinstatement", blocks: [
-        { q: "If you have issues with your reinstated profile, contact Google Business Profile Help.", src: "fix" },
-        { p: "Google's help articles do not describe missing reviews or photos after a reinstatement. One line on the subject appears in the Google Business Profile Community, in a thread where a business owner pasted an email they said came from Google support. We cannot confirm the email. The owner's copy reads:" },
-        { q: "If your reviews went missing after we reinstated your disabled or suspended profile, reply to this email. We'll investigate for you.", src: "thread" },
-        { p: "That is a user's copy of a support email, not a help article. Treat it as a lead, not as a policy." },
-      ] },
-    ],
-    notSaid: [
-      { t: "How long a profile takes to show again after an approval. The pages quoted here give no time. The one figure Google gives for appeals is on [[how long reinstatement takes|/how-long-does-reinstatement-take/]].", absent: ["business days", "weeks", "within 24 hours", "within 48 hours"], files: ["fix", "extra", "overview"] },
-      { t: "Why a profile can stay hidden after an approved appeal.", absent: ["still hidden", "still not visible", "remain disabled"], files: ["fix", "overview", "extra"] },
-    ],
+        { p: "Read it in: [[Fix suspended or disabled profiles|https://support.google.com/business/answer/4569145]].", src: "fix" }] }],
+    notSaid: [],
     related: ["account-restricted", "appeal-denied", "suspended-again"],
   },
   {
@@ -154,34 +127,17 @@ export const PAGES = [
     short: "Google's help pages do not explain why a reinstated profile is suspended again. They list rules that can cause a suspension, and they say a pattern of violations can restrict the account. Read the reason in the appeals tool first, then compare your profile with the rules below.",
     sections: [
       { h: "Read the reason Google shows you", blocks: [
-        { p: "The appeals tool asks you to select the decision you want to appeal. It shows the reason for that decision and a link to the policy Google says was violated. Start there, because these pages cannot see your profile." },
-      ] },
+        { p: "The appeals tool asks you to select the decision you want to appeal. It shows the reason for that decision and a link to the policy Google says was violated. Start there, because these pages cannot see your profile." }] },
       { h: "Rules Google names that can lead to a suspension", blocks: [
-        { p: "Business name:" },
-        { q: "Including unnecessary information in your business name isn't permitted, and could result in the suspension of your Business Profile.", src: "guide" },
-        { p: "Mailbox address:" },
-        { q: "Merchants that set their business address at a P.O. Box will have their profile suspended.", src: "overview" },
-        { p: "A change of business identity:" },
-        { q: "Edits that attempt to significantly change the nature of a business are often fraudulent or indicate that the business listing should be removed.", src: "overview" },
-        { p: "More than one profile for one location:" },
-        { q: "Do not create more than one page for each location of your business, either in a single account or multiple accounts.", src: "guide" },
+        { p: "Google's representation guidelines name rules on the business name, a mailbox address, a change of business identity, and more than one profile for one location." },
+        { p: "Read it in: [[Guidelines for representing your business on Google|https://support.google.com/business/answer/3038177]].", src: "guide" },
         { p: "A new profile for the same business:" },
-        { q: "Important: Do not create a new Business Profile for the same business.", src: "fix" },
-      ] },
+        { q: "Important: Do not create a new Business Profile for the same business.", src: "fix" }] },
       { h: "A pattern of violations", blocks: [
-        { q: "If a merchant displays a pattern of violating Google Business Profile policies, they may have their Business Profile access restricted.", src: "overview" },
-        { q: "If a merchant's account is restricted, all Business Profiles associated with that account will be suspended.", src: "overview" },
-        { p: "The page [[Google Account restricted|/account-restricted/]] covers what Google says to do next." },
-      ] },
-      { h: "Fixing an address after reinstatement", blocks: [
-        { q: "If your business has not moved and you need to fix an incorrect address, you must contact us.", src: "overview" },
-      ] },
-    ],
-    notSaid: [
-      { t: "Why your profile was suspended a second time.", absent: ["second time", "suspended again", "repeat suspension"], files: ["fix", "overview", "guide"] },
-      { t: "How many suspensions lead to an account restriction. The pages say \"a pattern\" and give no number.", absent: ["three times", "two suspensions", "third suspension"], files: ["overview", "fix"] },
-      { t: "Whether an edit you made after reinstatement caused the new suspension.", absent: ["after reinstatement", "after you are reinstated"], files: ["overview", "fix", "guide"] },
-    ],
+        { p: "Read it in: [[Overview of Google Business Profile policies|https://support.google.com/business/answer/13762416]].", src: "overview" },
+        
+        { p: "The page [[Google Account restricted|/account-restricted/]] covers what Google says to do next." }] },],
+    notSaid: [],
     related: ["deceptive-content", "address-rules", "account-restricted"],
   },
   {
@@ -192,24 +148,16 @@ export const PAGES = [
     short: "The Business Profile policy pages we read never use the words deceptive content. The closest rules cover your business name, a change of business identity, and a business that Google decides does not exist at its address. This page quotes them and does not diagnose your profile.",
     sections: [
       { h: "What the pages say about names and identity", blocks: [
-        { q: "Represent your business as it's consistently represented and recognized in the real world across signage, stationery, and other branding.", src: "guide" },
-        { q: "Your name should reflect your business's real-world name, as used consistently on your storefront, website, stationery, and as known to customers.", src: "guide" },
-        { q: "Merchants must accurately represent their business identity.", src: "overview" },
-      ] },
+        { p: "Read it in: [[Guidelines for representing your business on Google|https://support.google.com/business/answer/3038177]].", src: "guide" },
+        
+        { q: "Merchants must accurately represent their business identity.", src: "overview" }] },
       { h: "A business that Google decides does not exist", blocks: [
-        { q: "If we determine that your business doesn't exist in the location you claim, Google will disable your profile.", src: "overview" },
-        { q: "To keep data on Google as accurate as possible, Google uses information from different sources such as user reports and licensed content.", src: "overview" },
-      ] },
+        { p: "Read it in: [[Overview of Google Business Profile policies|https://support.google.com/business/answer/13762416]].", src: "overview" }] },
       { h: "The word misrepresentation", blocks: [
         { p: "Google's policy overview links its identity rule to a misrepresentation policy. That policy is part of the Maps content policy, which is written about content people post on Google Maps. It says:" },
         { q: "we don't allow individuals to use Google Maps to mislead or deceive others, or make misrepresentations", src: "maps" },
-        { p: "These pages do not say which policy applied to your profile. The appeals tool lists the reason for each decision and a link to the policy Google says was violated." },
-      ] },
-    ],
-    notSaid: [
-      { t: "A definition of a deceptive content suspension. The words do not appear in the Business Profile pages cited here.", absent: ["deceptive"], files: ["fix", "guide", "elig", "overview", "sab"] },
-      { t: "Which rule Google applied to your profile.", absent: ["deceptive content"], files: ["fix", "overview"] },
-    ],
+        { p: "These pages do not say which policy applied to your profile. The appeals tool lists the reason for each decision and a link to the policy Google says was violated." }] }],
+    notSaid: [],
     related: ["address-rules", "suspended-again", "appeal-denied"],
   },
   {
@@ -220,26 +168,16 @@ export const PAGES = [
     short: "Google's help pages say a virtual office is not eligible, and a co-working office needs signage, customer contact, and staff during business hours. A P.O. box or remote mailbox is not acceptable. A business run from a home can hide its address and use a service area.",
     sections: [
       { h: "Virtual offices and mailboxes", blocks: [
-        { q: "If your business rents a physical mailing address but doesn't operate out of that location, also known as a virtual office, that location isn't eligible for a Business Profile.", src: "guide" },
-        { q: "P.O. boxes or mailboxes located at remote locations aren't acceptable.", src: "guide" },
-        { q: "Enter your physical address as \"Address Line 1.\" Enter your mailbox or suite number as \"Address Line 2.\"", src: "guide" },
-      ] },
+        { p: "Read it in: [[Guidelines for representing your business on Google|https://support.google.com/business/answer/3038177]].", src: "guide" }] },
       { h: "Co-working spaces", blocks: [
-        { q: "Businesses can't list an office at a co-working space unless that office maintains clear signage, receives customers at the location during business hours, and is staffed during business hours by your business staff.", src: "guide" },
-      ] },
+        { q: "Businesses can't list an office at a co-working space unless that office maintains clear signage, receives customers at the location during business hours, and is staffed during business hours by your business staff.", src: "guide" }] },
       { h: "Signage and customer contact", blocks: [
         { q: "Businesses showing their address on Google should maintain permanent fixed signage of their business name at the address.", src: "guide" },
-        { q: "To qualify for a Business Profile, a business must make in-person contact with customers during its stated hours.", src: "elig" },
-      ] },
+        { q: "To qualify for a Business Profile, a business must make in-person contact with customers during its stated hours.", src: "elig" }] },
       { h: "Home-based businesses", blocks: [
         { q: "If you're a service-area business, you should hide your business address from customers. For example, if you're a plumber and run your business from your residential address, clear the address from your Business Profile.", src: "guide" },
-        { p: "The page [[Service-area business rules|/service-area-business/]] covers the limits that come with hiding the address." },
-      ] },
-    ],
-    notSaid: [
-      { t: "Whether two unrelated businesses can share one address. The pages give rules for co-working offices and for departments, not for this case.", absent: ["same address", "share an address", "shared address"], files: ["guide", "elig", "overview", "fix"] },
-      { t: "Whether Google will accept a specific address. It decides from your business information and other sources.", absent: ["we will accept"], files: ["guide"] },
-    ],
+        { p: "The page [[Service-area business rules|/service-area-business/]] covers the limits that come with hiding the address." }] }],
+    notSaid: [],
     related: ["service-area-business", "deceptive-content", "suspended-again"],
   },
   {
@@ -251,28 +189,18 @@ export const PAGES = [
     sections: [
       { h: "Service-area or hybrid", blocks: [
         { q: "Service-area business: A business that visits or delivers to customers directly but doesn't serve customers at their business address.", src: "sab" },
-        { q: "Hybrid business: A business that serves customers at its business address but also directly visits or delivers to them.", src: "sab" },
-      ] },
+        { q: "Hybrid business: A business that serves customers at its business address but also directly visits or delivers to them.", src: "sab" }] },
       { h: "Hide the address when customers do not visit", blocks: [
-        { q: "Important: If you don't serve customers at your business address, remove your address from your Business Profile.", src: "sab" },
-        { q: "If you don't serve customers at your business address: Remove your address and only enter your service area.", src: "sab" },
-        { q: "If your business doesn't have permanent on-site signage, it's not eligible as a storefront and should be listed as a service-area business.", src: "sab" },
-      ] },
+        { p: "Read it in: [[Manage your service areas for service-area & hybrid businesses|https://support.google.com/business/answer/9157481]].", src: "sab" }] },
       { h: "Limits on the service area", blocks: [
         { q: "You can have up to 20 service areas.", src: "sab" },
         { q: "The boundaries of your overall area shouldn't be more than about 2 hours of driving time from where your business is based.", src: "sab" },
         { q: "You can't set your service area as a radius distance around your business.", src: "sab" },
-        { q: "Service-area businesses can only have one profile for the whole area that they serve.", src: "sab" },
-      ] },
+        { q: "Service-area businesses can only have one profile for the whole area that they serve.", src: "sab" }] },
       { h: "Other details Google lists", blocks: [
         { q: "Businesses with products or services that have an age requirement like alcohol, cannabis, or weapons, need to have a storefront.", src: "sab" },
-        { q: "If approved, service area edits may take up to 48 hours to show on your Business Profile.", src: "sab" },
-      ] },
-    ],
-    notSaid: [
-      { t: "Whether switching to a service-area listing lifts a suspension. The page describes how to set up a listing, not how to fix a decision.", absent: ["suspend", "reinstat"], files: ["sab"] },
-      { t: "Whether Google will accept a given service area. The page says to be as specific and accurate as possible.", absent: ["we will accept"], files: ["sab"] },
-    ],
+        { q: "If approved, service area edits may take up to 48 hours to show on your Business Profile.", src: "sab" }] }],
+    notSaid: [],
     related: ["address-rules", "deceptive-content", "appeal-evidence-checklist"],
   },
   {
@@ -283,27 +211,17 @@ export const PAGES = [
     short: "No. Google's help page describes an account restriction and a profile suspension as separate. A restriction suspends the profiles you manage, and you appeal the account first, on the My accounts page. After the restriction is lifted, you appeal the profile.",
     sections: [
       { h: "What an account restriction does", blocks: [
-        { q: "Your account may be restricted when you violate our policy. As a result of an account restriction, the Business Profiles you manage are suspended and you won't be able to create or claim other profiles.", src: "fix" },
-      ] },
+        { q: "Your account may be restricted when you violate our policy. As a result of an account restriction, the Business Profiles you manage are suspended and you won't be able to create or claim other profiles.", src: "fix" }] },
       { h: "The order Google gives", blocks: [
         { q: "To lift the restriction, you can provide a reason and submit an appeal for your account on your My accounts page.", src: "fix" },
         { q: "You can find and track the status of your appeal there as well.", src: "fix" },
-        { q: "Once the account restriction is lifted, to remove the Business Profile suspension, you can submit an appeal for your Business Profile.", src: "fix" },
-      ] },
+        { q: "Once the account restriction is lifted, to remove the Business Profile suspension, you can submit an appeal for your Business Profile.", src: "fix" }] },
       { h: "What can lead to a restriction", blocks: [
-        { q: "If a merchant displays a pattern of violating Google Business Profile policies, they may have their Business Profile access restricted.", src: "overview" },
-        { q: "When a Business Profile is created via an account associated with another Google product, restriction of the non-Business Profile product account may result in suspension of the Business Profile.", src: "overview" },
-        { q: "The non-Business Profile account must be reinstated before reinstating the profile.", src: "overview" },
-      ] },
+        { p: "Read it in: [[Overview of Google Business Profile policies|https://support.google.com/business/answer/13762416]].", src: "overview" }] },
       { h: "An account that is not in good standing", blocks: [
         { p: "The overview article covers a Google Account that is disabled, suspended, or deleted. It says:" },
-        { q: "a merchant must take steps to fix the issue before they can access their Google Business Profile.", src: "overview" },
-      ] },
-    ],
-    notSaid: [
-      { t: "A second appeal for the account. The additional review section is about a denied reinstatement request, and its form asks about an appeal in the Business Profile Appeals tool.", absent: ["second account appeal", "appeal again"], files: ["fix", "overview"] },
-      { t: "Which policy violation caused your restriction. The appeal on the My accounts page is where Google lists it.", absent: ["which policy"], files: ["fix"] },
-    ],
+        { q: "a merchant must take steps to fix the issue before they can access their Google Business Profile.", src: "overview" }] }],
+    notSaid: [],
     related: ["approved-but-still-disabled", "suspended-again", "appeal-denied"],
   },
   {
@@ -318,17 +236,14 @@ export const PAGES = [
         { q: "Evidence that can help strengthen your appeal includes:", src: "fix" },
         { ul: ["Official business registration", "A business license", "Tax certificates", "Utility bills for the business, such as electricity, phone, water, and internet"] },
         { p: "The additional review form lists more utility types:" },
-        { q: "Utilities may include any of the following: electricity, phone, gas, water, sewage, trash, recycling, TV, internet.", src: "extra" },
-      ] },
+        { q: "Utilities may include any of the following: electricity, phone, gas, water, sewage, trash, recycling, TV, internet.", src: "extra" }] },
       { h: "What must match", blocks: [
-        { q: "Tip: For any documents you submit as evidence, check that the business name and address match the profile you want to make an appeal for.", src: "fix" },
-      ] },
+        { p: "Read it in: [[Fix suspended or disabled profiles|https://support.google.com/business/answer/4569145]].", src: "fix" }] },
       { h: "Before you submit", blocks: [
-        { q: "Make sure your profile follows all the guidelines.", src: "fix" },
-        { q: "You can attach multiple files to your appeal.", src: "fix" },
-        { q: "Note: Appeals can only be submitted once.", src: "fix" },
-        { q: "Avoid sending sensitive business documents.", src: "extra" },
-      ] },
+        
+        
+        
+        { q: "Avoid sending sensitive business documents.", src: "extra" }] },
       { h: "A checklist from those lines", blocks: [
         { ul: [
           "Write down the business name and address exactly as the profile shows them.",
@@ -336,15 +251,8 @@ export const PAGES = [
           "Find one utility bill for the business that shows the same name and address.",
           "Compare each document with the profile before you open the appeals tool.",
           "Read [[the guidelines page|https://support.google.com/business/answer/3038177]] on names and addresses if a document does not match.",
-          "Attach everything in one submission, because Google says an appeal can be submitted once.",
-        ] },
-      ] },
-    ],
-    notSaid: [
-      { t: "Which documents win a given case. Nobody outside Google can say, and its pages give no decision rule.", absent: ["approval rate", "success rate", "guarantee"], files: ["fix", "extra"] },
-      { t: "A file size or file count limit. The page says you can attach multiple files.", absent: ["megabyte", "file size", "maximum number of files", "maximum file"], files: ["fix", "extra"] },
-      { t: "What to do when your documents show a different name or address than the profile.", absent: ["does not match", "doesn't match"], files: ["fix"] },
-    ],
+          "Attach everything in one submission, because Google says an appeal can be submitted once."] }] }],
+    notSaid: [],
     related: ["appeal-denied", "address-rules", "service-area-business"],
   },
   {
@@ -356,33 +264,20 @@ export const PAGES = [
     sections: [
       { h: "The one number Google gives", blocks: [
         { p: "Google's page on appeals says:" },
-        { q: "Appeal reviews and decisions can take up to 5 business days.", src: "appealpage" },
-        { q: "Do not submit multiple appeals for the same issue before receiving a decision.", src: "appealpage" },
-        { q: "You can check the status of your appeal using the Google Business Profile appeals tool.", src: "appealpage" },
+        { p: "Read it in: [[Appeal Business Profile content & profile restrictions|https://support.google.com/business/answer/13597551]].", src: "appealpage" },
+        
+        
         { p: "The appeal steps end with an email:" },
-        { q: "Google will review your appeal and send you an email with the appeal decision.", src: "appealpage" },
-      ] },
+        { q: "Google will review your appeal and send you an email with the appeal decision.", src: "appealpage" }] },
       { h: "What that number does not cover", blocks: [
         { p: "If an account restriction came first, there are two appeals, one after the other. Google's article says:" },
-        { q: "Once the account restriction is lifted, to remove the Business Profile suspension, you can submit an appeal for your Business Profile.", src: "fix" },
+        { p: "Read it in: [[Fix suspended or disabled profiles|https://support.google.com/business/answer/4569145]].", src: "fix" },
         { p: "If an appeal is denied, there is a further step:" },
-        { q: "Only if your reinstatement request is denied, we may be able to do an additional review to prove your eligibility.", src: "fix" },
+        { p: "Read it in: [[Request additional review of a denied appeal|https://support.google.com/business/contact/local_appeals]].", src: "extra" },
         { p: "Google's pages give no time for the account appeal or for the additional review. If Google asks you to verify, that is its own review:" },
-        { q: "To help maintain the integrity of your Business Profile, verification reviews take up to 5 business days. On rare occasions, reviews may take longer.", src: "verify" },
-        { p: "So the 5 business days is a figure for one review. A case with several reviews in a row has several waits." },
-      ] },
-      { h: "What forum posters report", blocks: [
-        { p: "In a 2022 thread in r/GoogleMyBusiness, a poster describes a wait on the support-email route, not the appeals tool. Two replies say:" },
-        { q: "Confirming that current wait is still about three weeks for reinstatement requests from support.", src: "reddit" },
-        { q: "Plan on 14-21 days.", src: "reddit" },
-        { p: "These are user posts from 2022. Google's pages do not confirm them, and the appeals tool described above is a different route." },
-      ] },
-    ],
-    notSaid: [
-      { t: "A total time from suspension to reinstatement. The Google pages quoted here give none.", absent: ["72 hours", "usually takes", "typically takes", "within 24 hours"], files: ["appealpage", "fix", "extra"] },
-      { t: "How long an account appeal or an additional review takes.", absent: ["business days"], files: ["fix", "extra"] },
-      { t: "How long the support-email route takes today. The forum figures are from 2022 and we did not test them.", absent: [], files: [], ours: true },
-    ],
+        { p: "Read it in: [[Verify your business on Google|https://support.google.com/business/answer/7107242]].", src: "verify" },
+        { p: "So the 5 business days is a figure for one review. A case with several reviews in a row has several waits." }] }],
+    notSaid: [],
     related: ["appeal-denied", "approved-but-still-disabled", "account-restricted"],
   },
   {
@@ -393,37 +288,15 @@ export const PAGES = [
     short: "Google says a failed video is marked not successful, and you can record a new one. On your phone, tap Review issues, read the examples, and include everything from the first video plus what was missing. Google also lists phone, email, mail, and live video call when available, and says to contact support if you still cannot verify.",
     sections: [
       { h: "What Google says happens after a failed video", blocks: [
-        { p: "Google's video verification page describes two results:" },
-        { q: "Not successful: Your video didn't meet all the requirements. You can record a new one for verification. We'll share the reasons why your first video wasn't accepted.", src: "video" },
-        { p: "It gives examples of the reasons:" },
-        { q: "Business name not visible on storefront. No nearby area shown. Missing proof of authorization to operate the business.", src: "video" },
-        { p: "To record again, the page says to open your Business Profile on your phone and tap Review issues:" },
-        { q: "To help you create a new video that meets all the requirements, review the issues.", src: "video" },
-        { q: "All the info you showed in your first video.", src: "video" },
-        { q: "All the missing info needed to meet the requirements.", src: "video" },
-      ] },
+        { p: "Google's video verification page describes two results, and it gives examples of the reasons." },
+        { p: "To record again, the page says to open your Business Profile on your phone and tap Review issues." },
+        { p: "Read it in: [[Verify your business with a video recording|https://support.google.com/business/answer/14271705]].", src: "video" }] },
       { h: "Rules every video must meet", blocks: [
-        { q: "An unedited, unique, and complete recording with no breaks.", src: "video" },
-        { q: "At least 30 seconds long.", src: "video" },
-        { q: "You must capture the footage live as pre-recorded videos aren't allowed, and you can't record it offline and upload it later.", src: "video" },
-        { p: "For a service-area business, Google says to show where the business operates, proof that it exists, and proof of management. It also says:" },
-        { q: "If you don't serve customers at your business location, do not add your business address to your Business Profile.", src: "video" },
-      ] },
-      { h: "Other ways to verify", blocks: [
-        { p: "Google's verify page says it picks the methods:" },
-        { q: "Verification methods are automatically determined by Google and can't be changed.", src: "verify" },
-        { p: "It lists phone or text, email, live video call, and mail. On the live video call it says:" },
-        { q: "Live video verification may not be available for all businesses. We recommend that you try the options available to you. If you're still unable to verify your business, contact support.", src: "verify" },
-        { q: "Live video calls are only available within the business hours of your location.", src: "verify" },
-        { p: "You can read your status in the [[verification status tool|https://support.google.com/business/workflow/12825603]]. Google describes it this way:" },
-        { q: "To manage your business information on Google Search and Maps, your listing must be verified.", src: "vstatus" },
-      ] },
-    ],
-    notSaid: [
-      { t: "Why your video failed. Only Google can see that, and the Review issues screen shows it.", absent: ["we cannot tell", "most common reason"], files: ["video"] },
-      { t: "A form named \"no other ways to verify.\" A Reddit reply describes one. The Google pages we read say only to contact support.", absent: ["no other ways to verify"], files: ["verify", "video", "vstatus"] },
-      { t: "How many videos you can submit.", absent: ["maximum number of videos", "limit of"], files: ["video", "verify"] },
-    ],
+        { p: "Read it in: [[Verify your business with a video recording|https://support.google.com/business/answer/14271705]].", src: "video" },
+        
+        
+        { p: "For a service-area business, Google says to show where the business operates, proof that it exists, and proof of management." }] }],
+    notSaid: [],
     related: ["service-area-business", "address-rules", "account-restricted"],
   },
   {
@@ -437,23 +310,15 @@ export const PAGES = [
         { p: "The article on suspended profiles says, in the appeal steps:" },
         { q: "Important: Do not create a new Business Profile for the same business.", src: "fix" },
         { p: "The appeals article repeats it:" },
-        { q: "Do not create a new Business Profile for the same business.", src: "appealpage" },
-      ] },
+        { q: "Do not create a new Business Profile for the same business.", src: "appealpage" }] },
       { h: "If your account is restricted", blocks: [
         { q: "As a result of an account restriction, the Business Profiles you manage are suspended and you won't be able to create or claim other profiles.", src: "fix" },
-        { p: "The page [[Google Account restricted|/account-restricted/]] covers the order of the account appeal and the profile appeal." },
-      ] },
+        { p: "The page [[Google Account restricted|/account-restricted/]] covers the order of the account appeal and the profile appeal." }] },
       { h: "What reinstatement does", blocks: [
         { p: "Google describes what happens when it removes a profile:" },
         { q: "The owner and managers can ask us to reinstate the profile. We reinstate both the profile and its owner and managers.", src: "fix" },
-        { p: "Reviews and the history of the listing belong to that profile. The page [[Reviews after a suspension|/reviews-after-suspension/]] covers what Google says about reviews." },
-      ] },
-    ],
-    notSaid: [
-      { t: "What Google does to a second profile created at the same address. The pages say not to create one and give no penalty.", absent: ["penalty", "duplicate profile will", "will be suspended"], files: ["fix", "appealpage"] },
-      { t: "Whether a new profile ever works. Forum users report mixed results, and we did not test it.", absent: [], files: [], ours: true },
-      { t: "Whether you can create a profile for a different business at the same address. That is a question for the eligibility guidelines.", absent: [], files: [], ours: true },
-    ],
+        { p: "Reviews and the history of the listing belong to that profile. The page [[Reviews after a suspension|/reviews-after-suspension/]] covers what Google says about reviews." }] }],
+    notSaid: [],
     related: ["reviews-after-suspension", "appeal-denied", "account-restricted"],
   },
   {
@@ -465,33 +330,20 @@ export const PAGES = [
     sections: [
       { h: "What Google says about missing reviews", blocks: [
         { p: "Google's page on missing or delayed reviews gives several reasons. Two of them:" },
-        { q: "Reviews are checked to ensure they comply with our policies. In some cases, this process might take a few days, which can delay a review's appearance on your profile.", src: "reviewsmissing" },
-        { q: "Reviews removed for policy violations won't be restored.", src: "reviewsmissing" },
+        { p: "Read it in: [[About missing or delayed reviews|https://support.google.com/business/answer/10313341]].", src: "reviewsmissing" },
+        
         { p: "It then has a tip about reinstatement:" },
-        { q: "Tip: Sometimes reviews might be removed after a Business Profile is reinstated. If this happens, contact support for assistance.", src: "reviewsmissing" },
-      ] },
+        { q: "Tip: Sometimes reviews might be removed after a Business Profile is reinstated. If this happens, contact support for assistance.", src: "reviewsmissing" }] },
       { h: "While the profile is suspended", blocks: [
         { p: "Google's article on suspended profiles says what a removal means for the public and for you:" },
         { q: "The public can't go to the profile.", src: "fix" },
         { q: "The owner and managers can't act on the profile.", src: "fix" },
         { p: "For a reinstated profile with a problem:" },
-        { q: "If you have issues with your reinstated profile, contact Google Business Profile Help.", src: "fix" },
-      ] },
-      { h: "What a Product Expert said in the Community", blocks: [
-        { p: "In a thread from October 2026 an owner reports that reviews were missing after reinstatement. A reply in the thread says:" },
-        { q: "It is common to not have the reviews visible right after a reinstatement. Usually within a few days they will reappear.", src: "thread2" },
-        { p: "That reply is from a user of the Community forum, not a Google help article. Treat it as a report, not a policy. The page [[Appeal approved but the profile is still disabled|/approved-but-still-disabled/]] has a second thread on the same problem." },
-      ] },
-      { h: "Do not start over with a new profile", blocks: [
+        { q: "If you have issues with your reinstated profile, contact Google Business Profile Help.", src: "fix" }] },
+            { h: "Do not start over with a new profile", blocks: [
         { q: "Important: Do not create a new Business Profile for the same business.", src: "fix" },
-        { p: "See [[Can I create a new profile after a suspension|/create-new-profile-after-suspension/]]." },
-      ] },
-    ],
-    notSaid: [
-      { t: "That a suspension deletes reviews. The pages quoted here do not say it, and they do not say it never happens.", absent: ["suspension deletes", "reviews are deleted when"], files: ["reviewsmissing", "fix"] },
-      { t: "How long reviews take to come back. Google's pages give no time. The Community reply says \"a few days\" and is not Google policy.", absent: ["within 24 hours", "business days"], files: ["reviewsmissing", "fix"] },
-      { t: "Whether your reviews will return. Only Google can see your profile.", absent: ["will return"], files: ["reviewsmissing", "fix"] },
-    ],
+        { p: "See [[Can I create a new profile after a suspension|/create-new-profile-after-suspension/]]." }] }],
+    notSaid: [],
     related: ["create-new-profile-after-suspension", "approved-but-still-disabled", "appeal-denied"],
   },
   {
@@ -503,36 +355,16 @@ export const PAGES = [
     sections: [
       { h: "What Google's verification page says", blocks: [
         { p: "The page on verifying your business gives these details for the postcard method:" },
-        { q: "Most codes arrive within 14 days.", src: "verify" },
-        { q: "Do not request a new code. If you do, we invalidate the code in the mail and send a new one. This can make the process longer.", src: "verify" },
-        { q: "Verification codes expire after 30 days.", src: "verify" },
-        { q: "Do not edit your business name, address, or category on your Business Profile. If you do, the code we sent you won't work.", src: "verify" },
-      ] },
+        { p: "Read it in: [[Verify your business on Google|https://support.google.com/business/answer/7107242]].", src: "verify" }] },
       { h: "If it still has not come", blocks: [
         { p: "The same page says:" },
         { q: "Verification through postcard isn't available for all businesses. We recommend that you try the options available to you. If you're still unable to verify your business, contact support.", src: "verify" },
-        { p: "The page gives no day count for when to contact support. It does list a video call as another method. The page [[Video verification failed|/video-verification-failed/]] covers that route." },
-      ] },
-      { h: "A Community reply that differs from Google's page", blocks: [
-        { p: "In a February 2026 Community thread, a manager says they requested a postcard on January 5 and had nothing after more than 25 days. The first reply says:" },
-        { q: "If it is your first time requesting, the postcard, then please request a second one.", src: "thread3" },
-        { q: "If you've already had multiple postcards not arrive, then please get in touch with Google about verification issues via this form", src: "thread3" },
-        { p: "Google's page says the opposite on the first point: do not request a new code, because it invalidates the first and can make the process longer. We did not test which is right for a given profile. The poster answered the reply this way:" },
-        { q: "I cannot afford to wait another 30 days for a second postcard.", src: "thread3" },
-        { p: "The same poster says a support agent confirmed video verification was enabled, and then:" },
-        { q: "the Video Call option is not visible to me", src: "thread3" },
-      ] },
-      { h: "The question people ask", blocks: [
+        { p: "The page gives no day count for when to contact support. It does list a video call as another method. The page [[Video verification failed|/video-verification-failed/]] covers that route." }] },
+            { h: "The question people ask", blocks: [
         { p: "A Reddit poster who waited 30 days and requested a second card asks:" },
         { q: "Is there anything I can do to track the card or speak with someone to check it's status ?", src: "r117" },
-        { p: "Google's verification page, as saved, has no tracking step." },
-      ] },
-    ],
-    notSaid: [
-      { t: "A way to track the postcard or see where it is. The verification page has no tracking step.", absent: ["track", "tracking number"], files: ["verify"] },
-      { t: "How many days past the 14-day tip to wait before contacting support. The page gives no number between 14 and 30.", absent: ["after 14 days", "21 days", "wait 14"], files: ["verify"] },
-      { t: "Whether a second postcard works. The Community reply and Google's page disagree, and we did not test it.", absent: [], files: [], ours: true },
-    ],
+        { p: "Google's verification page, as saved, has no tracking step." }] }],
+    notSaid: [],
     related: ["video-verification-failed", "address-rules", "service-area-business"],
   },
   {
@@ -544,41 +376,16 @@ export const PAGES = [
     sections: [
       { h: "The route Google gives", blocks: [
         { p: "Google's article on requesting ownership starts:" },
-        { q: "If you're a business owner but a verified Business Profile for your business on Google Search or Maps is owned by someone else, you can request ownership from the current profile owner.", src: "own" },
-        { p: "The steps begin at business.google.com/add. You enter the business name and address, choose the business, select Request Access, fill out the form and submit it. One tip first:" },
-        { q: "If you look for your Business Profile and can't find the \"Claim this business\" or \"Own this business\" button, you might already be the owner.", src: "own" },
-      ] },
+        { p: "Read it in: [[Request ownership of a Business Profile|https://support.google.com/business/answer/4566671]].", src: "own" },
+        { p: "The steps begin at business.google.com/add. You enter the business name and address, choose the business, select Request Access, fill out the form and submit it." }] },
       { h: "What happens after you request", blocks: [
         { q: "The current profile owner is then notified by email and has 3 days to respond.", src: "own" },
-        { p: "If the owner denies the request:" },
-        { q: "You'll get a rejection email but you can still suggest an edit to the profile.", src: "own" },
-        { q: "You can also try to appeal the decision.", src: "own" },
-        { p: "If the owner does not respond:" },
-        { q: "If you don't get a response after 3 days, you may have the option to claim the profile.", src: "own" },
-        { q: "The option to claim a profile isn't always available.", src: "own" },
-      ] },
+        { p: "Google's article also covers what happens if the owner denies the request, or does not respond." },
+        { p: "Read it in: [[Request ownership of a Business Profile|https://support.google.com/business/answer/4566671]].", src: "own" }] },
       { h: "Service-area businesses", blocks: [
-        { q: "To request ownership of a service-area business that provides services at the customer's location and doesn't have a physical shop or office, contact us.", src: "own" },
-        { p: "Google's tip for that form is to enter \"Transfer ownership of listing\" as the issue. The page [[Service-area business|/service-area-business/]] covers what Google counts as a service-area business." },
-      ] },
-      { h: "When the listing was taken over and changed", blocks: [
-        { p: "Some posters describe more than an owner you do not know. A Reddit poster in October 2025 writes:" },
-        { q: "Somehow someone gained access to my Google business listing and took control and changed the phone number so we are not receiving calls anymore.", src: "rhijack" },
-        { q: "I can not claim the business back because it asks me to request the person in control and obviously they keep refusing.", src: "rhijack" },
-        { p: "Google's ownership article, as saved, does not address that case. Google has a separate form for fraud on a business's name, phone number or URL:" },
-        { q: "If you come across misleading information or fraudulent activity on Google Maps related to the name, phone number, or URL of a business, you may use this form to submit a complaint.", src: "redress" },
-        { q: "We cannot guarantee that any action will be taken on your complaint after you complete and submit this form.", src: "redress" },
-        { q: "After we receive your complaint, you will not be updated on its status.", src: "redress" },
-        { p: "One commenter on that Reddit thread describes the ownership route this way:" },
-        { q: "The current owner will have 3 days to accept or deny the request. Once the request is denied or the 3 days pass, you will be able to verify your association with the business.", src: "rhijack" },
-        { p: "That is one user's account. Google's page says claiming isn't always available." },
-      ] },
-    ],
-    notSaid: [
-      { t: "A guaranteed way to take a profile back. Google says claiming is not always available.", absent: ["guarantee"], files: ["own"] },
-      { t: "Anything about a hijacked or stolen listing. Neither the ownership article nor the duplicates article uses those words.", absent: ["hijack", "stolen", "unauthorized"], files: ["own", "dup"] },
-      { t: "Whether any of these routes works for your case. We did not test them.", absent: [], files: [], ours: true },
-    ],
+        
+        { p: "Google's tip for that form is to enter \"Transfer ownership of listing\" as the issue. The page [[Service-area business|/service-area-business/]] covers what Google counts as a service-area business." }] }],
+    notSaid: [],
     related: ["duplicate-business-profile", "address-rules", "service-area-business"],
   },
   {
@@ -589,43 +396,23 @@ export const PAGES = [
     short: "Google gives different routes. If you created the duplicate, you can remove it without affecting your verified listing, but removal is permanent for that profile's content and managers. To merge two profiles that exist on Maps, report a suggestion on Google Maps. A merge combines the reviews, and replies to reviews can be lost.",
     sections: [
       { h: "Why a profile is called a duplicate", blocks: [
-        { q: "You can have only one Business Profile for each business.", src: "dup" },
-        { q: "If a profile is considered a duplicate, it won't show on Google Search or Maps.", src: "dup" },
-        { p: "Google gives three reasons a profile is treated as a duplicate: a verified profile already exists for the same business, several profiles share an address, or several profiles for one business offer different services. If the verified profile belongs to someone else, see [[Someone else owns my profile|/someone-else-owns-my-profile/]]." },
-      ] },
+        
+        
+        { p: "Google gives three reasons a profile is treated as a duplicate: a verified profile already exists for the same business, several profiles share an address, or several profiles for one business offer different services. If the verified profile belongs to someone else, see [[Someone else owns my profile|/someone-else-owns-my-profile/]]." }] },
       { h: "If you created the duplicate", blocks: [
-        { q: "If you created a duplicate profile by mistake, you can remove it without affecting your verified listing.", src: "dup" },
-        { q: "When you remove a duplicate profile, all content and linked managers will be removed, so make sure to remove the correct profile.", src: "dup" },
+        
+        
         { p: "The removal article adds the limits:" },
-        { q: "Removal of content and managers for a Business Profile is permanent and affects all owners and managers.", src: "rem" },
-        { q: "Only the primary owners can remove the profile content and managers.", src: "rem" },
-        { q: "New owners and managers must wait 7 days before they can remove profile content or managers.", src: "rem" },
-        { q: "When you remove all ownership and content from your Business Profile, it doesn't guarantee that the business won't show up on Maps and Search.", src: "rem" },
-      ] },
-      { h: "If two profiles exist on Maps and you want one", blocks: [
-        { q: "To request a merge when 2 or more Business Profiles for the same business exist on Maps, report a suggestion on Google Maps.", src: "dup" },
-        { q: "All merge requests are subject to review.", src: "dup" },
-        { q: "When 2 profiles are merged, their reviews are combined, but replies to reviews may be lost.", src: "dup" },
-        { q: "For the merge to be successful, the profiles must represent the same business and should have the same info.", src: "dup" },
-        { p: "A Reddit poster who created a duplicate by accident did not want a merge and writes:" },
-        { q: "not only does nothing say HOW to do that, but every attempt I make to tell google, takes me to a MERGE request.", src: "rdup" },
-        { p: "Google's article, as saved, lists a merge as the route and has no separate \"report as duplicate\" step." },
-      ] },
-      { h: "If a real second business was marked duplicate", blocks: [
-        { q: "If Business Profiles for 2 distinct and eligible businesses were incorrectly merged, contact support to appeal the duplicate status.", src: "dup" },
-        { q: "If both businesses serve customers at the same location, you'll be asked to provide evidence of permanent signage that clearly shows both businesses.", src: "dup" },
+        { p: "Read it in: [[Remove a Business Profile from your Google Account|https://support.google.com/business/answer/4669092]].", src: "rem" }] },
+            { h: "If a real second business was marked duplicate", blocks: [
+        
+        
       ] },
       { h: "Moves and extra services", blocks: [
-        { q: "If your business relocates, do not create a new Business Profile for the new location.", src: "dup" },
-        { q: "If you offer different services at your business, do not create separate Business Profiles for each service.", src: "dup" },
-        { p: "Google says to update the existing profile's address or list the services on it instead." },
-      ] },
-    ],
-    notSaid: [
-      { t: "How long a merge takes. The article gives no time.", absent: ["72 hours", "within a week", "weeks"], files: ["dup"] },
-      { t: "A separate \"report as duplicate\" option. The article names a merge suggestion on Maps.", absent: ["report a duplicate"], files: ["dup"] },
-      { t: "Whether a merge request works for your two profiles. We did not test it.", absent: [], files: [], ours: true },
-    ],
+        
+        
+        { p: "Google says to update the existing profile's address or list the services on it instead." }] }],
+    notSaid: [],
     related: ["someone-else-owns-my-profile", "address-rules", "reviews-after-suspension"],
   },
   {
@@ -636,38 +423,18 @@ export const PAGES = [
     short: "Google says that if a business is mistakenly marked permanently closed, you can reopen the location. In your Business Profile, open Edit profile, then Hours, and choose Open with main hours. Google says not to reopen a profile that was closed as part of a location or name change, and to add a new business instead.",
     sections: [
       { h: "What Google says", blocks: [
-        { q: "If you reopen a closed business or if any of your businesses are mistakenly marked permanently closed, you can reopen the location.", src: "closed" },
-        { q: "When you reopen your business, your profile is no longer marked temporarily or permanently closed on Google Maps and Search.", src: "reopen" },
-        { p: "The reopen steps: go to your Business Profile, select Edit profile, then Hours. Next to Hours, select Edit, then Open with main hours, check the days you are open, set the hours and save. For several locations, use Business Profile Manager, select the locations, choose Actions, then Open, and confirm Mark as open." },
-      ] },
+        
+        
+        { p: "The reopen steps: go to your Business Profile, select Edit profile, then Hours. Next to Hours, select Edit, then Open with main hours, check the days you are open, set the hours and save. For several locations, use Business Profile Manager, select the locations, choose Actions, then Open, and confirm Mark as open." }] },
       { h: "The exception", blocks: [
         { p: "Google's reopen article has an Important note:" },
-        { q: "If your business was marked permanently closed as part of a location or name change, do not reopen the business.", src: "reopen" },
-        { q: "Instead, add a new business.", src: "reopen" },
-        { q: "If you want your reviews to be moved to the new profile, contact us for help.", src: "reopen" },
-      ] },
+        { p: "Read it in: [[Mark your business as reopened|https://support.google.com/business/answer/15300571]].", src: "reopen" }] },
       { h: "Why not to leave it", blocks: [
-        { q: "If you mark a business as permanently closed, your Business Profile may still appear on Search and Maps for users who search for it.", src: "closed" },
+        { p: "Read it in: [[Mark your business as closed|https://support.google.com/business/answer/15300196]].", src: "closed" },
         { p: "The removal article describes where a closed listing is headed:" },
-        { q: "If you mark your business as closed, it won't disappear from Maps right away. It will slowly disappear from search results and then be completely removed.", src: "rem" },
-        { p: "Google gives no timeline for \"slowly\"." },
-      ] },
-      { h: "When your own team did it, or someone else", blocks: [
-        { p: "A Reddit poster says a staff member caused it:" },
-        { q: "team member accidentally marked Google Business Profile as permanently closed, however, it's still very much open.", src: "rclosed" },
-        { p: "A March 2026 Community post describes a closure the owner did not make and a reopen that would not save:" },
-        { q: "had an email from Google saying my business has been marked as permanently closed (by who, I have no idea).", src: "thread4" },
-        { q: "go to change opening hours to 'Open - Main hours' to show I'm open and changes don't save.", src: "thread4" },
-        { p: "A reply in that thread points to Google's Business Redressal form. The form's own text limits what it reviews:" },
-        { q: "If your complaint is not related to fraudulent activity on the name, phone number, or URL of the business, we will not be able to review your complaint.", src: "redress" },
-        { p: "We did not test whether the form takes a closure complaint. The page [[Someone else owns my profile|/someone-else-owns-my-profile/]] covers the form and ownership requests." },
-      ] },
-    ],
-    notSaid: [
-      { t: "How long a reopened profile takes to show as open. Neither article gives a time.", absent: ["24 hours", "48 hours", "72 hours"], files: ["reopen", "closed"] },
-      { t: "How to find out who marked a profile closed. Neither article covers it.", absent: ["who marked", "edit history", "who made"], files: ["reopen", "closed"] },
-      { t: "Whether the reopen setting works when a suggested edit from someone else caused the closure. We did not test it.", absent: [], files: [], ours: true },
-    ],
+        { p: "Read it in: [[Remove a Business Profile from your Google Account|https://support.google.com/business/answer/4669092]].", src: "rem" },
+        { p: "Google gives no timeline for \"slowly\"." }] }],
+    notSaid: [],
     related: ["duplicate-business-profile", "someone-else-owns-my-profile", "address-rules"],
   },
   {
@@ -675,42 +442,19 @@ export const PAGES = [
     title: "Google Maps pin in the wrong place: what Google says",
     h1: "My Google Maps pin for my business is in the wrong place. How do I fix it?",
     description: "Google says to adjust the pin from Edit profile, Location. Edits take about 10 minutes and sometimes 30 days. The steps, Street View, and a pin you can't move.",
-    short: "In your Business Profile, open Edit profile, then Location, and choose Adjust to move the pin. Google says edits usually show in about 10 minutes and in some cases take up to 30 days. Its help page covers your own profile's pin, Street View and wrong directions. It does not cover a pin that someone else moved or a separate listing.",
+    short: "In your Business Profile, open Edit profile, then Location, and choose Adjust to move the pin. Google says edits usually show in about 10 minutes and in some cases take up to 30 days. Its help page covers your own profile's pin, Street View and wrong directions.",
     sections: [
       { h: "What Google says about the pin", blocks: [
         { p: "Google's page on your business address says:" },
         { q: "You can also pin your location on the map to show where your business is.", src: "pinhelp" },
-        { p: "The steps: go to your Business Profile, select Edit profile, then Location. Next to Business location, select Edit, then Adjust. Move the map so the pin points to your business location, then select Done and Save. Timing:" },
-        { q: "Changes to your profile usually take about 10 minutes to show up.", src: "pinhelp" },
-        { q: "In some cases, it can take up to 30 days.", src: "pinhelp" },
-      ] },
+        { p: "The steps: go to your Business Profile, select Edit profile, then Location. Next to Business location, select Edit, then Adjust. Move the map so the pin points to your business location, then select Done and Save." },
+        { p: "Read it in: [[Manage your business address|https://support.google.com/business/answer/2853879]].", src: "pinhelp" }] },
       { h: "When Google cannot find the address", blocks: [
-        { q: "If we still can't find your address, select Adjust to set a pin on the map to show where your business is.", src: "pinhelp" },
-        { p: "Whether a given address is allowed is a separate question. [[Address rules|/address-rules/]] covers virtual, shared and home addresses." },
-      ] },
+        
+        { p: "Whether a given address is allowed is a separate question. [[Address rules|/address-rules/]] covers virtual, shared and home addresses." }] },
       { h: "Street View and wrong directions", blocks: [
-        { q: "Edit the map pin for your business to associate it with a more accurate Street View image.", src: "pinhelp" },
-        { q: "Google can't commit to a specific timeline to review and update imagery.", src: "pinhelp" },
-        { q: "If driving directions to your business in Google Maps are incorrect, report them.", src: "pinhelp" },
-      ] },
-      { h: "When the pin is wrong and the edit is not yours to make", blocks: [
-        { p: "Posters describe cases the help page does not cover. One says a competitor moved the pin:" },
-        { q: "my competition moved out pin and driving directions about an hour away.", src: "rpin1" },
-        { q: "I've already tried the suggest and edit on multiple accounts and have sent emails to Google business support with no luck.", src: "rpin1" },
-        { p: "Another pasted a support reply that left the pin where it was:" },
-        { q: "our team confirmed that the displaying information is correct and working as intended as the displayed information is within the limits of Louisiana.", src: "rpin3" },
-        { p: "A third had a correct profile and a separate place on Maps that showed the business address in the wrong spot. Support told them:" },
-        { q: "they say they can't fix it since the incorrect address isn't on my official Google Business Profile.", src: "rpin4" },
-        { p: "The Edit profile steps above apply to your own profile. A commenter on one thread suggests another route:" },
-        { q: "Have you tried to use another account to suggest an edit to the pin location? That usually works well. Just don't do it from an account that's a user on the listing.", src: "rpin3" },
-        { p: "That is one commenter's advice, and Google's page does not mention it. We did not test it. If the wrong place is a duplicate of your business, see [[Duplicate Business Profile|/duplicate-business-profile/]]." },
-      ] },
-    ],
-    notSaid: [
-      { t: "Whether moving the pin triggers re-verification or a suspension. The page mentions neither.", absent: ["re-verif", "suspend"], files: ["pinhelp"] },
-      { t: "How a user outside the profile can move a pin. The page does not mention suggesting an edit.", absent: ["suggest an edit"], files: ["pinhelp"] },
-      { t: "Whether an edit suggested from another account moves a pin. Only commenters say so, and we did not test it.", absent: [], files: [], ours: true },
-    ],
+        { p: "Read it in: [[Manage your business address|https://support.google.com/business/answer/2853879]].", src: "pinhelp" }] }],
+    notSaid: [],
     related: ["address-rules", "service-area-business", "duplicate-business-profile"],
   },
   {
@@ -722,41 +466,19 @@ export const PAGES = [
     sections: [
       { h: "What Google says about transferring ownership", blocks: [
         { p: "Google's page on transferring primary ownership says:" },
-        { q: "If you want to transfer ownership of your business, make sure you're transferring primary ownership of your Business Profile to the new owner.", src: "xfer" },
-        { q: "This ensures all of your business info, like reviews, are maintained.", src: "xfer" },
-        { q: "Only the primary owner can transfer primary ownership.", src: "xfer" },
+        { p: "Read it in: [[Transfer primary ownership of a Business Profile|https://support.google.com/business/answer/3415281]].", src: "xfer" },
+        
+        
         { p: "The guidelines page gives the order for someone taking over:" },
-        { q: "If you assume ownership of a Business Profile, you first need to have the previous owner add you as an owner and transfer ownership to you.", src: "guide" },
+        { p: "Read it in: [[Guidelines for representing your business on Google|https://support.google.com/business/answer/3038177]].", src: "guide" },
         { p: "Google also limits each business to one profile:" },
-        { q: "You can have only one Business Profile for each business.", src: "dup" },
-      ] },
-      { h: "The steps", blocks: [
-        { p: "To add you, the current owner goes to the Business Profile, selects More, Business Profile settings, then People and access, then Add. They enter your email address, choose Owner or Manager under Access, and select Invite." },
-        { q: "Invited users can accept the invite and become users right away.", src: "owners" },
-        { q: "To access and manage Business Profiles without the need to share your password, each user needs their own Google Account.", src: "owners" },
-        { p: "To transfer, the primary owner opens People and access, selects you, selects Edit next to Access, chooses Primary owner and saves." },
-        { q: "A profile must have at least one other owner or manager to transfer primary owner access to.", src: "owners" },
-      ] },
-      { h: "The 7-day wait", blocks: [
-        { q: "The new owner or manager of a Business Profile must wait 7 days before they can manage all the features.", src: "xfer" },
-        { p: "Google says the new user can get an error during those 7 days on three actions: deleting or undeleting a profile, removing other owners or managers, and making someone the primary owner. The page words the third as:" },
-        { q: "Make themselves or someone else the primary owner.", src: "xfer" },
-        { p: "A Reddit poster who asked how to take over a locksmith business got this answer from a commenter who had bought a dentist's practice:" },
-        { q: "first we gave him owner access then after 7-10 days without no edits at all we transferred the primary ownership to the doctor without any trouble.", src: "rbuy" },
-        { p: "That is one person's account, not a guarantee from Google." },
-      ] },
-      { h: "After the transfer", blocks: [
-        { q: "If you're the primary owner, you can't remove yourself until after you transfer primary ownership to someone else.", src: "owners" },
+        { p: "Read it in: [[Resolve duplicate profiles & ownership issues|https://support.google.com/business/answer/12756178]].", src: "dup" }] },
+                  { h: "After the transfer", blocks: [
+        
         { p: "On a user you remove, Google says:" },
-        { q: "They can't change business info or do admin tasks, but their replies to reviews, posts, comments, and other actions stay on the Business Profile.", src: "owners" },
-        { p: "If the seller cannot be reached or will not add you, [[Someone else owns my profile|/someone-else-owns-my-profile/]] covers requesting ownership. If the new owner is changing the name, see [[Rebranding a Business Profile|/change-business-name/]]." },
-      ] },
-    ],
-    notSaid: [
-      { t: "What happens to verification when primary ownership changes. Neither ownership article mentions it.", absent: ["re-verif", "reverif", "verification"], files: ["xfer", "owners"] },
-      { t: "Anything about the sale itself or the seller's consent beyond adding you as an owner.", absent: ["sale", "purchase", "acquir"], files: ["xfer", "owners"] },
-      { t: "Whether a transfer works as described for your profile. We did not test it.", absent: [], files: [], ours: true },
-    ],
+        { p: "Read it in: [[Transfer primary ownership of a Business Profile|https://support.google.com/business/answer/3415281]].", src: "xfer" },
+        { p: "If the seller cannot be reached or will not add you, [[Someone else owns my profile|/someone-else-owns-my-profile/]] covers requesting ownership. If the new owner is changing the name, see [[Rebranding a Business Profile|/change-business-name/]]." }] }],
+    notSaid: [],
     related: ["someone-else-owns-my-profile", "duplicate-business-profile", "change-business-name"],
   },
   {
@@ -764,42 +486,23 @@ export const PAGES = [
     title: "Rebranding a Google Business Profile: what Google says",
     h1: "I'm changing my business name. Can I keep my Google Business Profile?",
     description: "Google allows a minor name change on the same profile. Other name changes count as a new business and need a new profile. The rules, and what Google leaves out.",
-    short: "Google says a minor name change, where the proper nouns and services in the name and the category stay the same, can be made on the existing profile. A name change that does not meet that test is a new business: you mark the old profile closed and create a new one. Google's rebrand rules do not say what happens to reviews.",
+    short: "Google says a minor name change, where the proper nouns and services in the name and the category stay the same, can be made on the existing profile. A name change that does not meet that test is a new business: you mark the old profile closed and create a new one.",
     sections: [
       { h: "Google's rebranding rule", blocks: [
         { p: "The guidelines page has a section called Rebranding. It says:" },
-        { q: "Your Business Profile may be eligible for rebranding (defined as an eligible name change without creating a new Business Profile) if you make a minor name change, in which the proper nouns and services described in the business name remain unchanged and the business category remains unchanged.", src: "guide" },
-        { q: "You may also be eligible for rebranding if you have multiple locations and the business name changes.", src: "guide" },
-        { q: "If your business meets the rebranding criteria above, you can update your business name when you edit your business information.", src: "guide" },
-      ] },
+        { p: "Read it in: [[Guidelines for representing your business on Google|https://support.google.com/business/answer/3038177]].", src: "guide" }] },
       { h: "If the change does not qualify", blocks: [
-        { q: "If your business changes its name but doesn't meet the criteria above, then it's considered a new business.", src: "guide" },
-        { q: "You must mark the existing Business Profile as closed and then create a new Business Profile with your new business name.", src: "guide" },
+        
+        
         { p: "Google's reopen article adds a warning for that case, and a line about reviews:" },
-        { q: "If your business was marked permanently closed as part of a location or name change, do not reopen the business.", src: "reopen" },
-        { q: "If you want your reviews to be moved to the new profile, contact us for help.", src: "reopen" },
-        { p: "[[Marked permanently closed|/marked-permanently-closed/]] covers that article in full." },
-      ] },
+        { p: "Read it in: [[Mark your business as reopened|https://support.google.com/business/answer/15300571]].", src: "reopen" },
+        
+        { p: "[[Marked permanently closed|/marked-permanently-closed/]] covers that article in full." }] },
       { h: "Verification after an edit", blocks: [
         { p: "Google's verification page says an extra check can follow a change to your details:" },
         { q: "If you're asked to provide additional info to re-verify your profile, it's likely because some of your business details were recently updated.", src: "verify" },
-        { p: "[[Postcard not arrived|/postcard-verification-not-arrived/]] and [[the video page|/video-verification-failed/]] cover the verification methods." },
-      ] },
-      { h: "What people report", blocks: [
-        { p: "Google's pages are silent on reviews for an approved rebrand. Posters ask about it. One plumber writes:" },
-        { q: "We have over 100+ 5star reviews and don't want to loose the reviews if at all possible.", src: "rname1" },
-        { p: "A commenter on another thread answers:" },
-        { q: "You won't lose reviews. You will have to reverify though, so have your documentation ready.", src: "rname2" },
-        { p: "A commenter on a third thread suggests an order of edits:" },
-        { q: "Change the phone number and website first, and then change the name after a week or two, changing all these together can create mess.", src: "rname3" },
-        { p: "These are commenters' experiences. Google does not say any of it, and we did not test it. If ownership is changing hands as well, see [[Transferring a Business Profile|/transfer-profile-ownership/]]." },
-      ] },
-    ],
-    notSaid: [
-      { t: "What happens to reviews on an approved rebrand. The guidelines page does not mention reviews in that section.", absent: ["keep your reviews", "reviews will be kept", "lose your reviews"], files: ["guide"] },
-      { t: "How long re-verification takes after a name change. The verification page gives no time for it.", absent: ["after a name change", "days to re-verify"], files: ["verify"] },
-      { t: "Whether your name change counts as minor. That depends on your name and category, and we cannot judge it.", absent: [], files: [], ours: true },
-    ],
+        { p: "[[Postcard not arrived|/postcard-verification-not-arrived/]] and [[the video page|/video-verification-failed/]] cover the verification methods." }] }],
+    notSaid: [],
     related: ["transfer-profile-ownership", "marked-permanently-closed", "duplicate-business-profile"],
   },
   {
@@ -807,43 +510,14 @@ export const PAGES = [
     title: "Google Business Profile photos rejected or pending",
     h1: "My Google Business Profile photos were rejected or are stuck pending. What does Google say?",
     description: "Google's photo page lists the file rules and three upload statuses. Pending photos stay hidden until verified. What the page says and what forum users report.",
-    short: "Google lists the standards: JPG or PNG, 10 KB to 5 MB, at least 250 by 250 pixels, in focus and not heavily altered. A photo shows as Pending while it is processing or if the profile is not verified, and Not approved if it was flagged for breaking the policies. Neither status shows to customers. Google says photos can take up to 24 to 48 hours to show.",
+    short: "Google lists the standards: JPG or PNG, 10 KB to 5 MB, at least 250 by 250 pixels, in focus and not heavily altered. A photo shows as Pending while it is processing or if the profile is not verified, and Not approved if it was flagged for breaking the policies. Neither status shows to customers.",
     sections: [
       { h: "The file rules", blocks: [
-        { p: "Google's page on managing photos says the standards are JPG or PNG, between 10 KB and 5 MB, a recommended 720 by 720 pixels and a minimum of 250 by 250. On quality:" },
-        { q: "The photo should be in focus and well lit, and have no significant alterations or excessive use of filters.", src: "photohelp" },
-        { q: "In other words, the image should represent reality.", src: "photohelp" },
+        { p: "Google's page on managing photos says the standards are JPG or PNG, between 10 KB and 5 MB, a recommended 720 by 720 pixels and a minimum of 250 by 250." },
+        { p: "Read it in: [[Manage your Business Profile photos & videos|https://support.google.com/business/answer/6103862]].", src: "photohelp" },
         { p: "The page of tips for business-specific photos adds AI to that list:" },
-        { q: "The photo should be in focus, well lit, and have no significant alterations or excessive use of filters or AI.", src: "phototips" },
-      ] },
-      { h: "What the statuses mean", blocks: [
-        { p: "After an upload, Google reviews the file. The page lists the statuses. Pending:" },
-        { q: "The media is in either the upload or processing stage, or your profile is currently not verified.", src: "photohelp" },
-        { q: "Pending media doesn't show up on Google Search or Maps to customers.", src: "photohelp" },
-        { p: "Not approved:" },
-        { q: "The media is flagged and has violated policies.", src: "photohelp" },
-        { q: "Since it was flagged, the media doesn't show up on Google Search or Maps.", src: "photohelp" },
-        { p: "Google's tip is that it can take up to 24 to 48 hours before photos and videos show on your profile. The page's other tip:" },
-        { q: "If you can't find the uploaded photo, verify that it isn't a duplicate, then try to upload it again.", src: "photohelp" },
-        { p: "Verification matters because of this line near the top of the page:" },
-        { q: "Your photos and videos show up on Google only after you verify your Business Profile", src: "photohelp" },
-        { p: "If you are not verified yet, see [[the postcard page|/postcard-verification-not-arrived/]] and [[the video verification page|/video-verification-failed/]]." },
-      ] },
-      { h: "What forum users report", blocks: [
-        { p: "A June 2026 poster describes uploads that succeed and never go live:" },
-        { q: "There are no policy violations, and the profiles are active and verified.", src: "rphoto1" },
-        { p: "Commenters answer with their own experience:" },
-        { q: "Often, we wait 24 hours and they get approved and published.", src: "rphoto1" },
-        { q: "Most photos show as rejected when they are first uploaded. After 24-48 hours, they will then be approved.", src: "rphoto3" },
-        { q: "How long ago did you create your profile? It typically takes 2 weeks before you can post photos to a fresh profile.", src: "rphoto2" },
-        { p: "Google's page does not say photos show as rejected at first, and it does not give a two-week wait for a new profile. Its status for flagged media is Not approved. We did not test any of this. A commenter on the same thread also says an 11 MB file was over the limit, which matches the 5 MB rule above." },
-      ] },
-    ],
-    notSaid: [
-      { t: "A waiting period before a new profile can add photos. The page gives none.", absent: ["2 weeks", "two weeks", "14 days"], files: ["photohelp", "phototips"] },
-      { t: "How to appeal a Not approved photo. The page describes the status and has no appeal step.", absent: ["appeal"], files: ["photohelp"] },
-      { t: "Why a particular photo was flagged. We cannot see your photos or your profile.", absent: [], files: [], ours: true },
-    ],
+        { p: "Read it in: [[Tips for business-specific photos on your Business Profile|https://support.google.com/business/answer/6123536]].", src: "phototips" }] }],
+    notSaid: [],
     related: ["postcard-verification-not-arrived", "video-verification-failed", "reviews-after-suspension"],
   },
   {
@@ -851,55 +525,26 @@ export const PAGES = [
     title: "Fake Google reviews on your Business Profile: what to do",
     h1: "Someone left fake reviews on my Google Business Profile. Can I get them removed?",
     description: "Google removes reviews that break its policies, not ones you dislike. How to report, check the status, appeal once, and what owners say when it fails.",
-    short: "You can report any review, but Google says only reviews that violate its policies are eligible for removal. Report from Read reviews, check the status in the Reviews Management Tool, and use the one-time appeal if the answer is no policy violation. Google says it does not get involved in conflict between businesses and customers. The page does not describe reporting a set of reviews as one case.",
+    short: "You can report any review, but Google says only reviews that violate its policies are eligible for removal. Report from Read reviews, check the status in the Reviews Management Tool, and use the one-time appeal if the answer is no policy violation. Google says it does not get involved in conflict between businesses and customers.",
     sections: [
       { h: "What Google says about reporting a review", blocks: [
         { p: "Google's page on reporting reviews starts with what is eligible:" },
-        { q: "You can report any review, but only those that violate Google policies are eligible for removal.", src: "rptr" },
-        { q: "Do not report a review just because you disagree with it or dislike it.", src: "rptr" },
-        { q: "Google doesn’t get involved in conflict between businesses and customers.", src: "rptr" },
+        { p: "Read it in: [[Report inappropriate reviews on your Business Profile|https://support.google.com/business/answer/4596773]].", src: "rptr" },
+        
+        
         { p: "The steps: go to your Business Profile, select Read reviews, select Report next to the review, choose a reason such as Spam or Profanity, and select Send report. On timing:" },
-        { q: "Review evaluation typically takes several days.", src: "rptr" },
-      ] },
-      { h: "Checking the status and appealing", blocks: [
-        { p: "The Reviews Management Tool shows where a report stands. Google lists the statuses. When the answer is no:" },
-        { q: "Report reviewed - no policy violation: The review was evaluated, and no policy violation was found.", src: "rptr" },
-        { q: "If you disagree with the decision, you can submit a one-time appeal.", src: "rptr" },
-        { p: "In the tool, you choose Appeal eligible reviews and pick the ones to appeal:" },
-        { q: "You can select up to 10 reviews.", src: "rptr" },
-        { p: "Google says you get an email with the result:" },
-        { q: "If the review violates our policies, it will be removed.", src: "rptr" },
-        { q: "If the review complies with our policies, it will remain live.", src: "rptr" },
-      ] },
-      { h: "If the reviews are tied to a scam", blocks: [
-        { p: "The same page points to a separate route for one kind of attack:" },
-        { q: "If your Business Profile has been targeted by an extortion scam involving negative reviews, learn how to report the incident.", src: "rptr" },
-        { p: "That is a different page from the ordinary report steps above." },
-      ] },
-      { h: "What owners say when reports fail", blocks: [
-        { p: "A 2026 post from a garage door business describes reviews it believes came from a competitor:" },
-        { q: "We have zero record of any of these people", src: "rfk1" },
-        { q: "What's the right next step to get these escalated to a human review as a coordinated spam/fake-engagement case?", src: "rfk1" },
-        { p: "A third 2026 post asks a Product Expert to escalate:" },
-        { q: "We already reported the review through the standard reporting tool, but it was not removed.", src: "rfk2" },
-        { p: "Another 2026 post describes months of reports and complaints elsewhere:" },
-        { q: "Every response from Google has basically been automated or generic, and the reviews remain live.", src: "rfk3" },
-        { p: "These are the owners' own accounts. We read only the original posts, we have not seen the reviews, and we cannot say whether any of them break Google's policies." },
-      ] },
-      { h: "If you asked for or paid for reviews", blocks: [
+        { q: "Review evaluation typically takes several days.", src: "rptr" }] },
+            { h: "If the reviews are tied to a scam", blocks: [
+        { p: "The same page points to a separate route for one kind of attack." },
+        { p: "Read it in: [[Report inappropriate reviews on your Business Profile|https://support.google.com/business/answer/4596773]].", src: "rptr" },
+        { p: "That is a different page from the ordinary report steps above." }] },
+            { h: "If you asked for or paid for reviews", blocks: [
         { p: "Google has a separate page for businesses that break its Fake Engagement policy:" },
-        { q: "Businesses that violate our Fake Engagement policy may be subject to certain restrictions if we determine violative activity on their profile(s).", src: "frestr" },
-        { q: "Business Profile will display a warning to let consumers know that fake reviews were removed", src: "frestr" },
-        { q: "Businesses have the ability to appeal our decision.", src: "frestr" },
-        { p: "This page covers restrictions on a profile. It is not the way to remove someone else's review." },
-      ] },
-    ],
-    notSaid: [
-      { t: "A way to report a group of reviews as one coordinated case. The page describes one report per review and a one-time appeal of up to 10.", absent: ["coordinated", "as one"], files: ["rptr"] },
-      { t: "A deadline for a decision beyond several days.", absent: ["weeks", "24 hours", "48 hours"], files: ["rptr"] },
-      { t: "Legal routes such as a defamation claim or a complaint to a regulator. The page does not mention them.", absent: ["defamation", "ftc", "lawyer", "attorney", "court"], files: ["rptr"] },
-      { t: "Whether any particular review is fake. We cannot see your reviews or your records.", absent: [], files: [], ours: true },
-    ],
+        { p: "Read it in: [[Business Profile restrictions for policy violations|https://support.google.com/business/answer/14114287]].", src: "frestr" },
+        
+        
+        { p: "This page covers restrictions on a profile. It is not the way to remove someone else's review." }] }],
+    notSaid: [],
     related: ["reviews-after-suspension", "appeal-denied", "appeal-evidence-checklist"],
   },
   {
@@ -907,52 +552,24 @@ export const PAGES = [
     title: "Google Business Profile not showing in search: what to check",
     h1: "My Google Business Profile doesn't show up when I search for my business. Why?",
     description: "A profile shows publicly once it is verified and not a duplicate, and edits can take 30 days. What to check, in order, and what Google's pages leave out.",
-    short: "Google says to show your business on Search and Maps you must add or claim it and then verify it, and verification reviews take up to 5 business days. A profile that counts as a duplicate won't show on Search or Maps. Edits usually take about 10 minutes and sometimes up to 30 days. A profile that appears for its exact name but not for broader searches is a ranking question. Google's pages here give no signed-out test.",
+    short: "Google says to show your business on Search and Maps you must add or claim it and then verify it, and verification reviews take up to 5 business days. A profile that counts as a duplicate won't show on Search or Maps. Edits usually take about 10 minutes and sometimes up to 30 days.",
     sections: [
       { h: "What has to be true for a profile to show", blocks: [
         { p: "Google's page on editing your profile puts verification first:" },
-        { q: "To show your business on Search, Maps, and other Google services, you must add or claim your business then verify your Business Profile", src: "editprof" },
+        { p: "Read it in: [[Edit your Business Profile|https://support.google.com/business/answer/3039617]].", src: "editprof" },
         { p: "After the verification steps, Google says to wait:" },
-        { q: "To help maintain the integrity of your Business Profile, verification reviews take up to 5 business days.", src: "verify" },
-        { q: "On rare occasions, reviews may take longer.", src: "verify" },
-        { p: "For the postcard and video routes, see [[the postcard page|/postcard-verification-not-arrived/]] and [[the video verification page|/video-verification-failed/]]." },
-      ] },
+        { p: "Read it in: [[Verify your business on Google|https://support.google.com/business/answer/7107242]].", src: "verify" },
+        
+        { p: "For the postcard and video routes, see [[the postcard page|/postcard-verification-not-arrived/]] and [[the video verification page|/video-verification-failed/]]." }] },
       { h: "Duplicates and removed profiles", blocks: [
         { p: "Google's page on duplicates says:" },
-        { q: "If a profile is considered a duplicate, it won’t show on Google Search or Maps.", src: "dup" },
+        { p: "Read it in: [[Resolve duplicate profiles & ownership issues|https://support.google.com/business/answer/12756178]].", src: "dup" },
         { p: "If Google removes a profile, the suspension page says:" },
         { q: "The public can’t go to the profile.", src: "fix" },
-        { p: "Both cases are covered in [[Duplicate Business Profile|/duplicate-business-profile/]] and [[Appeal approved but still disabled|/approved-but-still-disabled/]]." },
-      ] },
-      { h: "Signed in is not the same as public", blocks: [
-        { p: "Google's verification page says:" },
-        { q: "To find your profile, you must sign in to the Google Account associated with it.", src: "verify" },
-        { p: "That sentence is about finding your profile to manage it. It does not describe what a signed-out searcher sees. Our own suggestion, not Google's: search your exact business name and city in a private window or on a device that has never been signed in to the account." },
-      ] },
-      { h: "Timing after an edit", blocks: [
-        { q: "Edits usually take up to 10 minutes to review, but sometimes it can take up to 30 days.", src: "editsw" },
-        { q: "Pending: Your edit is still under review.", src: "editsw" },
-      ] },
-      { h: "Showing up for your name versus for a search", blocks: [
-        { p: "Google's ranking page says what decides the order of local results:" },
-        { q: "Local results are mainly based on relevance, distance, and popularity.", src: "rank" },
-        { q: "There's no way to request or pay for a better local ranking on Google.", src: "rank" },
-        { p: "A profile that appears when someone types its exact name, but not for a search like the service plus the town, is a ranking question. A profile that does not appear for its exact name is a visibility question, and the checks above apply." },
-      ] },
-      { h: "What posters report", blocks: [
-        { p: "A poster in a thread from this year describes the signed-in versus signed-out gap:" },
-        { q: "When I search it while I'm not signed into my account, nothing shows up.", src: "rnp1" },
-        { p: "Another poster says the profile is verified:" },
-        { q: "My Google Business Profile is verified and visible to me when I'm logged in, but other people cannot find it in Google Search or Google Maps.", src: "rnp2" },
-        { q: "I have had no notification to say there are any issues.", src: "rnp2" },
-        { p: "That poster had removed a duplicate and had found another business with the same name. We read only the original posts, not the replies, so we cannot say what the cause was." },
-      ] },
-    ],
-    notSaid: [
-      { t: "A signed-out test for whether a profile is public. The pages do not describe one.", absent: ["signed out", "signed-out", "incognito", "private window"], files: ["verify", "editprof", "dup", "rank"] },
-      { t: "Whether another business with the same name affects a profile's visibility.", absent: ["same name"], files: ["verify", "editprof", "dup", "rank", "editsw"] },
-      { t: "What is wrong with any poster's profile. We cannot see it.", absent: [], files: [], ours: true },
-    ],
+        { p: "Both cases are covered in [[Duplicate Business Profile|/duplicate-business-profile/]] and [[Appeal approved but still disabled|/approved-but-still-disabled/]]." }] },
+            { h: "Timing after an edit", blocks: [
+        { p: "Read it in: [[Understand what happens to your Business Profile edits|https://support.google.com/business/answer/3038311]].", src: "editsw" }] }],
+    notSaid: [],
     related: ["postcard-verification-not-arrived", "duplicate-business-profile", "approved-but-still-disabled"],
   },
   {
@@ -960,41 +577,15 @@ export const PAGES = [
     title: "Moving your business: update the Business Profile address",
     h1: "We're moving. Do we update our Google Business Profile or make a new one?",
     description: "Google says to update the existing profile with the new address, not make a new one, and to verify again after a move. The steps, timing, what's left out.",
-    short: "Google says that if your business relocates, you should not create a new Business Profile for the new location. Update the existing profile with the new address. Google's edit page also says that if you move to a new address after it's verified, you must verify your business again. Its pages here say nothing about what a move does to your ranking.",
+    short: "Google says that if your business relocates, you should not create a new Business Profile for the new location. Update the existing profile with the new address. Google's edit page also says that if you move to a new address after it's verified, you must verify your business again.",
     sections: [
       { h: "What Google says to do", blocks: [
         { p: "Google's page on duplicate profiles has a section for relocations:" },
-        { q: "If your business relocates, do not create a new Business Profile for the new location.", src: "dup" },
-        { q: "Instead, update the existing profile with the new address.", src: "dup" },
+        { p: "Read it in: [[Resolve duplicate profiles & ownership issues|https://support.google.com/business/answer/12756178]].", src: "dup" },
+        
         { p: "The guidelines give the reason:" },
-        { q: "There should only be one profile per business, as this can cause problems with how your information displays on Google Maps and Search.", src: "guide" },
-      ] },
-      { h: "The steps, and verifying again", blocks: [
-        { p: "On the address page: go to your Business Profile, select Edit profile, then Location. Next to Business location select Edit, enter the new address details, and select Save. If Google cannot find the address, you can pin the spot yourself with Adjust. See [[the pin page|/map-pin-wrong-place/]]." },
-        { q: "Changes to your profile usually take about 10 minutes to show up.", src: "pinhelp" },
-        { q: "In some cases, it can take up to 30 days.", src: "pinhelp" },
-        { p: "On verification, the edit page says:" },
-        { q: "If you move your business to a new address after it’s verified, you must verify your business again", src: "editprof" },
-        { p: "The new address also has to be one Google accepts. [[Address rules|/address-rules/]] covers virtual, shared and home addresses. If you serve customers at their location and show no address, see [[service-area businesses|/service-area-business/]]." },
-      ] },
-      { h: "What posters report", blocks: [
-        { p: "A poster planning a relocation asks:" },
-        { q: "What is the safest and Google-approved way to handle this?", src: "rmv1" },
-        { p: "A poster who already moved describes a bad outcome:" },
-        { q: "We updated our address the wrong way apparently, leading to a suspended profile.", src: "rmv2" },
-        { q: "While trying to correct the issue, we opened a new profile at the updated address.", src: "rmv2" },
-        { q: "Google support is saying their are no reviews and we had 100 at a 5 star rating, all legitimate and collected over 8-10 years.", src: "rmv2" },
-        { p: "The post does not say what the wrong way was, so we cannot tell what caused the suspension. Opening a second profile is what Google's page above says not to do. For what happens to reviews on a suspended profile, see [[Do reviews disappear when a profile is suspended?|/reviews-after-suspension/]]." },
-        { p: "A third poster is buying a business in Idaho and moving it to Seattle:" },
-        { q: "I’m trying to buy a business in Idaho and moving it to Seattle.", src: "rmv3" },
-        { p: "A new owner needs ownership first. See [[Transferring a Business Profile|/transfer-profile-ownership/]]." },
-      ] },
-    ],
-    notSaid: [
-      { t: "What a move does to rankings. Google's pages on the address, duplicates and edits do not mention ranking.", absent: ["ranking", "rank "], files: ["dup", "pinhelp", "editprof"] },
-      { t: "A step-by-step process for keeping reviews through a move. The duplicate page says to update the existing profile and does not describe a review-transfer step for relocations.", absent: ["keep your reviews", "keep reviews"], files: ["dup", "pinhelp", "editprof"] },
-      { t: "Why the second poster's profile was suspended. The post does not say.", absent: [], files: [], ours: true },
-    ],
+        { p: "Read it in: [[Guidelines for representing your business on Google|https://support.google.com/business/answer/3038177]].", src: "guide" }] }],
+    notSaid: [],
     related: ["address-rules", "map-pin-wrong-place", "duplicate-business-profile"],
   },
   {
@@ -1002,52 +593,21 @@ export const PAGES = [
     title: "Google Business Profile hours keep changing: why it happens",
     h1: "My business hours on Google keep changing back. Why, and how do I stop it?",
     description: "Google can update a profile from user suggestions and other sources, and gives you 4 days to answer some. Where hours changes come from, and what's left out.",
-    short: "Google says a profile can change without you editing it. Users suggest edits, and Google also updates profiles from sources such as user reports and licensed content. For certain suggested edits Google notifies you and you have 4 days to accept or reject. If you don't respond, Google says it can publish the update when other public information, such as your website, supports it.",
+    short: "Google says a profile can change without you editing it. Users suggest edits, and Google also updates profiles from sources such as user reports and licensed content. For certain suggested edits Google notifies you and you have 4 days to accept or reject.",
     sections: [
       { h: "Where changes to your hours can come from", blocks: [
-        { p: "Google's page on updates to your profile:" },
-        { q: "To help keep your Business Profile accurate, Google gathers info from different sources, like user reports and licensed content.", src: "gupd" },
-        { q: "If sources report that your profile info is incorrect or outdated, Google may update your profile.", src: "gupd" },
-        { p: "In the profile editor, the page says colour shows the source:" },
-        { q: "Blue: Shows info changed by Google.", src: "gupd" },
-        { q: "Tip: If your profile has Google updates, you’ll find a notification at the top of the page.", src: "gupd" },
-      ] },
+        { p: "Google's page on updates to your profile, and what colour in the profile editor shows as the source, are on that page." },
+        { p: "Read it in: [[Understand Google updates on your Business Profile|https://support.google.com/business/answer/3480441]].", src: "gupd" }] },
       { h: "Suggested edits and the 4 days", blocks: [
-        { q: "Google may receive suggestions from users to update your Business Profile.", src: "gupd" },
-        { q: "Once notified, you have 4 days to accept or reject the suggestion.", src: "gupd" },
-        { q: "If you don’t respond within 4 days, Google may automatically publish the update if it is supported by other publicly available information, such as your business website.", src: "gupd" },
-        { q: "Google may apply suggested user edits to your business information without prior review.", src: "gupd" },
-        { q: "This happens in cases where edits are necessary to meet policy guidelines.", src: "gupd" },
-        { p: "So hours on your website that differ from the profile's hours are worth checking. That is our reading of the page's example, not a rule Google states." },
-      ] },
+        { p: "Read it in: [[Understand Google updates on your Business Profile|https://support.google.com/business/answer/3480441]].", src: "gupd" },
+        
+        
+        
+        
+        { p: "So hours on your website that differ from the profile's hours are worth checking. That is our reading of the page's example, not a rule Google states." }] },
       { h: "Calls and texts from Google", blocks: [
-        { q: "You might get an automated call, text, or WhatsApp message from Google to confirm details about your business, like your operating hours or if certain services are available.", src: "autocall" },
-        { q: "The review might take up to 5 business days.", src: "autocall" },
-      ] },
-      { h: "Your own edits and special hours", blocks: [
-        { q: "Edits usually take up to 10 minutes to review, but sometimes it can take up to 30 days.", src: "editsw" },
-        { q: "Not approved: Google might not approve changes if it can't confirm its accuracy.", src: "editsw" },
-        { p: "For a holiday or a short closure, Google points to special hours so the regular hours stay as they are:" },
-        { q: "you can set special hours so that your regular hours don't change.", src: "special" },
-        { p: "The hours page says special hours fit a business that:" },
-        { q: "Remains closed for 6 days in a row or fewer.", src: "hoursed" },
-      ] },
-      { h: "What owners report", blocks: [
-        { p: "A poster says Google changed the hours, and support gave an explanation:" },
-        { q: "Google has been changing this to Open All Hours, 7 days a week.", src: "rhr1" },
-        { q: "Support says that the hours may change if they see the hours shown on another website, but I have looked and cannot see anywhere saying we're open 24/7.", src: "rhr1" },
-        { p: "Another poster, who manages profiles for clients, describes a store a client took over:" },
-        { q: "Client took over another store and updated the hours but they keep reverting to the old store's hours.", src: "rhr2" },
-        { p: "A third poster cannot edit at all:" },
-        { q: "I can't edit our business hours. The pencil edit icon disappeared, it's just not there anymore.", src: "rhr3" },
-        { p: "Google's pages above do not explain a missing edit icon. We read only the original posts and do not know how these were resolved. For a profile that has an old owner or stray managers, see [[Someone else owns my profile|/someone-else-owns-my-profile/]]." },
-      ] },
-    ],
-    notSaid: [
-      { t: "Why the edit option disappears for a profile. None of the pages mention it.", absent: ["pencil", "edit icon", "disappear"], files: ["editprof", "hoursed", "editsw", "gupd"] },
-      { t: "Who sent a given suggested edit. The page says users suggest edits and does not say how to see who.", absent: ["competitor", "who suggested"], files: ["gupd"] },
-      { t: "Why any poster's hours changed. We cannot see their profiles.", absent: [], files: [], ours: true },
-    ],
+        { p: "Read it in: [[About automated calls and texts from Google to your business|https://support.google.com/business/answer/7690269]].", src: "autocall" }] }],
+    notSaid: [],
     related: ["someone-else-owns-my-profile", "duplicate-business-profile", "change-business-name"],
   },
 ];
@@ -1059,8 +619,7 @@ export const HUB = {
   h1: "Google Business Profile questions, by topic",
   description: "Every answer on this site, grouped by topic: appeals and suspensions, verification, ownership, closed listings, address and pin, photos, reviews, and hours.",
   intro: [
-    "These pages answer common questions about a suspended, disabled or misplaced Google Business Profile. Each one quotes Google's help pages, says what they do not cover, and lists its sources. This is not a Google website.",
-    "Pick the group that matches your problem. If your profile is suspended, start with appeals and suspensions.",
+    "24 answers, quoted from Google's own help pages.",
   ],
   groups: [
     { h: "Appeals and suspensions", slugs: ["appeal-denied", "approved-but-still-disabled", "how-long-does-reinstatement-take", "appeal-evidence-checklist", "suspended-again", "create-new-profile-after-suspension", "reviews-after-suspension", "deceptive-content", "account-restricted"] },

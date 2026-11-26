@@ -31,7 +31,7 @@ try {
     const overflow = await p.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
     ok(!overflow, `${w} no horizontal overflow (scrollWidth)`);
     const hrefs = await p.$$eval("a.cta", els => els.map(a => a.getAttribute("href")));
-    ok(hrefs.length === 2, `${w} two CTA links`);
+    ok(hrefs.length === 1, `${w} one CTA link`);
     for (const href of hrefs) {
       const u = new URL(href.replace(/&amp;/g, "&"));
       ok(u.protocol === "mailto:" && u.pathname === "liveworkconsume@agentmail.to", `${w} CTA address`);
@@ -40,6 +40,13 @@ try {
     }
     const pay = await p.locator("text=/stripe|pay now|checkout|buy now/i").count();
     ok(pay === 0, `${w} no payment copy visible`);
+    const r2 = await p.goto(base + "how-long-does-reinstatement-take/", { waitUntil: "load" });
+    ok(r2.ok(), `${w} reinstatement 200`);
+    const href2 = await p.$eval("a.cta", a => a.getAttribute("href"));
+    const u2 = new URL(href2.replace(/&amp;/g, "&"));
+    ok(u2.protocol === "mailto:" && u2.pathname === "liveworkconsume@agentmail.to", `${w} reinstatement CTA address`);
+    ok(u2.searchParams.get("subject") === "Tell me when the appeal kit opens ($49 planned)", `${w} reinstatement CTA subject`);
+    ok(u2.searchParams.get("body") === "What reason did Google give?", `${w} reinstatement CTA body`);
     await ctx.close();
   }
 } finally {
