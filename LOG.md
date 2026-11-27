@@ -219,3 +219,9 @@ Pass = 5 or more answered emails from strangers. Kill = 2 or fewer. Extend once,
 - Google mark at `img/logos/google.svg` from Simple Icons (CC0, https://github.com/simple-icons/simple-icons/blob/develop/icons/google.svg), used only to identify Google next to "This is not a Google website."
 - Home hero was not swapped: the current address-rules photo stays, and current og images stay. Ansel's storefront hero was compared at 390 and 1280 (`/workspace/mason/scan-pass-shots/compare-lwc-ansel-hero-*.png`) and was not better, so those files were not shipped.
 - Fold-prose at 390 is ≤40 on all 26 URLs (home 12→0); fold words ≤100; tap targets 48px; visible words still ≤450. Full table, shot paths, and asset log: `/workspace/mason/scan-pass-2026-11-28.md`.
+- Gated ship `01a451c`. Live body equals repo. visual-qa-gate on the live home: PASS (no P0), Lighthouse mobile 100, CLS 0. Newsreader loaded with `font-display: optional` and no preload. `e2e.mjs` passed on live after go-live.
+
+## 2026-11-27 (CT) Visual sweep follow-up (Shears 2026-11-27, Mason pages)
+
+- Answer pages already had the Ansel lockup, first-sentence shorts, and 48px nav from the scan pass. Moving "Checked against Google's pages…" out of the short box pulled body copy into the 390 fold and broke the 40-word cap on 4 pages, so that line stayed put. Caps rechecked and held.
+- CSS follow-up: secondary links inside disclosures are 24px; nav, CTAs, tiles, and summaries stay 48px.

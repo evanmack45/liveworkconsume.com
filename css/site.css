@@ -194,3 +194,11 @@ details.short-more > summary{
 
 details.short-more > summary::before{content:"▸ ";display:inline-block;width:1.1em}
 details.short-more[open] > summary::before{content:"▾ "}
+
+/* Shears tap rule: secondary links inside disclosures are 24px, not 48 */
+details a, details.short-more a {
+  min-height: 24px;
+  min-width: 0;
+  padding-block: 0.2rem;
+  display: inline;
+}
