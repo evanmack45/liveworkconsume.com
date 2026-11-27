@@ -225,3 +225,14 @@ Pass = 5 or more answered emails from strangers. Kill = 2 or fewer. Extend once,
 
 - Answer pages already had the Ansel lockup, first-sentence shorts, and 48px nav from the scan pass. Moving "Checked against Google's pages…" out of the short box pulled body copy into the 390 fold and broke the 40-word cap on 4 pages, so that line stayed put. Caps rechecked and held.
 - CSS follow-up: secondary links inside disclosures are 24px; nav, CTAs, tiles, and summaries stay 48px.
+
+## 2026-11-27 ~12:05 PM CT (Mason)
+
+Dash order 11/27 11:15 AM CT, plus Shears 11:06–11:19 bar items (batch 3b, after NS). Measured the way Shears does: sweep fold prose counts headings (including “This is not a Google website.”), hero is one element's visible box / (390×844), floor 0.35.
+
+- All 26 URLs: existing fold photographs enlarged at 390 via a 325px-tall `object-fit: cover` crop (visible box 365×325, hero **0.360**). No new copy, no new photos. Home mailbox photo is the same address-rules asset, taller crop.
+- Answer template: removed the “Short answer” heading (and the three custom answer-box labels); moved “Checked against Google's pages, 25 Nov 2026. Not legal advice.” to the Sources section. Extra bottom margin on `.answer` at 390 so the next heading and body start below the 844 fold. No sources dropped. Full current shorts stay in the closed “Full short answer” disclosure.
+- Exact visible first-sentence replacements from the Shears cut, word for word, on `/address-rules/`, `/service-area-business/`, `/change-business-name/`, and `/photos-rejected/`. The current full shorts were not rewritten. Other answers keep their existing first sentences.
+- Home and `/business-profile-questions/` needed only the taller photo (plus shared CSS). The hub may keep its first topic heading in the fold.
+
+Local Shears-method results (every LWC URL): fold prose ≤40 at 390 and 1280, fold words ≤100/130, hero 0.360, taps fail 0, overflow 0, answers ≤450, wps ≤110. check-quotes, check-seo, and check-site passed.

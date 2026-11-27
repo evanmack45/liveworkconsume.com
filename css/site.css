@@ -202,3 +202,15 @@ details a, details.short-more a {
   padding-block: 0.2rem;
   display: inline;
 }
+
+/* Shears 11/27 recut: 0.35 hero at 390. Existing photos use a taller crop. */
+@media (max-width: 640px) {
+  .page-art img,
+  .hero-shot {
+    width: 100%;
+    height: 325px;
+    object-fit: cover;
+    object-position: center center;
+  }
+  .answer { margin-bottom: 6rem; }
+}

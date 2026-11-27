@@ -166,6 +166,7 @@ export const PAGES = [
     h1: "Which addresses does Google allow on a Business Profile? Virtual offices, shared offices, and homes",
     description: "Google's rules on virtual offices, co-working spaces, mailboxes, signage, and home-based businesses, quoted from its Business Profile help pages.",
     short: "Google's help pages say a virtual office is not eligible, and a co-working office needs signage, customer contact, and staff during business hours. A P.O. box or remote mailbox is not acceptable. A business run from a home can hide its address and use a service area.",
+    lead: "A virtual office is not eligible. A co-working office needs signage, customer contact, and staff during business hours.",
     sections: [
       { h: "Virtual offices and mailboxes", blocks: [
         { p: "Read it in: [[Guidelines for representing your business on Google|https://support.google.com/business/answer/3038177]].", src: "guide" }] },
@@ -186,6 +187,7 @@ export const PAGES = [
     h1: "How do Google's service-area rules work, and what if I list an address?",
     description: "Google's rules for service-area and hybrid Business Profiles: when to hide the address, the 20-area limit, the two-hour boundary, and no radius areas.",
     short: "Google's help page says a business that does not serve customers at its address should remove the address and list a service area. It allows up to 20 service areas, within about two hours of driving from the business base, and no radius.",
+    lead: "Google says a business that does not serve customers at its address should remove the address and list a service area.",
     sections: [
       { h: "Service-area or hybrid", blocks: [
         { q: "Service-area business: A business that visits or delivers to customers directly but doesn't serve customers at their business address.", src: "sab" },
@@ -487,6 +489,7 @@ export const PAGES = [
     h1: "I'm changing my business name. Can I keep my Google Business Profile?",
     description: "Google allows a minor name change on the same profile. Other name changes count as a new business and need a new profile. The rules, and what Google leaves out.",
     short: "Google says a minor name change, where the proper nouns and services in the name and the category stay the same, can be made on the existing profile. A name change that does not meet that test is a new business: you mark the old profile closed and create a new one.",
+    lead: "Google says a minor name change can stay on the existing profile if the proper nouns, services, and category stay the same.",
     sections: [
       { h: "Google's rebranding rule", blocks: [
         { p: "The guidelines page has a section called Rebranding. It says:" },
@@ -511,6 +514,7 @@ export const PAGES = [
     h1: "My Google Business Profile photos were rejected or are stuck pending. What does Google say?",
     description: "Google's photo page lists the file rules and three upload statuses. Pending photos stay hidden until verified. What the page says and what forum users report.",
     short: "Google lists the standards: JPG or PNG, 10 KB to 5 MB, at least 250 by 250 pixels, in focus and not heavily altered. A photo shows as Pending while it is processing or if the profile is not verified, and Not approved if it was flagged for breaking the policies. Neither status shows to customers.",
+    lead: "JPG or PNG, 10 KB to 5 MB, at least 250 by 250 pixels, in focus, not heavily altered.",
     sections: [
       { h: "The file rules", blocks: [
         { p: "Google's page on managing photos says the standards are JPG or PNG, between 10 KB and 5 MB, a recommended 720 by 720 pixels and a minimum of 250 by 250." },

@@ -56,8 +56,9 @@ function proseWords(s) {
   const n = wordCount(s);
   return n >= 12 ? n : 0;
 }
-function shortLead(h1, short) {
+function shortLead(h1, short, leadOverride) {
   const s = String(short).trim();
+  if (leadOverride) return { lead: String(leadOverride).trim(), full: s };
   const budget = Math.max(0, 40 - proseWords(h1));
   const m = s.match(/^([\s\S]*?[.!?])(?:\s+([\s\S]+))?$/);
   const first = m ? m[1].trim() : s;
@@ -141,14 +142,12 @@ ${jsonLd(p)}
   <main id="main">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &middot; <a href="/${HUB.slug}/">Questions</a></nav>
 ${artFigure(p, artFor(p.slug))}    <h1>${esc(p.h1)}</h1>
-    ${(() => { const { lead, full } = shortLead(p.h1, p.short); return `<div class="answer" role="note">
-      <h2 class="answer-label">${(SKIN[p.slug] && SKIN[p.slug].label) || "Short answer"}</h2>
+    ${(() => { const { lead, full } = shortLead(p.h1, p.short, p.lead); return `<div class="answer" role="note">
       <p class="answer-lead">${esc(lead)}</p>${full ? `
       <details class="short-more">
         <summary>Full short answer</summary>
         <p>${esc(full)}</p>
       </details>` : ""}
-      <p class="checked">Checked against Google's pages, ${CHECKED}. Not legal advice.</p>
     </div>`; })()}
 ${p.sections.map(s => `
     <section>
@@ -170,6 +169,7 @@ ${notSaidHtml}
 
     <section id="sources">
       <h2>Sources</h2>
+      <p class="checked">Checked against Google's pages, ${CHECKED}. Not legal advice.</p>
       <p>Pages retrieved on ${CHECKED}. Each quote above appears in the page it links to.</p>
       <ol>${src.map(k => `<li><a href="${esc(SOURCES[k].url)}">${esc(SOURCES[k].title)}</a>${SOURCES[k].note.startsWith("a user") ? ", " + esc(SOURCES[k].note) : ""}</li>`).join("")}</ol>
     </section>
