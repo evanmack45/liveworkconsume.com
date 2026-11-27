@@ -236,3 +236,5 @@ Dash order 11/27 11:15 AM CT, plus Shears 11:06–11:19 bar items (batch 3b, aft
 - Home and `/business-profile-questions/` needed only the taller photo (plus shared CSS). The hub may keep its first topic heading in the fold.
 
 Local Shears-method results (every LWC URL): fold prose ≤40 at 390 and 1280, fold words ≤100/130, hero 0.360, taps fail 0, overflow 0, answers ≤450, wps ≤110. check-quotes, check-seo, and check-site passed.
+
+Live head `b5ee9a4`. Pages built that commit. Live home, questions hub, the four rewritten answers, `/account-restricted/`, and CSS equal the repo. Live Shears remasure matched local (hero 0.359893 on sampled pages). visual-qa-gate on live home, `/business-profile-questions/`, `/address-rules/`, and `/photos-rejected/`: PASS (no P0, no P1). Lighthouse mobile: home 99/100/100/100 CLS 0.001 LCP 1.2s; hub 100/100/100/100 CLS 0 LCP 1.1s; address-rules 99/100/100/100 CLS 0.001 LCP 1.2s; photos-rejected 99/100/100/100 CLS 0 LCP 1.4s. Out: /workspace/mason/scan-pass-qa/lwc-b5ee9a4/.
