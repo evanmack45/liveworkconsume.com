@@ -1,4 +1,26 @@
-/* liveworkconsume.com. System fonts only. No third-party assets. */
+/* liveworkconsume.com. Newsreader (SIL OFL 1.1) is self-hosted; fallbacks are system serifs. */
+
+@font-face {
+  font-family: Newsreader;
+  font-style: normal;
+  font-weight: 400;
+  font-display: optional;
+  src: url("/fonts/newsreader/newsreader-latin-400.woff2") format("woff2");
+}
+@font-face {
+  font-family: Newsreader;
+  font-style: normal;
+  font-weight: 600;
+  font-display: optional;
+  src: url("/fonts/newsreader/newsreader-latin-600.woff2") format("woff2");
+}
+@font-face {
+  font-family: Newsreader;
+  font-style: normal;
+  font-weight: 700;
+  font-display: optional;
+  src: url("/fonts/newsreader/newsreader-latin-700.woff2") format("woff2");
+}
 :root {
   --ink: #1c1916;
   --muted: #5a544c;
@@ -16,7 +38,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
+  font-family: Newsreader, "Iowan Old Style", "Palatino Linotype", Palatino, "Times New Roman", serif;
   line-height: 1.55;
 }
 .skip {
@@ -151,3 +173,24 @@ main p, main li { max-width: 65ch; }
   .hero-row { display:grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items:start; }
   .hero-row .hero-shot { margin:0; }
 }
+
+
+/* scan-pass-2026-11-28: lockup, 48px tap targets, Google ident, short-answer disclosure */
+.wordmark a{display:inline-flex;align-items:center;min-height:48px;min-width:48px;text-decoration:none;line-height:0}
+.wordmark img{display:block;height:36px;width:auto}
+@media (min-width:640px){.wordmark img{height:44px}}
+header.site{align-items:center}
+.company-logo{width:16px;height:16px;vertical-align:-2px;margin-right:.35em}
+.crumbs a, .cta, footer.site a, details.short-more > summary, ul.links a, .reason-tiles a {
+  min-height:48px;
+}
+.crumbs a, footer.site a { display:inline-flex; align-items:center; min-width:48px; padding-block:0.65rem; }
+.cta, ul.links a, .reason-tiles a { display:flex; align-items:center; }
+details.short-more{margin:.35rem 0 .8rem}
+details.short-more > summary{
+  cursor:pointer;font-weight:600;font-size:.95rem;min-height:48px;
+  display:flex;align-items:center
+}
+
+details.short-more > summary::before{content:"▸ ";display:inline-block;width:1.1em}
+details.short-more[open] > summary::before{content:"▾ "}

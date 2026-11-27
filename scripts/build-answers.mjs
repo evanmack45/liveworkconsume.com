@@ -48,6 +48,28 @@ function artFigure(p, art) {
 }
 
 
+
+function wordCount(s) {
+  return (String(s).trim().match(/\S+/g) || []).length;
+}
+function proseWords(s) {
+  const n = wordCount(s);
+  return n >= 12 ? n : 0;
+}
+function shortLead(h1, short) {
+  const s = String(short).trim();
+  const budget = Math.max(0, 40 - proseWords(h1));
+  const m = s.match(/^([\s\S]*?[.!?])(?:\s+([\s\S]+))?$/);
+  const first = m ? m[1].trim() : s;
+  const rest = m && m[2] ? m[2].trim() : "";
+  if (proseWords(first) <= budget) return { lead: first, full: rest ? s : "" };
+  const bits = first.split(/(?<=[,;:])\s+/);
+  let lead = bits[0] || first;
+  if (lead.endsWith(",")) lead = lead.slice(0, -1);
+  if (proseWords(lead) <= budget) return { lead, full: s };
+  return { lead: first, full: s };
+}
+
 function sourcesFor(p) {
   const keys = new Set();
   for (const s of p.sections) for (const b of s.blocks) if (b.src) keys.add(b.src);
@@ -90,7 +112,13 @@ function page(p) {
   <title>${esc(p.title)}</title>
   <meta name="description" content="${esc(p.description)}">
   <link rel="canonical" href="${url}">
+  <meta name="theme-color" content="#8A3418">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="liveworkconsume.com">
   <meta property="og:title" content="${esc(p.title)}">
@@ -107,17 +135,21 @@ ${jsonLd(p)}
 <body>
   <a class="skip" href="#main">Skip to the content</a>
   <header class="site">
-    <p class="wordmark"><a href="/">liveworkconsume.com</a></p>
-    <p class="not-google">This is not a Google website.</p>
+    <p class="wordmark"><a href="/"><img src="/img/brand/lockup-transparent.svg" width="284" height="48" alt="liveworkconsume.com"></a></p>
+    <p class="not-google"><img class="company-logo" src="/img/logos/google.svg" width="16" height="16" alt="" aria-hidden="true"> This is not a Google website.</p>
   </header>
   <main id="main">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> &middot; <a href="/${HUB.slug}/">Questions</a></nav>
 ${artFigure(p, artFor(p.slug))}    <h1>${esc(p.h1)}</h1>
-    <div class="answer" role="note">
+    ${(() => { const { lead, full } = shortLead(p.h1, p.short); return `<div class="answer" role="note">
       <h2 class="answer-label">${(SKIN[p.slug] && SKIN[p.slug].label) || "Short answer"}</h2>
-      <p>${esc(p.short)}</p>
+      <p class="answer-lead">${esc(lead)}</p>${full ? `
+      <details class="short-more">
+        <summary>Full short answer</summary>
+        <p>${esc(full)}</p>
+      </details>` : ""}
       <p class="checked">Checked against Google's pages, ${CHECKED}. Not legal advice.</p>
-    </div>
+    </div>`; })()}
 ${p.sections.map(s => `
     <section>
       <h2>${esc(s.h)}</h2>
@@ -181,7 +213,13 @@ function hubPage() {
   <title>${esc(h.title)}</title>
   <meta name="description" content="${esc(h.description)}">
   <link rel="canonical" href="${url}">
+  <meta name="theme-color" content="#8A3418">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="/apple-touch-icon-180.png">
+  <link rel="manifest" href="/site.webmanifest">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="liveworkconsume.com">
   <meta property="og:title" content="${esc(h.title)}">
@@ -198,8 +236,8 @@ ${ld}
 <body>
   <a class="skip" href="#main">Skip to the content</a>
   <header class="site">
-    <p class="wordmark"><a href="/">liveworkconsume.com</a></p>
-    <p class="not-google">This is not a Google website.</p>
+    <p class="wordmark"><a href="/"><img src="/img/brand/lockup-transparent.svg" width="284" height="48" alt="liveworkconsume.com"></a></p>
+    <p class="not-google"><img class="company-logo" src="/img/logos/google.svg" width="16" height="16" alt="" aria-hidden="true"> This is not a Google website.</p>
   </header>
   <main id="main">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Back to the six common reasons</a></nav>

@@ -211,3 +211,11 @@ Pass = 5 or more answered emails from strangers. Kill = 2 or fewer. Extend once,
 - LWC-1: PASS. og:title, og:description, og:image (1200x630) and twitter:card=summary_large_image already on home and every answer page. Live curl shows og:image (200). Lighthouse SEO 100. No new commit (ea0150e / recut bdcabd1).
 - LWC-2: PASS (already met). First 60 words under the H1 already answer L1, L2, and L3. No copy added (recut caps kept). Reran L1–L3; our domain was not cited (`/workspace/compass/ai-visibility.md`). No new commit.
 - LWC-3: PASS. Sitemap has 26 URLs, each with lastmod. GSC sitemap report: 0 errors, 26 submitted. No new commit.
+
+## 2026-11-27 (CT) Scannability pass (Dash order due 28 Nov 2:00 PM)
+
+- Used Ansel's liveworkconsume brand kit (landed early). Header lockup: `img/brand/lockup-transparent.svg` from `/workspace/ansel/lwc-brand/logo/lockup-transparent.svg`. Favicon set from `/workspace/ansel/lwc-brand/favicon/`.
+- Newsreader is self-hosted (`fonts/newsreader/newsreader-latin-{400,600,700}.woff2` from fontsource/jsDelivr, upstream https://github.com/productiontype/Newsreader) under SIL OFL 1.1 (`fonts/OFL-Newsreader.txt` from `/workspace/ansel/lwc-brand/fonts/OFL-Newsreader.txt`). `font-display: optional`; no preload unless a live Lighthouse run stays at 99–100 with CLS 0.
+- Google mark at `img/logos/google.svg` from Simple Icons (CC0, https://github.com/simple-icons/simple-icons/blob/develop/icons/google.svg), used only to identify Google next to "This is not a Google website."
+- Home hero was not swapped: the current address-rules photo stays, and current og images stay. Ansel's storefront hero was compared at 390 and 1280 (`/workspace/mason/scan-pass-shots/compare-lwc-ansel-hero-*.png`) and was not better, so those files were not shipped.
+- Fold-prose at 390 is ≤40 on all 26 URLs (home 12→0); fold words ≤100; tap targets 48px; visible words still ≤450. Full table, shot paths, and asset log: `/workspace/mason/scan-pass-2026-11-28.md`.
